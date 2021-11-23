@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontes Externas</title>
+    <style>
+    
+        @font-face {
+            font-family: 'love';
+            src: url(fonts/love\ story.ttf) format('truetype')/*  voce pode colocar outra fonte dando a , e se tiver outro arquivo voce faz a mesma coisa coloca a url e format igual a que esta nessa linha*/ ; 
+            font-weight: normal;
+            font-style: normal;
+
+            /* 
+            Tipos de format()
+            - opentype (otf)
+            - truetype (ttf)
+            - embedded open type 
+            - truetype- aat (Apple advanced Typography)
+            - svg
+            */
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            font-family: 'love', Times, serif;
+            font-size: 3em;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ola, Mundo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aperiam, sunt quaerat sint porro doloribus aliquid nostrum architecto culpa deserunt, obcaecati libero minima voluptates nihil mollitia ut accusantium ullam totam.</p>
+</body>
+</html>
