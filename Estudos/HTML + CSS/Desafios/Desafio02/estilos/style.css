@@ -28,12 +28,21 @@ header {
 }
 
 header > h1 {
-    color: white
+    color: white;
     font-family: var(--fonte-destaque);
+}
+
+header > p {
+    color: white;
+}
+
+nav {
+    background-color: var(--cor5);
 }
 
 main h1 {
     color: var(--cor5);
+    font-family: var(--fonte-android);
 }
 
 main h2 {
