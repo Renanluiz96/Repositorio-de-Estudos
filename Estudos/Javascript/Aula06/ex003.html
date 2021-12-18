@@ -20,8 +20,12 @@
     <h1>Ola, Mundo! </h1> <!-- Isso é um comentario no html-->
     <p>Ja me livrei da maldição</p>
     <script>
-        var n1 = window.prompt('Digite um numero')
-        var n2 = window.prompt('Digite um outro numero')
+        var n1 = Number(window.prompt('Digite um numero')) // string
+        var n2 = Number(window.prompt('Digite um outro numero'))// string
+        var s = n1 + n2
+        window.alert(` a soma entre ${n1} e ${n2} é igual a ${s}`)// concatenação
+        // (number + number) para adição
+        // (string + string) para concatenação
     </script>
 </body>
 </html>
