@@ -4,6 +4,6 @@ function carregar() {
     var data = new Date()
     var hora = data.getHours()
     var minuto = data.getMinutes()
-    msg.innerHTML =`${hora}:${minuto}` 
+    msg.innerHTML =`Agora são ${hora}:${minuto}` 
 }
 
