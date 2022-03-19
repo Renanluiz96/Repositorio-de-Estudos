@@ -1,0 +1,14 @@
+body {
+    margin: 0px;
+}
+
+.exemplo {
+    background-color: green;
+    width: 500px;
+    height: 100px;
+}
+
+img {
+    width: 350px;
+    height: 200px;
+}
