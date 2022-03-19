@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Formulario.css">
 </head>
 <body>
     <h1>Pagina Teste</h1>
@@ -26,10 +27,25 @@
 
         <br><br>
         
+        <label>
+            Descrição <br>
+            <textarea name="descricao" id="" ></textarea>
+        </label>
         
         <label>
+            Categoria: <br>
+            <select name="categoria" id="">
+                <option value="1">categoria 1</option>
+                <option value="2">categoria 2</option>
+                <option value="3">categoria 3</option>
+                <option value="4">categoria 4</option>
+                <option value="5">categoria 5</option>
+            </select>
+        </label>
+
+        <label>
             <input type="checkbox" name="">
-            Eu declaro que li e aceito os termos de uso
+            Eu declaro que li e aceito os <a href="termos.html" target="_blank">termos de uso</a>
         </label>
 
         <button>Fazer cadastro</button>
