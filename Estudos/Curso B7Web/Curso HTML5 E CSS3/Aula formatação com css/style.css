@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 50px;
+    font-size: 17px;
+}
+
+p {
+    color: blue; /* Para dar cores as letras */
+    font-size: 20px; /* Para definir  o tamanho das letras */
+    font-family: Helvetica; /* Para definir a fonte do texo */
+    text-align: left; /* Para alienar o texto para os lados ou no centro */
+    letter-spacing: 1px; /*Para dar espacamento entre as letras */
+    word-spacing: 10px;  /* Para espaçamento entre as palavras */
+    line-height: 20px; /* Para dar espaçamento entre as linhas */
+    text-shadow: 1px 2px 3px #000000;
+}
