@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 50px;
+    font-size: 17px;
+}
+
+h1 {
+    font-family: 'Indie Flower'; /* Voce importa as fontes externas sempre utilizado entre aspas*/
+}
+
+p {
+    color: blue;
+    font-size: 20px;
+    font-family: 'Chilanka';/* Outra fonte externa exportada*/
+}
