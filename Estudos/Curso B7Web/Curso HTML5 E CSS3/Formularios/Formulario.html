@@ -5,14 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
+    <link rel="stylesheet" href="Formulario.css">
 </head>
 <body>
 
     <h1>Pagina de testes</h1>
 
     <h2>Área de cadastro</h2>
-    <form action="paginas/login.html" method="GET"> 
-    -->
+    <form action="paginas/login.html" method="get"> 
+
+        <label>
+            Nome Completo : <br>
+            <input type="text" name="nome">
+        </label>
+
+        <label>
+            Descrição:<br>
+            <textarea name="descricao"></textarea>
+        </label>
+
+        <label>
+            Categoria:<br>
+            <select name="categoria">
+                <option value="1">Categoria 1</option>
+                <option value="2">Categoria 2</option>
+                <option value="3">Categoria 3</option>
+                <option value="4">Categoria 4</option>
+                <option value="5">Categoria 5</option>
+            </select>
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Eu declaro que li e aceito os <a href="paginas/termos.html" target="_blank" class="termoslink">termos de uso</a>
+        </label>
+
+        <button>Fazer Cadastro</button>
 
     </form>
 
