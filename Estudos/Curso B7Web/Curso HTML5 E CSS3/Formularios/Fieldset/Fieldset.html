@@ -8,24 +8,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="" method="post">
-
+    <form action="formulario.html" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend>Dados Pessoais</legend>
             <label>
                 Primeiro Nome:<br>
-                <input type="text" name="nome">
+                <input type="text" name="nome" required minlength="2" maxlength="20">
             </label><br>
             <label>
                 Sobrenome:<br>
                 <input type="text" name="lastname">
+            </label><br>
+            <label>
+                Foto:<br>
+                <input type="file" name="photo" accept="image/*">
             </label><br>
         </fieldset>
 
         <fieldset>
             <legend>Dados Profissionais</legend>
             <label>
-                Nome da Emprea:<br>
+                Nome da Empresa:<br>
                 <input type="text" name="companyname">
             </label><br>
             <label>
