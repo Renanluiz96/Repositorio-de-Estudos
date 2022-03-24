@@ -1,0 +1,16 @@
+body {
+    margin: 0px;
+    color: pink;
+}
+.container {
+    width: calc(100% - 20px);
+    height: 200px;
+    background-color: #ccc;
+
+    color: red;
+    font-size: 30px;
+    border: 3px solid green;
+}
+.container strong {
+    border: 2px solid black;
+}
