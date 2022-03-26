@@ -1,21 +1,17 @@
-body {
-    display: flex;
-}
-
-div {
-    width: 100px;
-    height: 100px;
-    border: 3px solid black;
-}
-
-@media (orientation: landscape) {
+@media (aspect-ratio: 1/1) {
     body {
-        flex-direction: row;
+        background-color: red;
     }
 }
 
-@media (orientation: portrait) {
+@media (min-aspect-ratio: 2/1) {
     body {
-        flex-direction: column;
+        background-color: rgb(4, 0, 255);
+    }
+}
+
+@media (max-aspect-ratio: 1/2) {
+    body {
+        background-color: rgb(8, 243, 133);
     }
 }
