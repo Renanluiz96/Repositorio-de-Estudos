@@ -1,33 +1,21 @@
 body {
-    background-color: rgb(95, 238, 0);
-}
-h1 {
-    font-size: 15px;
+    display: flex;
 }
 
-@media (min-width: 1000px) {
-    body {
-        background-color: blue;
-    }
-    h1 {
-        font-size: 70px;
-    }
+div {
+    width: 100px;
+    height: 100px;
+    border: 3px solid black;
 }
 
-@media (min-width: 700px) and (max-width: 1000px) {
+@media (orientation: landscape) {
     body {
-        background-color: blueviolet;
-    }
-    h1 {
-        font-size: 40px;
+        flex-direction: row;
     }
 }
 
-@media (min-width: 300px) and (max-width: 700px) {
+@media (orientation: portrait) {
     body {
-        background-color: aqua;
-    }
-    h1 {
-        font-size: 25px;
+        flex-direction: column;
     }
 }
