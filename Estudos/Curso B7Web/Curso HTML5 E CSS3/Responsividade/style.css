@@ -1,5 +1,33 @@
-img {
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
+body {
+    background-color: rgb(95, 238, 0);
+}
+h1 {
+    font-size: 15px;
+}
+
+@media (min-width: 1000px) {
+    body {
+        background-color: blue;
+    }
+    h1 {
+        font-size: 70px;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 1000px) {
+    body {
+        background-color: blueviolet;
+    }
+    h1 {
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 700px) {
+    body {
+        background-color: aqua;
+    }
+    h1 {
+        font-size: 25px;
+    }
 }
