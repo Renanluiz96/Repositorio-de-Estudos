@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video width="320" height="240" controls> <!--Dentro da tag video voce atribui o tamanho dela usando width e height , e nela voce usa o comando controls para atribuir controles no seu video , e se quiser pode usar tambem o atributo "autoplay" para que quando a pagina carrege o video inicie automaticamente. -->
+        <source src="video.mp4" type="video/mp4"> <!--Voce cria a tag video , e sentro dela voce coloca a tag source dentro dela voce coloca o tipo dela usando type para colocar o formato do video , aceita somente mp4 ,ogg e webm . e no atributo src voce coloca onde esta o video , se caso o videos estiver na mesma pasta que o seu arquivo html esta voce só coloca o nome deste arquivo-->
+        <source src="video.ogg" type="video/ogg"> <!--Se voce tiver o mesmo arquivo de video usando outro formato caso ogg voce pode colocar tambem , porque colocar 2 formatos pois caso o navegador não suportar 1 formato , ele pode suportar o outro. e nisto o navegador escolhe qual dos dois vai reproduzir na tela .-->
+    </video>
+</body>
+</html>
