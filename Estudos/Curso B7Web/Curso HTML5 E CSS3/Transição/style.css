@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+}
+
+.exemplo {
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    margin: auto;
+    margin-top: 150px;
+    transition: 
+    all /*Ele vai aplicar esta transição a qualquer tipo de propriedade que for mudada*/
+    1s /*Isso quer dizer que a sua animação de mudança tera 1 s . Segunda propriedade determina o tempo que tera a sua animação */
+    linear; /*Linear diz que esta animação tera a mesma velocidade do inicio ao fim . Tem outras propriedades que voce pode usar no lugar desta que tem um efeito de comecar devagar e depois ficar mais rapido , e outra propriedade que faz o inverso comeca rapido e termina lento . Ou só pesquisar na internet por transição para ver as diversas formas que tem */
+
+}
+
+.exemplo:hover {
+    background-color: red;
+}
+
+a {
+    color: black;
+    transition: all 1s linear;
+}
+
+a:hover {
+    color: red;
+}
