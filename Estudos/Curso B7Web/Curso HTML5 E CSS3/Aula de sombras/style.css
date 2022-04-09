@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+}
+
+.exemplo {
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    margin: auto;
+    margin-top: 150px;
+    box-shadow: -5px -5px 5px black;
+}
