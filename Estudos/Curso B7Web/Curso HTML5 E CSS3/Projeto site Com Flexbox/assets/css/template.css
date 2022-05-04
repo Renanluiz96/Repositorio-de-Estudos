@@ -5,6 +5,7 @@
 body {
     margin: 0;
     padding: 0;
+    padding-bottom: 200px;
 }
 
 header {
@@ -144,4 +145,89 @@ nav .active a, nav a:hover{
     margin-bottom: 10px;
     border-bottom: 1px solid white;
     padding-bottom: 10px;
+}
+
+#geral {
+    display: flex;
+    justify-content: center;
+}
+
+#geral section {
+    flex: 2;
+}
+
+#geral aside {
+    flex: 1;
+}
+
+.widget_title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.widget_title_text {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.widget_title_bar {
+    width: 50px;
+    height: 2px;
+    background-color: #36a9e1;
+    margin-top: 10px;
+}
+
+.departaments_conteudo {
+    display: flex;
+}
+
+.departaments_colunas {
+    flex-direction: column;
+    flex: 1;
+}
+
+.departaments_linha {
+    display: flex;
+}
+
+.departaments_quadrado {
+    background-color: #36a9e1;
+    flex: 1;
+    height: 100px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+
+
+.make_area {
+    display: flex;
+    flex-direction: column;
+}
+
+.make_text {
+    font-size: 12px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.make_conteudo {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.make_area_quadrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.make_quadrado {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #727272;
+    margin-right: 10px;
+    
 }
