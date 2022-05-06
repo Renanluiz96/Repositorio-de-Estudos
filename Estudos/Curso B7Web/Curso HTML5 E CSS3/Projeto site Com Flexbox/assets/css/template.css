@@ -35,11 +35,9 @@ nav ul, nav li {
     margin: 0;
     padding: 0;
 }
-
 nav ul {
     display: flex;
 }
-
 nav a {
     display: block; /* Para que eu consiga alterar tamanhos , alterar a area dos nossos links para que ele fique maior */
     padding: 15px; /*Para ele da um espaçamento entre um menu e outro */
@@ -48,7 +46,6 @@ nav a {
     color: #727272;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 nav .active a, nav a:hover{
     background-color: #39aae1;
     color: white;
@@ -62,18 +59,15 @@ nav .active a, nav a:hover{
     background-size: cover; /*Em monitores grandes esta imagem vai expandir para preencher o espaço do banner ,e em monitores menores ou em celulares a imagem vai ser reduzida para para preencher todo o espaço da minha section*/
     height: 670px;
 }
-
 .column {
     flex-direction: column;
 }
-
 .banner_headline {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
 .banner_headline h1 {
     color: white;
     font-size: 70px;
@@ -82,7 +76,6 @@ nav .active a, nav a:hover{
     padding: 0;
     max-width: 350px;
 }
-
 .banner_headline h2 {
     color: white;
     font-size: 21px;
@@ -92,12 +85,10 @@ nav .active a, nav a:hover{
     max-width: 350px;
     margin-top: 30px;
 }
-
 .banner_options {
     height: 210px;
     display: flex;
 }
-
 .banner1,
 .banner2,
 .banner3 {
@@ -105,31 +96,25 @@ nav .active a, nav a:hover{
     color: white;
     padding: 20px;
 }
-
 .banner1 {
     background-color: #39aae1;
 }
-
 .banner2 {
     background-color: #0079c7;
 }
-
 .banner3 {
     background-color: #2b4c99;
     display: flex;
     flex-direction: column;
 }
-
 .banner_title {
     font-size: 21px;
 }
-
 .banner_desc {
     font-size: 12px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
 .banner_options a {
     display: inline-block; /*Colocar display inline block para ele ficar acompanhando o tamanho do texto */
     border: solid white;
@@ -139,7 +124,6 @@ nav .active a, nav a:hover{
     text-decoration: none;
 
 }
-
 .banner_day {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -151,11 +135,9 @@ nav .active a, nav a:hover{
     display: flex;
     justify-content: center;
 }
-
 #geral section {
     flex: 2;
 }
-
 #geral aside {
     flex: 1;
 }
@@ -164,13 +146,11 @@ nav .active a, nav a:hover{
     margin-top: 30px;
     margin-bottom: 20px;
 }
-
 .widget_title_text {
     color: black;
     font-size: 20px;
     font-weight: bold;
 }
-
 .widget_title_bar {
     width: 50px;
     height: 2px;
@@ -181,16 +161,13 @@ nav .active a, nav a:hover{
 .departaments_conteudo {
     display: flex;
 }
-
 .departaments_colunas {
     flex-direction: column;
     flex: 1;
 }
-
 .departaments_linha {
     display: flex;
 }
-
 .departaments_quadrado {
     background-color: #36a9e1;
     flex: 1;
@@ -204,30 +181,74 @@ nav .active a, nav a:hover{
     display: flex;
     flex-direction: column;
 }
-
 .make_text {
     font-size: 12px;
     margin-top: 15px;
     margin-bottom: 20px;
     text-align: justify;
 }
-
 .make_conteudo {
     margin-top: 5px;
     display: flex;
     flex-direction: row;
 }
-
-.make_area_quadrado {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .make_quadrado {
     width: 20px;
     height: 20px;
     border: 1px solid #727272;
     margin-right: 10px;
+    margin-top: 12px;
+    margin-bottom: 20px;
     
+}
+
+.flex { /*Voce pode criar uma class flex e acrescentar esta classe a mais usando um espaço e colocando flex junto dentro ficaria assin
+m class="widget_body flex" */
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+article {
+    flex: 1;
+    min-width: 300px; /*Para o seu conteudo quebrar de linha e ficar uma noticia abaixo da outra voce coloca um valor minimo do artigo que vai ter para cada artigo , sendo assim vai ter 1 tamanho especifico e junto com o flex wrap que voce coloco la na class flex ele vai quebrar a linha e somente vai caber 2 artigo em cada linha e ele vai ficar no final 2 em cima e 2 em baixo */
+    margin-right: 20px;
+}
+article a {
+    text-decoration: none;
+}
+article .news_data { /*Só precisa do display flex para poder botar um item ao lado do outro */
+    display: flex;
+}
+article .news_posted_at {
+    background-color: #2b4c99;
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+    margin-right: 2px;
+}
+article .news_comments {
+    background-color: #39aae1;
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+}
+article .news_thumbnail {
+    margin-top: 30px;
+}
+article .news_thumbnail img {
+    width: 100%;
+    height: auto;
+}
+article .news_title {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: black;
+    font-size: 23px;
+}
+article .news_resume {
+    color: #313131;
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 30px;
 }
