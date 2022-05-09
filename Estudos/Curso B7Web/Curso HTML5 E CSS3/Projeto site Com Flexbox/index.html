@@ -5,6 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,user-scable=0" >
     <link rel="stylesheet" type="text/css" href="assets/css/template.css">
+    <script type="text/javascript">
+        window.onload  = function(){
+            document.querySelector(".menumobile").addEventListener("click", function(){
+                if(document.querySelector(".menu nav ul").style.display == 'flex') {
+                    document.querySelector(".menu nav ul").style.display = 'none';
+                } else {
+                    document.querySelector(".menu nav ul").style.display = 'flex';
+                }
+            });
+        };
+
+    </script>
     <title>MediCenter></title>
 </head>
 <body>
@@ -15,6 +27,11 @@
             </div>
             <div class="menu">
                <nav>
+                   <div class="menumobile">
+                       <div class="mm_line"></div>
+                       <div class="mm_line"></div>
+                       <div class="mm_line"></div>
+                   </div>
                    <ul>
                        <li class="active"><a href="">Home</a></li>
                        <li><a href="">Home</a></li>
@@ -216,19 +233,22 @@
     <footer>
         <div class="container flexcolumn">
             <div class="footer_menu">
-                <div class="fm1">
+                <div class="fm1 flexcolumn">
                     <a href="">
-                        ;;;
+                        <div class="footer_menu_text_up">Health Insurance</div>
+                        <div class="footer_menu_text_down">Here in medecenter we have individual</div>
                     </a>
                 </div>
                 <div class="fm2">
                     <a href="">
-                        ;;;
+                        <div class="footer_menu_text_up">Medical Record</div>
+                        <div class="footer_menu_text_down">Here in medecenter we have individual</div>
                     </a>
                 </div>
                 <div class="fm3">
                     <a href="">
-                        ;;;
+                        <div class="footer_menu_text_up">Online Bill</div>
+                        <div class="footer_menu_text_down">Here in medecenter we have individual</div>
                     </a>
                 </div>
             </div>
@@ -240,8 +260,25 @@
                             <div class="widget_title_text">Medicenter Clinic</div>
                             <div class="widget_title_bar"></div>
                         </div>
-                        <div class="widget_body">
-                            ;;;
+                        <div class="widget_body flexcolumn margin">
+                            <div class="footer_area_text">Mauris adispiscing mauris fringillia turpis interdum sed pulvinar nisi malessuada individual.</div>
+                            <div class="footer_area_text_gray">Medicenter Clinic</div>
+                            <div class="footer_text_box flexcolumn">
+                                <div class="footer_box">
+                                    <div class="footer_text_box_line">33 Fartine Street</div>
+                                    <div class="footer_text_box_line">+123 655 655</div>
+                                </div>
+                                <div class="footer_box">
+                                    <div class="footer_text_box_line">Keilor West</div>
+                                    <div class="footer_text_box_line">+123 755 755</div>
+                                </div>
+                                <div class="footer_box">
+                                    <div class="footer_text_box_line">VIC 3033, Australia</div>
+                                    <div class="footer_text_box_line"><email>medicenter@email.com</email></div>
+                                </div>
+                                
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -252,7 +289,14 @@
                             <div class="widget_title_bar"></div>
                         </div>
                         <div class="widget_body">
-                            ;;;
+                            <div class="footer_areamedio_text margin">
+                                <div class="footer_textwhite">Mauris adispiscing mauris fringillia turpis interdum sed pulvinar nisi malessuada individual.</div>
+                                <div class="footer_text_blue">6 years ago</div>
+                                <div class="footer_textwhite">Lorem ipsum lorem ipsum lorem ipsum</div>
+                                <div class="footer_text_blue">6 years ago</div>
+                                <div class="footer_textwhite">Mauris adispiscing mauris fringillia turpis interdum sed pulvinar nisi malessuada individual.</div>
+                                <div class="footer_text_blue">6 years ago</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -263,7 +307,14 @@
                             <div class="widget_title_bar"></div>
                         </div>
                         <div class="widget_body">
-                            ;;;
+                            <div class="footer_areamedio_text margin">
+                                <div class="footer_gray_area">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas exercitationem error, iste quo minus ipsa distinctio! Officiis </div>
+                                <div class="footer_text_blue">4 days ago</div>
+                                <div class="footer_gray_area">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque reiciendis, perferendis pariatur doloremque</div>
+                                <div class="footer_text_blue">6 days ago</div>
+                                <div class="footer_gray_area">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium vitae, fugit et officia molestiae maxime velit delectus</div>
+                                <div class="footer_text_blue">7 days ago</div>
+                            </div>
                         </div>
                     </div>
                 </div>
