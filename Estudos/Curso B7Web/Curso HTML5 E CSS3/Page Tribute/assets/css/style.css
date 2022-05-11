@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(107, 107, 240);
+}
+
+header {
+    display: flex;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.904);
+    justify-content: center;
+    display: flex;
+    border-radius: 5px;
+
+}
+.container {
+    display: flex;
+    width: 900px;
+    align-items: center;
+    
+}
+.nome {
+    flex: 1;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+}
+.flexcolumn {
+    flex-direction: column;
+}
+.container img {
+    width: 250px;
+    height: 250px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.pequena_descricao {
+    font-size: 20px;
+    font-weight: bold;
+}
