@@ -1,5 +1,5 @@
 body {
-    margin: 0px;
+    margin: auto;
 }
 header {
     display: flex;
@@ -69,5 +69,68 @@ header {
 #conteudo_site {
     background-color: #A9A9A9;
     width: auto;
-    height: 300px;
+    height: auto;
+}
+.conteudo_biografia {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    width: 100%;
+
+}
+.biografia {
+    flex: 1;
+    color: whitesmoke;
+    font-weight: bold;
+    padding-top: 25px;
+    padding-bottom: 40px;
+}
+.descricao_biografia {
+    flex-direction: column;
+    height: 100px;
+    display: flex;
+    width: 100%;
+    height: auto;
+    
+
+}
+.conteudo_bio {
+    display: flex;
+    flex-direction: column;
+
+}
+li {
+    color: whitesmoke;
+    font-size: 17px;
+}
+
+.rodape {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    margin-left: calc(20px);
+}
+.conteudo_rodape {
+    text-align: justify;
+    padding-bottom: 20px;
+
+}
+.wikpedia {
+    font-weight: bolder;
+    font-size: 19px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.barra {
+    height: 1px;
+    background-color: whitesmoke;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.credito {
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: bold;
 }
