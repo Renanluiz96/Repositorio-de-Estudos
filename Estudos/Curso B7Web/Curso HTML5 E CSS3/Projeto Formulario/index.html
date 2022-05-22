@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <fieldset>
+                <legend>Formulario de Cadastro</legend>
+                <div class="input_box">
+                    <label for="">Nome Do Usuario : <br></label>
+                    <input type="text">
+                </div>
+                <div class="input_box">
+                    <label for="email">E-Mail : <br></label>
+                    <input type="email">
+                </div>
+                <div class="input_box">
+                    <label for="password">Senha : <br></label>
+                    <input type="password">
+                </div>
+                <div class="input_box">
+                    <label for="">Confirme sua senha : <br></label>
+                    <input type="password">
+                </div>
+                <div class="input_box">
+                    <label for="">Data de Nascimento: <br></label>
+                    <input type="date">
+                </div>
+                <p>Genero:</p>
+                <input type="radio" name="sexo" id="sexo_m" value="Masculino"><label for="sexo_m">Masculino</label><br>
+
+                <input type="radio" name="sexo"     id="sexo_f" value="Feminino"><label for="sexo_f">Feminino</label><br>
+
+                <input type="radio" name="sexo" id="sexo_outro" value="Outro"><label for="sexo_outro">Outro</label>
+
+                <div class="input_box">
+                    <label for="">Estado<br></label>
+                    <select name="estado" id="estado">
+                        <option value="">Selecione</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="PR">Parana</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                    </select>
+                </div>
+
+                <p>Linguagens :</p>
+                <div class="linguagens">
+                    <div class="linguagens_column1">
+                        <input type="checkbox" name="linguagem" id=""> <label for="linguagem">HTML/CSS</label><br>
+                        <input type="checkbox" name="linguagem" id=""> <label for="linguagem">Javascript</label><br>
+                        <input type="checkbox" name="linguagem" id=""> <label for="linguagem">PHP</label>
+                    </div>
+
+                    <div class="linguagens_column2">
+                        <input type="checkbox" name="linguagem" id=""> <label for="linguagem">C</label><br>
+                        <input type="checkbox" name="linguagem" id=""> <label for="linguagem">C++<label><br>
+                        <input type="checkbox" name="linguagem" id=""> <label for="linguagem">C#</label>
+                    </div>
+
+                    <div class="linguagens_column3">
+                        <input type="checkbox" name="linguagem" id=""> <label for="linguagem">Flutter</label><br>
+                        <input type="checkbox" name="linguagem" id=""> <label for="linguagem">Kotlin</label><br>
+                        <input type="checkbox" name="linguagem" id=""> <label for="linguagem">
+                            Outro
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="texto">
+                    <label for="descricao">Descrição :</label><br>
+                    <textarea name="descricao" id="descricao"></textarea>
+
+                </div>
+
+                <div class="botoes">
+                    <input type="submit" value="Voltar">
+                    <input type="submit" value="Limpar">
+                    <input type="submit" value="Enviar">
+                    
+                </div>
+                
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

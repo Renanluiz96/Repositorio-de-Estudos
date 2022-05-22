@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+body {
+    background-color: cadetblue;
+    font-size: 15px;
+    font-family: sans-serif;
+
+}
+
+.container {
+    background-color: aqua;
+    padding: 20px 30px;
+    width: min(320px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    border-radius: 6px;
+    
+    
+}
+form {
+    width: 100%;
+    
+}
+
+fieldset{
+    padding: 10px;
+    border: 2px solid blue;
+    background-color: white;
+
+}
+
+legend {
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: white;
+}
+.input_box {
+    padding-bottom: 5px;
+}
+
+input , select{
+    border: 1px solid black;
+    border-radius: 3px;
+}
+input[type=radio] {
+    margin-right: 5px;
+}
+
+.linguagens {
+    display: flex;
+}
+.linguagens_column1, .linguagens_column2 , .linguagens_column3 {
+    flex: 1;
+
+}
+.linguagens_column1 {
+    margin-right: 10px;
+}
+
+ textarea {
+     width: 90%;
+     height: 50px;
+     border: 1px solid black;
+     border-radius: 3px;
+ }
+
+.botoes {
+    display: flex;
+    
+}
+.botoes input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex: 1;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
