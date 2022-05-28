@@ -1,14 +1,16 @@
 body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 .container {
     width: 100%;
-    height: 900px;
+    height: auto;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 header {
     display: flex; 
@@ -17,7 +19,7 @@ header {
     height: auto;
     list-style: none;
     align-items: center;
-    
+    margin-bottom: 4%;
 
 }
 ul {
@@ -35,11 +37,12 @@ li {
     height: 20px;
     border-radius: 50%;
     background-color: black;
-    margin-right: 13px;
+    margin-right: 15px;
+    margin-left: 8px;
 }
 .icone_header {
     width: 10px;
-    height: 30px;
+    height: 20px;
     border-radius: 50%;
     background-color: tomato;
     padding-bottom: 10px;
@@ -47,11 +50,102 @@ li {
     
 }
 .foto_google {
-    width: 300px;
+    width: 60%;
+    height: auto;
 }
 .foto_google img {
     width: 100%;
+    height: 100%;
 }
 section {
+    width: 80vw;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+.texto_pesquisa {
+    width:  80%;
+    display: flex;
+    padding: 5px;
+    border-radius: 10px;
+}
+input {
+    width: 100%;
+    margin-right: 2px;
+    margin-left: 4px;
+    outline: none;
+}
+input::placeholder{
+    display: flex;
+    width: 100%;
+    height: auto;
+    font-size: 14px;
+}
+.icone_lupa , .icone_microfone {
+    margin-top: 3px;
+}
+.box_icons {
+    flex: 1;
+    margin-top: 10px;
+    max-width: 400px;
+    width: 100%;
+    height: 225px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.caixa_icones {
+    width: 15%;
+    height: auto;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.caixa_icones:hover {
+    background-color: rgb(212, 211, 211);
+}
+.circulo {
+    background-color: rgb(192, 192, 192);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.caixa_icones p {
+    height: auto;
+    width: auto;
+}
+footer {
+    margin-top: 100px;
+    background-color: rgb(230, 230, 230);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+hr {
+    width: 100%;
+    margin: 0%;
+    height: 0.1px;
+    background-color: rgb(184, 181, 181);
+}
+.rodape_linha {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+a, .rodape_linha .rodape_esquerdo , .rodape_linha .rodape_direito{
+    margin: 5px;
+    text-decoration: none;
+    color: black;
+}
+.brasil{
+    margin-left: 10px;
 }
