@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 10px;
+    
+}
+
+.foto-google {
+    width: 120px;
+    height: 120px;
+}
+.foto-google img {
+    width: 100%;
+    height: 100%;
+}
+.caixa-pesquisa {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    height: 50px;
+    width: 40%;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px rgb(177, 174, 174);
+}
+.caixa-pesquisa:hover {
+    box-shadow: 2px 2px 3px rgb(177, 174, 174);
+}
+.caixa-pesquisa input, .caixa-pesquisa img {
+    margin: 5px;
+}
+.caixa-pesquisa input {
+    width: 100%;
+    height: 55%;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+.caixa-pesquisa img {
+    height: 18px;
+}
+.icones-cabecalho {
+    width: auto;
+    height: auto;
+    display: flex;
+    margin-left: auto;
+
+}
+.icone {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    background-color: blue;
+    margin: 5px;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+nav {
+    margin-left: 15px;
+    display: flex;
+    margin: 10px;
+}
+nav a {
+    text-decoration: none;
+    margin-right: 5px;
+    font-size: 18px;
+    color: rgb(145, 142, 142);
+    padding: 10px;
+    
+    
+}
+nav a:hover {
+    border-bottom: 2px solid rgba(35, 130, 218, 0.836);
+    color: rgba(35, 130, 218, 0.836);
+}
+hr {
+    margin-left: 15px;
+    width: 100%;
+    height: 0.01px;
+    color: rgb(145, 142, 142);
+    margin-bottom: 8px;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    max-width: 750px;
+    height: 100%;
+}
+.textospesquisa {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.textospesquisa a {
+    text-decoration: none;
+
+}
+.textospesquisa a:hover{
+    border-bottom: 1px solid ;
+}
+.textospesquisa h3 {
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+section {
+    margin-left: 15px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+h4 {
+    font-size: 25px;
+}
+.section-container {
+    max-width: 750px;
+    height: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    margin-right: 80px;
+    flex-wrap: wrap;
+}
+.section-columns {
+    width: 45%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.section-row {
+    width: 100%;
+}
+.section-row a {
+    text-decoration: none;
+}
+.section-caixa {
+    display: flex;
+    padding: 15px;
+    background-color: rgb(236, 236, 236);
+    margin: 5px;
+    border-radius: 20px;
+}
+.section-caixa p {
+    padding-left: 10px;
+    font-size: 18px;
+    color: black;
+}
+.section-caixa p:hover {
+    text-decoration: underline;
+}
+footer {
+    padding-left: 15px;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(236, 236, 236);
+    display: flex;
+}
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+.footer-container a {
+    text-decoration: none;
+}
+.footer-cima{
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 0.2px solid gray;
+    width: 100%;
+}
+.footer-cima p {
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-right: 1px solid gray;
+    color: rgb(126, 126, 126);
+
+}
+.footer-cima a {
+    margin-left: 10px
+}
+.footer-baixo a{
+    padding: 10px;
+    color: rgb(126, 126, 126);
+    
+}
+.footer-baixo a:hover {
+    color: rgb(88, 88, 88);
+}
+.black {
+    color: rgb(36, 36, 36);
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.teste {
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    display: flex;
+    margin-top: auto;
+}
+.block1 , .block2, .block3 {
+    display: block;
+    width: 33.333%;
+    height: 150px;
+}
+.block1 {
+    background-color: tomato;
+}
+.block2 {   
+    background-color: blueviolet;
+}
+.block3 {
+    background-color: chartreuse;
+} /*
