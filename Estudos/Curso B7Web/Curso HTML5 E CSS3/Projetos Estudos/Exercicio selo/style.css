@@ -1,0 +1,36 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+body {
+   display: flex;
+   justify-content: flex-start;
+   height: 100vh;
+}
+.selo {
+   background-color: rgb(65, 121, 226);
+   display: flex;
+   height: 35px;
+   width: 220px;
+   position: absolute;
+   transform: rotate(-45deg);
+   top: 30px;
+   left: -52px;
+   padding-top: 2px;
+   padding-bottom: 6px;
+   box-shadow: 0px 0px 1px black ;
+   
+}
+a {
+   text-decoration: none;
+   display: flex;
+   color: rgba(245, 245, 245, 0.918);
+   width: 100%;
+   height: 100%;
+   justify-content: center;
+   align-items: center;
+   border: 2px solid rgba(245, 245, 245, 0.918);
+   font-weight: bold;
+   
+   
+}
