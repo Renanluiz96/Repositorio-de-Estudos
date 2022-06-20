@@ -1,0 +1,14 @@
+body {
+   margin: 0;
+   padding: 0;
+}
+header {
+   height: 100px;
+   background-color: black;
+}
+.header {
+   max-width: 1140px;
+   height: 100px;
+   background-color: tomato;
+   margin: auto;
+}
