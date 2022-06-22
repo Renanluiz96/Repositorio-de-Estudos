@@ -5,7 +5,7 @@
 }
 
 body {
-   
+   font-family: 'Montserrat' , Arial, Helvetica, sans-serif;
 }
 header {
    height: 100px;
@@ -22,15 +22,44 @@ header {
 .logo {
    width: 100px;
 }
+.logoimg {
+   width: 80px;
+   height: 80px;
+   background-color: #b28756;
+}
 
 .menu {
    flex: 1;
    display: flex;
    justify-content: flex-end;
 }
+.menu ul, .menu li {
+   list-style: none;
+}
+.menu ul {
+   display: flex;
+}
+.menu li a {
+   color: white;
+   text-transform: uppercase;
+   font-weight: 600;
+   text-decoration: none;
+   padding-left: 8px;
+   padding-right: 8px;
+   height: 100px;
+   display: flex; /*Para fazer o hover nos links na tag A , esta tag por padrão vem com a propriedade display-inline , então voce ali no css na tag a tem que colocar um display flex com align itens center se caso voce quiser o conteudo centralizado para que voce faça um efeito de borda no canto em baixo do link como esta neste site a hora que voce passar o mouse em cima  */
+   align-items: center;
+   border-bottom: 5px solid black; /*voce tem que aplicar 1 borda da cor do fundo aqui no caso o preto , pois com a função hover o conteudo vai dar uma pulada , então voce ja coloca 1 borda para evitar isto */
+}
+.menu li a:hover, .menu .active a {
+   border-bottom: 6px solid #b28756;
+   color: #ccc;
+}
 
-.logoimg {
-   width: 80px;
-   height: 80px;
-   background-color: #b28756;
+.banner {
+   height: calc(100vh - 100px); /* Voce tem que fazer o banner do tamanho da tela do usuario , então voce usa 100vh para ser 100% do tamanho da tela do usuario, mais se for so assim voce vai criar 1 barra de rolagem por causa do cabeçalho , então voce usa a função calc para calcular 100vh da tela menos os 100px que é a altura do cabeçalho , ai fica certinho sem barra de rolagem */
+   background-color: rgb(104, 104, 104);
+   background-image: url(../images/bg.jpg);
+   background-size: cover; /*Com o background cover ele vai ajustar o tamanho do background imagem de forma que ela preencha todo o espaço   */
+   background-position: bottom; /*Usando o background position ele vai priorizar a imagem no caso do bottom a parte de baixo */
 }
