@@ -62,4 +62,16 @@ header {
    background-image: url(../images/bg.jpg);
    background-size: cover; /*Com o background cover ele vai ajustar o tamanho do background imagem de forma que ela preencha todo o espaço   */
    background-position: bottom; /*Usando o background position ele vai priorizar a imagem no caso do bottom a parte de baixo */
+   overflow: hidden; /*Com o overflow hidden tudo que passar do tamanho do meu banner ele simplesmente vai ignorar  */
+}
+.banner .sliders {
+   height: 100%; /*Altura do sliders tambem é 100% para pegar toda a area disponivel*/
+   width: 1000vw; /*Então digamos que o sliders suporta até 10 sliders e cada slider é 100% da viewport então 100x 10 é 1000 por isso 1000vw que equivale a 10 slider de 100vw */
+   
+}
+.banner .slide {
+   width: 100vw; /*Ja que cada slider vai ocupa toda a largura da tela então usa ele 100 de viewport para que ele caiba todo na tela do dispositivo do usuario , tanto computador quanto mobile */
+   height: 100%; /*Altura do sliders é 100% */
+   display: inline-block; /* Usando o display inline block para ficar um slider ao lado do outro  , o inline para ele ficar um slider ao lado do outro , e o block para que ele mantenhas as suas proporções do width e height padrão como especifico ali acima que a gente setar aqui*/
+   background-color: rgba(0,0,0,0.7); /* Voce coloca um background meio transparente escuro para que apareca o fundo mais escuro para poder destacar o slider que vai ser jogado acima*/
 }
