@@ -37,7 +37,13 @@
       <section class="banner"> <!--O banner vai ter a area  inteira do slide-->
          <div class="sliders"> <!--E aqui no sliders  tem que ter a largura correspondente a pelo menos a quantidade de sliders que contem dentro . Por exemplo que a cada slider aqui dentro ele vai ter 1000px de largura  e se for 3 slider  então tem que ter 3000px de largura total desta class sliders , o tamanho total da class sliders para que cada slider fique corretamente cada slider de digamos 1000px um ao lado do outro . E a barra de rolagem lateral o processo de corte da imagem do slide vai ser feita la na class banner  pois o banner é a area disponivel do banner , o sliders ele tem que ter a largura de todos os sliders juntos e cada slider tem seu proprio tamanho-->
             <div class="slide"> <!-- E cada slider vão ter a area inteira disponivel para um slider . E cada um tem que ficar um ao lado do outro , para eles poderem ter a rolagem lateral-->
-               ;;;1
+               <div class="slidearea">
+                  <h1>Design is about <br><span>Comunication</span></h1>
+                  <h2>Call Us: 9
+                  +00 0 1234 5678
+                  </h2>
+                  <a href="">Get in Touch!</a>
+               </div>
             </div>
             <div class="slide">
                ;;;2
@@ -45,6 +51,11 @@
             <div class="slide">
                ;;;3
             </div>
+         </div>
+         <div class="sliders-area-pointers"> <!-- Voce vai fazer aqueles pontinhos que estão nos sliders para mostrar em qual slider ele esta , voce vai fazer for da div dos sliders no caso voce vai fazer por cima dos sliders , então dentro da propria section que contem o banner mesmo voce vai criar uma outra div que vai ficar por cima e nela voce vai configurar os pontinhos que irão ficar por cima dos slider . Aqui é a area onde ficarão os pointers e dentro deles voce ira colocar cada pointes , quantos voce quiser que tenha -->
+            <div class="pointer active"></div>
+            <div class="pointer"></div>
+            <div class="pointer"></div>
          </div>
       </section>
    </main>

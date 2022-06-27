@@ -26,6 +26,7 @@ header {
    width: 80px;
    height: 80px;
    background-color: #b28756;
+   border-radius: 40px;
 }
 
 .menu {
@@ -74,4 +75,58 @@ header {
    height: 100%; /*Altura do sliders é 100% */
    display: inline-block; /* Usando o display inline block para ficar um slider ao lado do outro  , o inline para ele ficar um slider ao lado do outro , e o block para que ele mantenhas as suas proporções do width e height padrão como especifico ali acima que a gente setar aqui*/
    background-color: rgba(0,0,0,0.7); /* Voce coloca um background meio transparente escuro para que apareca o fundo mais escuro para poder destacar o slider que vai ser jogado acima*/
+}
+.banner .slidearea {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   align-items: center;
+   justify-content: center;
+   color: white;
+}
+.banner h1 {
+   text-transform: uppercase;
+   font-weight: bold;
+   font-size: 60px;
+}
+.banner h1 span {
+   color: #b28756;
+}
+.banner h2 {
+   text-transform: uppercase;
+   margin-top: 20px;
+}
+.banner a {
+   display: block;
+   text-decoration: none;
+   background-color: #b28756;
+   color: white;
+   text-transform: uppercase;
+   font-size: 17px;
+   font-weight: 600;
+   padding: 10px 30px;
+   margin-top: 30px;
+   border-radius: 20px;
+}
+.banner .sliders-area-pointers { 
+   width: 100vw; /*Primeiro ele vai pegar a area inteira de largura pois não sabe quantos pointers vão , pois esta é a area dos pointer  */
+   height: 20px; /* Aqui voce define um tamanho maximo para que cada pointer tenha  */
+   position: absolute; /*Para poder aparecer na tela  , ele ira aparecer abaixo do banner*/
+   margin-top: -50px; /*Voce usa um margin negativo para ele poder aparecer dentro do banner no caso dele subir um pouco para dentro do banner */
+   display: flex; /*Voce usa o display flex para colocar todo os pointer centralizado */
+   justify-content: center;
+   align-items: center;
+   /*Agora que voce crio a area e posiciono onde ficaria a area dos pointers agora é só acrescentando os pointers dentro desta div agora */
+}
+.banner .pointer { /*Todos os pointers ele tem bordas , e o ativo ele tem borda e fundo . Caso o primeiro slider vai aparecer o fundo  na primeira bolinha , e o segundo slider , vai ter fundo na segunda bolinha ... */
+   width: 20px;
+   height: 20px;
+   border: 2px solid #b28756;
+   border-radius: 10px;
+   margin-left: 5px;
+   margin-right: 5px;
+   cursor: pointer;
+}
+.banner .pointer.active {
+   background-color: #b28756;
 }
