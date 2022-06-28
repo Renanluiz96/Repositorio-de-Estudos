@@ -6,6 +6,7 @@
 
 body {
    font-family: 'Montserrat' , Arial, Helvetica, sans-serif;
+   overflow-x: hidden; /*Aqui diz que todo o conteudo que for ultrapassado na horizontal vai ser ignorado  */
 }
 header {
    height: 100px;
@@ -129,4 +130,44 @@ header {
 }
 .banner .pointer.active {
    background-color: #b28756;
+}
+
+/*Agora voce vai montar a estrutura padrão das section que vai ser ultilazada em todas as section para reutilizalas usando classes */
+.default {
+   padding-top: 50px;
+   padding-bottom: 50px;
+}
+.default .section-title, .default .section-desc {
+   text-align: center;
+   text-transform: uppercase;
+   font-weight: 600;
+}
+.default .section-title {
+   font-size: 20px;
+}
+.default .section-desc {
+   font-size: 13px;
+   color: #ccc;
+   margin-top: 10px;
+   margin-bottom: 40px;
+}
+.default .section-body {
+   margin: auto;
+   max-width: 1140px;
+   min-height: 100px;
+   background-color: gray;
+}
+
+/*Agora voce vai aplicar as cores light e dark em class ja pre estabelecidas , para voce usar junto com a class default. */
+.default.light {
+   background-color: #f7f7f7;
+}
+.default.light .section-title {
+   color: black;
+}
+.default.dark {
+   background-color: black;
+}
+.default.dark .section-title {
+   color: white;
 }
