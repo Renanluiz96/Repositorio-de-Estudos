@@ -4,6 +4,9 @@
    box-sizing: border-box;
 }
 
+/* Voce precisa separa o css de interface  do css espeçifico de cada area . Para melhor organização do seu layout do css */
+/*Css de interfaçe  */
+
 body {
    font-family: 'Montserrat' , Arial, Helvetica, sans-serif;
    overflow-x: hidden; /*Aqui diz que todo o conteudo que for ultrapassado na horizontal vai ser ignorado  */
@@ -97,8 +100,8 @@ header {
    text-transform: uppercase;
    margin-top: 20px;
 }
-.banner a {
-   display: block;
+.button{
+   display: inline-block;
    text-decoration: none;
    background-color: #b28756;
    color: white;
@@ -154,20 +157,43 @@ header {
 .default .section-body {
    margin: auto;
    max-width: 1140px;
-   min-height: 100px;
-   background-color: gray;
 }
 
 /*Agora voce vai aplicar as cores light e dark em class ja pre estabelecidas , para voce usar junto com a class default. */
 .default.light {
    background-color: #f7f7f7;
 }
-.default.light .section-title {
+.default.light .section-title, .default.light .section-body {
    color: black;
 }
 .default.dark {
    background-color: black;
 }
-.default.dark .section-title {
+.default.dark .section-title, .default.dark .section-body{
    color: white;
+}
+
+
+
+
+
+/*Css de areas espeçificadas \/ */
+
+.section-aboutus {
+   display: flex;
+}
+.section-aboutus--left { 
+   flex: 1; /*Aqui pode colocar flex 1 para fora o tamanho da tela de video , a section da esquerda com o flex 1 ele vai pegar o restante do espaço para o conteudo dele */
+}
+.section-aboutus--left p {
+   font-size: 14px;
+   line-height: 25px;
+}
+.section-aboutus--right { /*Aqui é a area que vai ficar o video , portanto tem que por um tamanho fixo para a tela do video */
+   width: 520px;
+   text-align: center /*Coloquei esse atributo para colocar ao centro da div a imagem que coloquei como um tamanho menor que  o  width de 520 para da um espaçamento da imagem para o texto ao lado */
+}
+.section-aboutus--right img {
+   width: 480px; /* Voce pode colocar o width 100% para ficar o tamanho total da div dentro dela ,mais eu coloquei um tamanho fixo 480px  para para que a imagem fica com um espaçamanto maior do texto que esta ao lado esquerdo*/
+   box-shadow: 0px 5px 10px #333;
 }
