@@ -197,3 +197,64 @@ header {
    width: 480px; /* Voce pode colocar o width 100% para ficar o tamanho total da div dentro dela ,mais eu coloquei um tamanho fixo 480px  para para que a imagem fica com um espaçamanto maior do texto que esta ao lado esquerdo*/
    box-shadow: 0px 5px 10px #333;
 }
+
+
+
+.section-services {
+   display: flex;
+}
+.section-service {
+   flex: 1;
+   text-align: center;
+   border-right: 1px solid #333;
+   padding: 15px;
+}
+.section-service:first-child { /*Como as bordas do section services voce coloca somente as bordas ao lado direito , voce usa o first child para aplicar a borda na no primeiro filho (ou seja primeira div )  ele aplica os efeito abaixo , que no caso seria a bordas da esquerda*/
+   border-left: 1px solid #333;
+}
+.section-service h4 {
+   margin-top: 20px;
+   text-transform: uppercase;
+   font-size: 18px;
+}
+.section-service p {
+   margin-top: 10px;
+   font-size: 13px;
+   color: #999;
+}
+
+
+.section-projects {
+   display: flex; /*Um ponto de usar o display flex aqui , é porque eu precisei colocar o filtro dessa section no centro da tela , e eu não consegui usando o margin auto, então eu usei o display flex com o align items center para centralizar o conteudo */
+   flex-direction: column;
+   align-items: center;
+}
+.section-projects--filtrers {
+   border: 1px solid #999;
+   background-color: #eee;
+   border-radius: 30px;
+   display: inline-block; /* Para que o conteudo fique do tamanho correto o filtro , e não fique com a largura ate o final da linha, ele vai ter o tamanho do conteudo dentro */
+   padding: 0px 20px; /*Voce usa um padding aqui , para que o conteudo do filtro de um respiro apenas nos cantos de cada li, ai voce da o padding aqui , que ele vai dar o padding na div pai do ul e li . */
+   
+}
+.section-projects--filtrers ul,
+.section-projects--filtrers li {
+   list-style: none;
+}
+.section-projects--filtrers li {  /*Aqui voce vai fazer a configuração de cada li do filtro */
+   display: inline-block /*Para voce colocar todos os li da lista que vai fazer o filtro . Voce usa o display inline-block , para que fique tudo um ao lado do outro na mesma linha  */;
+   padding: 10px;
+   text-transform: uppercase;
+   font-size: 13px;
+   border-left: 1px solid #ccc;
+   color: #555;
+   border-bottom: 3px solid #eee ; /*Voce cria uma borda da cor do fundo que seria o #eee , e voce cria um hover para que ao passar o mouse em cima ele mude de cor, e não de um salto no conteudo , por isso voce coloca uma borda invisivel aqui , e faz o hover somente para alterar a cor desta borda invisivel   */
+}
+.section-projects--filtrers li:hover, 
+.section-projects--filtrers li.active{ /*Aqui voce coloca uma class active em um dos itens para que ja fique um item ja selecionado e ja passando o atributo da borda ja aparecendo , voce coloca junto com o hover , pois tem o mesmo atributo , voce coloco junto para poupar codigo */
+   border-bottom: 3px solid #b28756;
+   cursor: pointer;
+} 
+.section-projects--filtrers li:first-child {
+   border-left: 0; ; /*Voce usa o border 0 para cancelar a borda que voce coloco , como ali acima voce coloco bordas em todas as bordas do lado esquerdo , normalmente a primeira tag li fico com uma borda , e para tirar voce usa o first child para alterar o conteudo dela e usa border left tbm e passa o atributo 0 para cancelar a borda */
+}
