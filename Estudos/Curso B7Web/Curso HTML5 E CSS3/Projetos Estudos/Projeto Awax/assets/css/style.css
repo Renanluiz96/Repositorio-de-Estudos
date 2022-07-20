@@ -258,3 +258,63 @@ header {
 .section-projects--filtrers li:first-child {
    border-left: 0; ; /*Voce usa o border 0 para cancelar a borda que voce coloco , como ali acima voce coloco bordas em todas as bordas do lado esquerdo , normalmente a primeira tag li fico com uma borda , e para tirar voce usa o first child para alterar o conteudo dela e usa border left tbm e passa o atributo 0 para cancelar a borda */
 }
+
+.section-projects--photos { /*Aqui esta é a class onde é o container onde tem as fotos
+   1º A gente tem que estabelecer um tamanho maximo para esta area aqui usando o width a 100% da tela ou seja 100vw , contudo ele vai ter um tamanho maximo que o tamanho padrão de uma tela é 1140px, voce bota um max para que caso seja um monitor muito grande ele vai dar uma freiada e vai ate o 1140 e não passar disto , mais caso o monitor for menor ele vai usar toda a area da tela no caso o 100% */
+   width: 100vw;
+   max-width: 1140px;
+   margin-top: 20px; /*Só pra ele descolar da parte de cima */
+   background-color: tomato;
+   display: flex; /*Como vai ser uma do lado da outra voce usa o display flex */
+   flex-wrap: wrap; /*Voce usa o flex wrap pra ele quebrar de linha automaticamente quando chegar no final e não caber a foto ou o conteudo no caso se chegar na largura max e não caber ele vai quebrar linha e vai colocar a foto na parte de baixo*/
+   justify-content: center; /* Para caso o conteudo se quebra ele mantenha o conteudo sempre no meio */
+
+   /*Fazendo esta configuração no container agora ele esta pronto pra caber os conteudo de foto dentro , ja tem um tamanho max de tela e caso o conteudo for muito grande ele vai limitar a tela em 1140px, tem um display-flex para que o conteudo fique 1 ao lado do outro , junto com o flex-wrapa para quebrar de linha caso a foto chege na largura max e não caiba outra foto ao lado , e o justify content center para que o conteudo da foto esteja sempre no meio ao quebrar de linha*/
+}
+.section-projects--photo { /*Agora vai ser a propriedade de cada foto 
+   1º O tamanho tem que ser 1 tamanho fixo , vou colocar o tamanho de 280px de largura , ele vai caber na tela de um celular, e em um monitor maior ele ira caber algumas fotos 1 ao lado do outro, se caso voce não se agradar com este tamanho voce pode ir alterando o tamanho de acordo com o que voce achar melhor*/
+   width: 280px;
+}
+.section-projects--photoarea {
+   margin: 10px; /*Voce vai criar 1 margim para que as fotos não fique coloada na outra, o motivo de voce criar 1 foto area foi este , voce iria colocar 1 margim aqui no foto area para que a foto não fique ao lado 1 do outro ,pois como o conteudo sim iria ficar ao lado 1 do outro , voce crio esta area para isto para dar 1 descolada visualmente nas fotos 1 da outra  . */
+   width: 260px; /*Ja que voce coloco a margim dos lados como foi 10 para cada lado voce tem que alterar o tamanho dela aqui para 20px a menos que seria referente ao margim */
+   height: 160px; /*E aqui voce coloca tambem 1 altura padrão , mais caso voce queira maior voce pode ir alterando até achar 1 que voce goste mais */
+}
+.section-projects--photoarea img { /*Agora voce vai fazer alterações na propria foto que esta dentro do foto area */
+   width: inherit; /* voce tambem pode colocar o inherit , que ele vai herda o width do item anterior que seria o width do foto area 260, melhor para que voce não precise ficar colocando numero toda hora */
+   height: inherit; /*Altura inherit tambem para herdar do item anterior tambem */
+}
+.section-projects--photoinfo {/*O foto info tem que ficar acima da foto */
+   position: absolute; /*Para que ele fique por cima da foto coloca um position absolute */
+   background-color: rgba(0, 0, 0, 0.5); /*Voce coloca um background com rgba com uma opacidade preta  */
+   width: inherit; /*Mesma coisa que no img voce coloca inherit para ele herda as propriedade do item anterior que seria o photo area . Voce vai fazer a mesma coisa tambem para a altura */
+   height: inherit;
+   /*Agora voce vai colocar as propriedades para colocar as informações de texto dentro usando o display none para que ele nao apareca mas sim que depois quando voce fizer o hover ele altera o display none para flex quando o usuario passar o mouse na foto . justify e align items center para a mensagem ficar bem ao centro da imagem */
+   display: none;
+   flex-direction: column; /*Para que os textos fiquem 1 abaixo do outro */
+   justify-content: center;
+   align-items: center;
+   color: white; /* Para alterar a cor pra branco para poder enxergar melhor se não fica todo preto*/
+}
+.section-projects--photoinfo h5 {
+   font-size: 18px;
+   font-weight: 600;
+}
+.section-projects--photoarea:hover .section-projects--photoinfo { /*Aqui voce vai fazer um efeito hover que quando ele passar o mouse no photo area ele vai aplicar e altera o display none que voce coloca la no photo info , ele vai alterar para display flex assim aparecendo o conteudo da foto que seria o conteudo que esta la no photo info .
+Para ativar as propriedade escondidas e assim voce configura tudo na div que voce quer , e deixa ela como display none para não aparecer, depois voce  vai la na div pai desta que seria o photoarea , e la voce coloca um hover que vai ser aplicado somente na div especifica e depois coloca a div ao lado . que seria a div que voce configuro tudo e deixo como display none, e dentro dela voce somente altera para aparecer na tela ao passar o mouse usando ou display block , ou display flex se tiver um conteudo 1 ao lado do outro ou 1 abaixo do outro  */
+   display: flex;
+}
+
+
+.bg-team{ /*Esta é a class que voce vai configurar pra usar junto com  a section em especifico la naquela section que tem os slides com 3 itens voce vai criar um fundo com a imagem para usar junto com a section dark */
+   background-image: url('../images/bg.jpg');
+   background-size: cover;
+   background-position: center;
+   padding: 0; /*Aqui voce zera o padding para que pegue todo o fundo preto na section ,pois a class dark que voce esta usando junto com esta aqui , la voce tem padding, e pra não mecher na aquela estrutura e altera o conteudo dos outros que estão usando ela , voce altera nesta class aqui o padding no caso zera ela , que em especifico aqui ele vai ter o padding zerado para poder ter o fundo preto todo certinho na imagem do fundo */
+}
+.section-team-area { /*E nesta div que voce modifico e coloco toda a estrutura dentro aqui voce coloca um rgba com opacidade mais escuro , pra escurecer a imagem */
+   background-color: rgba(0, 0, 0, 0.8);
+   padding-top: 50px; /*Como a section dark tem um padding então o efeito opacidade não vai ficar na imagem toda então voce pode dar um padding aqui tambem tanto pro top quanto para o bottom , para que fique igualzinho como esta na section dark */
+   padding-bottom: 50px;
+   /*E depois voce vai la na class bg-team que voce esta usando junto com a section dark na section do slider com 3 itens que tem o padding de 50 px para cime e para baixo , e voce vai e zera passando o atributo padding 0 */
+}
