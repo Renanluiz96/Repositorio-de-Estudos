@@ -318,3 +318,240 @@ Para ativar as propriedade escondidas e assim voce configura tudo na div que voc
    padding-bottom: 50px;
    /*E depois voce vai la na class bg-team que voce esta usando junto com a section dark na section do slider com 3 itens que tem o padding de 50 px para cime e para baixo , e voce vai e zera passando o atributo padding 0 */
 }
+.section-team {
+   overflow: hidden;
+   max-width: 880px; /*Para que caiba certinho os 3 sliders na tela que são da largura de 280px + 20 da margim entre eles vai dar um totaç de 900px , mais como não quer que apareca a margim do terceiro para o quarto item voce diminui essa margim com -20px que da um 880px voce estipula este valor como max , e o restante voce esconde com o overflow hidden , ai ele só vai mostrar 3 certinho*/
+   margin: auto; /*Ai voce utiliza o margim auto para alinhar estes itens no centro da tela */
+}
+.section-team .sliders {
+   height: 100%;
+   width: 1000vw; 
+   
+}
+.section-team .slide {
+   width: 280px; 
+   height: 100%;
+   min-height: 300px; /*Bota um tamanho minimo para crescer o conteudo dentro */
+   display: inline-block; 
+   background-color: white;
+   margin-right: 20px; /*Bota um margim para separar um do outro */
+}
+.section-team .slidearea {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   align-items: center;
+   justify-content: center;
+   color: black;
+   padding: 30px; /*Coloco um padding aqui para que todo o conteudo dentro do slider tenha um espaçamento em volta */
+}
+.section-team-area .sliders-area-pointers { 
+   margin-top: 30px; /*Antes tinha a propriedade 100vw ,voce substituiu por um margin top para que tirarsse toda a largura da tela e ficasse do tamanho normal , e um margim pra descolar dos sliders */
+   height: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.section-team-area .pointer { 
+   width: 20px;
+   height: 20px;
+   border: 2px solid #b28756;
+   border-radius: 10px;
+   margin-left: 5px;
+   margin-right: 5px;
+   cursor: pointer;
+}
+.section-team-area .pointer.active {
+   background-color: #b28756;
+}
+.section-team--avatar {
+   width: 150px;
+   height: auto;
+}
+.section-team--name {
+   text-transform: uppercase;
+   font-weight: 600;
+   font-size: 17px;
+   margin-top: 30px;
+}
+.section-team--role {
+   font-size: 14px;
+   color: #999;
+   margin-top: 5px;
+}
+.section-team--social {
+   display: flex;
+   margin-top: 20px;
+}
+.section-team--social a {
+   display: inline-flex; /*Para que consiga colocar um tamanho melhor nele */
+   justify-content: center;
+   align-items: center;
+   width: 25px;
+   height: 25px;
+   background-color: #ccc;
+   border-radius: 13px; /*Para fazer 1 circulo como um icone redondo , voce tem que colocar o border radius metade do tamanho do  tamanho da imagem*/
+   margin-right: 10px;
+}
+.section-team--social a:hover {
+   background-color: #b28756;
+}
+
+
+
+.padding {
+   padding: 0%;
+   
+}
+.fundo-cinza {
+   background-color: rgb(245, 244, 244);
+   display: flex;
+   flex-direction: column;
+   max-width: 1140px;
+   margin: auto;
+}
+.section-title-happy {
+   text-align: center;
+   margin-top: 30px;
+   font-size: 25px;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+.section-desc-happy {
+   text-align: center;
+   margin-top: 10px;
+   text-transform: uppercase;
+   color: rgb(117, 117, 117);
+}
+.fundo-cinza .section-body {
+   padding-top: 25px;
+   display: flex;
+   flex-direction: column;
+   margin: auto;
+   justify-content: center;
+   align-items: center;
+   padding-bottom: 25px;
+}
+.homem2 {
+   padding-top: 20px;
+   width: 100px;
+   height: auto;
+}
+.fundo-cinza .section-body h3 {
+   padding-top: 15px;
+   font-size: 22px;
+   font-weight: bolder;
+}
+.fundo-cinza .section-body h4 {
+padding-top: 4px;
+font-size: 16px;
+}
+.quote {
+   width: 30px;
+   height: auto;
+   padding-top: 15px;
+   padding-bottom: 15px;
+}
+.fundo-cinza .section-body p {
+   width: 500px;
+   height: auto;
+   text-align: center;
+}
+.fundo-cinza .section-body .sliders-area-pointers { 
+   margin-top: 30px; /*Antes tinha a propriedade 100vw ,voce substituiu por um margin top para que tirarsse toda a largura da tela e ficasse do tamanho normal , e um margim pra descolar dos sliders */
+   height: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.fundo-cinza .section-body .pointer { 
+   width: 20px;
+   height: 20px;
+   border: 2px solid #b28756;
+   border-radius: 10px;
+   margin-left: 5px;
+   margin-right: 5px;
+   cursor: pointer;
+}
+.fundo-cinza .section-body .pointer.active {
+   background-color: #b28756;
+}
+
+.white {
+   background-color: white;
+}
+.section-icons {
+   display: flex;
+   justify-content: space-around;
+}
+.section-icons a {
+   flex: 1;
+   margin-left: 30px;
+}
+
+
+.fundo-cinza2 {
+   background-color: rgb(230, 230, 230);
+   display: flex;
+   flex-direction: column;
+   max-width: 1140px;
+   margin: auto;
+}
+.fundo-cinza2 .section-body {
+   display: flex;
+   margin-top: 30px;
+   margin-bottom: 50px;
+}
+.table-price {
+   background-color: white;
+   width: 200px;
+   height: auto;
+   padding: 20px;
+   margin-right: 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.table-price h4 {
+   text-transform: uppercase;
+   font-weight: bolder;
+}
+.table-price h2 {
+   padding-top: 8px;
+}
+.table-price p{
+   font-size: 12px;
+   color: #aaa;
+   padding-bottom: 10px;
+}
+.table-price h6 {
+   color: #555;
+}
+.traco {
+   margin-top: 5px;
+   margin-bottom: 5px;
+   width: 10px;
+   height: 2px;
+   background-color: #333;
+}
+.table-price a {
+   width: auto;
+   height: 0;
+   margin-bottom: 60px;
+   
+}
+.table-price .button{
+   display: inline-block;
+   text-decoration: none;
+   background-color: black;
+   color: white;
+   text-transform: uppercase;
+   font-size: 12px;
+   font-weight: 600;
+   padding: 10px 30px;
+   border-radius: 20px;
+}
+
+.table-price .button:hover {
+   background-color: #b28756;
+}
