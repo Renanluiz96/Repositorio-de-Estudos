@@ -555,3 +555,205 @@ font-size: 16px;
 .table-price .button:hover {
    background-color: #b28756;
 }
+
+
+
+
+.section-premium {
+   display: flex;
+   flex: 1;
+   width: 100vw;
+   max-width: 1140px;
+   height: auto;
+   justify-content: center;
+   margin: 0 auto;
+   border-bottom: 5px solid rgb(231, 231, 231);
+   padding-bottom: 30px;
+}
+.section-premium--left {
+   height: inherit;
+   display: flex;
+   width: 300px;
+}
+.section-premium--left img {
+   width: inherit;
+   height: 300px;
+}
+.section-premium--right {
+   display: flex;
+   flex-direction: column;
+   height: auto;
+   max-width: 550px;
+   margin-left: 50px;
+}
+.first-feature,.second-feature ,.third-feature {
+   display: inline-flex;
+}
+.second-feature {
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+.check {
+   max-width: 30px;
+   height: 30px;
+   margin-right: 20px;
+}
+.feature-text h3 {
+   font-size: 20px;
+   text-transform: uppercase;
+}
+.feature-text p {
+   line-height: 30px;
+}
+
+.section-body-premium .sliders-area-pointers { 
+   margin-top: 30px; /*Antes tinha a propriedade 100vw ,voce substituiu por um margin top para que tirarsse toda a largura da tela e ficasse do tamanho normal , e um margim pra descolar dos sliders */
+   height: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.section-body-premium .pointer { 
+   width: 20px;
+   height: 20px;
+   border: 2px solid #b28756;
+   border-radius: 10px;
+   margin-left: 5px;
+   margin-right: 5px;
+   cursor: pointer;
+}
+.section-body-premium .pointer.active {
+   background-color: #b28756;
+}
+.section-body-premium {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+
+.section-service--facts h3 {
+   font-size: 35px;
+   color: #b28756;
+}
+.section-service--facts {
+   flex: 1;
+   text-align: center;
+   padding: 15px;
+}
+.section-service--facts h4 {
+   margin-top: 20px;
+   text-transform: uppercase;
+   font-size: 18px;
+}
+.section-service--facts p {
+   margin-top: 10px;
+   font-size: 13px;
+   color: #999;
+}
+
+
+
+.section-icons2 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+.share,.facebook,.twitter,.linkedin,.google,.pinte {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 30px;
+}
+.section-icons2 p {
+   padding-left: 5px;
+   font-family: 8px;
+}
+.section-icons2 h6 {
+   margin-left: 10px;
+   margin-right: 35px;
+}
+.facebook  img{
+   background-color: rgb(50, 50, 252);
+   padding: 7px;
+   border-radius: 50%;
+}
+.twitter  img{
+   background-color: rgb(0, 195, 255);
+   padding: 8px;
+   border-radius: 50%;
+}
+.linkedin  img{
+   background-color: rgb(21, 93, 187);
+   padding: 8px;
+   border-radius: 50%;
+}
+.google img{
+   background-color: rgb(240, 82, 82);
+   padding: 8px;
+   border-radius: 50%;
+}
+.pinte  img{
+   background-color: rgb(248, 37, 0);
+   padding: 8px;
+   border-radius: 50%;
+}
+
+form {
+   margin: auto;
+   width: 600px;
+}
+.formulario {
+   width: 500px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.form {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   align-items: center;
+}
+.form h3 {
+   font-size: 25px;
+}
+.form p {
+   font-size: 14px;
+   padding-bottom: 30px;
+   color: #999;
+}
+label {
+   border-bottom: 3px solid #555;
+   width: inherit;
+   padding-top: 15px;
+   line-height: 20px;
+   
+}
+textarea, input{
+   box-shadow: 0 0 0 0;
+   border: 0 none;
+   outline: 0;
+   width: inherit;
+   font-size: 18px;
+}
+button {
+   margin-top: 20px;
+   display: inline-block;
+   text-decoration: none;
+   background-color: #b28756;
+   color: white;
+   text-transform: uppercase;
+   font-size: 17px;
+   font-weight: 600;
+   padding: 10px 30px;
+   margin-top: 30px;
+   border-radius: 20px;
+}
+.message {
+   padding-top: 100px;
+}
+
+
