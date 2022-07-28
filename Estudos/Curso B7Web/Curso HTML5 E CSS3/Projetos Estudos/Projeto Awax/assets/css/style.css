@@ -264,7 +264,6 @@ header {
    width: 100vw;
    max-width: 1140px;
    margin-top: 20px; /*Só pra ele descolar da parte de cima */
-   background-color: tomato;
    display: flex; /*Como vai ser uma do lado da outra voce usa o display flex */
    flex-wrap: wrap; /*Voce usa o flex wrap pra ele quebrar de linha automaticamente quando chegar no final e não caber a foto ou o conteudo no caso se chegar na largura max e não caber ele vai quebrar linha e vai colocar a foto na parte de baixo*/
    justify-content: center; /* Para caso o conteudo se quebra ele mantenha o conteudo sempre no meio */
@@ -453,7 +452,8 @@ font-size: 16px;
    padding-bottom: 15px;
 }
 .fundo-cinza .section-body p {
-   width: 500px;
+   max-width: 800px;
+   min-width: 350px;
    height: auto;
    text-align: center;
 }
@@ -553,7 +553,7 @@ font-size: 16px;
 }
 
 .table-price .button:hover {
-   background-color: #b28756;
+   background-color: #b28756  ; 
 }
 
 
@@ -660,62 +660,66 @@ font-size: 16px;
    align-items: center;
    padding-top: 20px;
    padding-bottom: 20px;
+   width: auto;
+}
+.section-icons2 img {
+   width: 15px;
+   height: auto;
+}
+.share-cont {
+   width: auto;
+   height: auto;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 50px;
+}
+.icons {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 15px;
 }
 .share,.facebook,.twitter,.linkedin,.google,.pinte {
    display: inline-flex;
    justify-content: center;
    align-items: center;
-   margin-right: 30px;
+   width: 30px;
+   height: 30px;
+   border-radius: 15px;
+   padding: 10px;
 }
 .section-icons2 p {
-   padding-left: 5px;
    font-family: 8px;
+   margin-left: 5px;
 }
 .section-icons2 h6 {
-   margin-left: 10px;
-   margin-right: 35px;
+   margin-left: 5px;
 }
-.facebook  img{
+.facebook  {
    background-color: rgb(50, 50, 252);
-   padding: 7px;
-   border-radius: 50%;
+   
 }
-.twitter  img{
+.twitter  {
    background-color: rgb(0, 195, 255);
-   padding: 8px;
-   border-radius: 50%;
 }
-.linkedin  img{
+.linkedin {
    background-color: rgb(21, 93, 187);
-   padding: 8px;
-   border-radius: 50%;
 }
-.google img{
+.google {
    background-color: rgb(240, 82, 82);
-   padding: 8px;
-   border-radius: 50%;
 }
-.pinte  img{
+.pinte {
    background-color: rgb(248, 37, 0);
-   padding: 8px;
-   border-radius: 50%;
 }
 
-form {
-   margin: auto;
-   width: 600px;
-}
-.formulario {
-   width: 500px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
+
 .form {
    display: flex;
    flex-direction: column;
-   width: 100%;
-   align-items: center;
+   max-width: 500px;
+   text-align: center;
+   margin: auto;
 }
 .form h3 {
    font-size: 25px;
@@ -725,19 +729,38 @@ form {
    padding-bottom: 30px;
    color: #999;
 }
-label {
-   border-bottom: 3px solid #555;
-   width: inherit;
-   padding-top: 15px;
-   line-height: 20px;
-   
+form {
+   display: block;
+   width: 100%;
+   height: auto;
+}
+.formulario {
+   width: initial;
+   display: flex;
+   flex-direction: column;
+}
+.form-par {
+   display: flex;
+   width: 100%;
+}
+.form-par input:first-child {
+   margin-right: 20px;
 }
 textarea, input{
    box-shadow: 0 0 0 0;
    border: 0 none;
    outline: 0;
-   width: inherit;
    font-size: 18px;
+   width: 100%;
+   border-bottom: 1px solid #333;
+   padding-bottom: 8px;
+   height: 40px;
+   margin-bottom: 10px;
+}
+textarea {
+   height: 100px;
+   margin-top: 10px;
+   resize: none;
 }
 button {
    margin-top: 20px;
@@ -752,8 +775,112 @@ button {
    margin-top: 30px;
    border-radius: 20px;
 }
-.message {
-   padding-top: 100px;
+
+
+.section-map {
+   background-image: url('../images/mapa.jpg'); /*Para colocar a imagem do mapa de fundo e depois voce quiser posicionar a imagem do mapa e com os atributos a seguir */
+   background-size: cover; /*Para pegar todo o espaço disponivel */
+   background-position: center; /*Para alinhar a posição da imagem que sera mostrada no background bem no centro da imagem */
+   padding-top: 30px;
+   padding-bottom: 30px;
+}
+.section-map--area {
+   width: 100vw; /*Aqui voce poe que a largura sa section seria de 100% da tela do usuario , contudo voce coloca um limite com o max-width de 1140px que é o padrão que voce vem usando neste site */
+   max-width: 1140px;
+   margin: auto; /*Voce coloca o margin auto para o seu conteudo ficar no limite ou na posição certa que voce estipulo que seria o limite do max-width */
+}
+.section-map--info {
+   width: 50%; /*E voce crio dentro desta mapa uma com um conteudo e quer deixar ele ocupe a metade do espaço estipulado da area voce coloca o tamanho como 50% , e o conteudo voce pode por aqui dentro o que quer*/
+   padding: 30px;
+   background-color: white;
+   color: black;
+}
+.section-map--info-item {
+   display: flex;
+   align-items: center; /*Agora para voce colocar o texto que esta ao lado parelho da mesma altura certinho no centro voce usa o align item center ai fica a div com a imagem , e o texto ao lado centralizado no mesmo lugar */
+   color: #999;
+   margin-bottom: 15px;
+}
+.section-map--info-item-img { /*Aqui voce faz a configuraçã de toda a imagem o icone que estiver dentro daquela class em especifico, voce vai fazer uma alteração em todas as imgs, aqui voce vai configurar o icone que veio branco voce vai colocar um fundo nele e um tamanho*/
+   width: 30px;
+   height: 30px;
+   display: inline-flex; /* coloca um inline-flex para que voce consiga deixar esta div na mesma linha sem quebrar , e como a propriedade flex voce consegui usar os atributos justify content, e o align items para deixar no centro da tela.*/
+   justify-content: center;
+   align-items: center;
+   padding: 5px;
+   background-color: #999;
+   border-radius: 15px;
+   margin-right: 15px; /* Voce coloca uma margin para a direita na div pai da imagem para poder dar uma descolada do texto que esta ao lado*/
+}
+.section-map--info-item-img img { /*Voce agora configura um tamanho menor que o da div pai que esta imagem dentro, para que as propriedades da div pai de centralizar a imagem na tela como o  justify content, e o align items pegue direitinho e o icone fique com o formato ideal , voce coloca um width um pouco menor , e o height voce coloque como auto*/
+   width: 15px;
+   height: auto;
 }
 
 
+.rodape-area {
+   display: flex;
+   width: 100%;
+   height: auto;
+   border-bottom: 2px solid #555;
+   padding-bottom: 20px;
+}
+.icons-rodape,.area-lorem,.mini-form {
+   flex: 1;
+}
+.mini-form{
+   display: flex;
+   flex-direction: column;
+   background-color: #333;
+   align-items: center;
+   justify-content: center;
+}
+.mini-form input[type="text"] {
+   border: 0 none;
+   outline: 0;
+   font-size: 18px;
+   width: 75%;
+   border-bottom: 1px solid #999;
+   padding-bottom: 8px;
+   height: 40px;
+   margin-bottom: 10px;
+   background-color: transparent;
+   color: #999;
+   
+}
+ .mini-form ::placeholder {
+   text-align: center;
+   color: #999;
+ }
+.mini-form .button {
+   width: 50%;
+}
+.area-lorem {
+   color: #999;
+   font-size: 14px;
+   line-height: 25px;
+   margin-right: 15px;
+}
+.icons-rodape  .icons{
+   background-color: #555;
+   width: 30px;
+   height: 30px;
+   border-radius: 15px;
+   padding: 10px;
+}
+.icons-rodape  .icons:hover {
+   background-color: #b28756;
+}
+.icons-area {
+   display: inline-flex;
+}
+.icons-rodape .section-icons2 {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: auto;
+   height: 100%;
+   padding: 0;
+   color: #999;
+   text-transform: uppercase;
+}
