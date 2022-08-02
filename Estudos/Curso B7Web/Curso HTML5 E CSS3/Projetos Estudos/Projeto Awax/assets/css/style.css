@@ -32,7 +32,9 @@ header {
    background-color: #b28756;
    border-radius: 40px;
 }
-
+.menu-opener { /*Este aqui é o botão do menu que fiz para o mobile e tablet , só que ele ira aparecer . Ai voce coloca um display none para ele não aparecer na tela em tela maior de desktop , e coloca um display flex ou block  la no media de tablet e celular  para o conteudo aparecer , quando a tela chegar em tal condição que ta la especifico no media. */
+   display: none;
+}
 .menu {
    flex: 1;
    display: flex;
@@ -883,4 +885,200 @@ button {
    padding: 0;
    color: #999;
    text-transform: uppercase;
+}
+
+
+
+@media(max-width: 450px) {/*Tela de celular agora que vai ser até o tamanho maximo de 450 px vai ser aplicado estes efeito , maior que isto vai ser aplicado o efeito do tamanho de tela do tablet , que é de 450px até 800px */
+   .logo {
+      margin-left: 30px;
+   }
+   .menu-opener { /*Aqui é aquela imagem menu para fazer a interação com menu na tela  , o processo de abrir e fechar o menu é feito com javascript*/
+      display: block;
+      width: 45px;
+      margin-right: 30px;
+   }
+   nav {
+      display: none; /*Aqui o menu vai desaparecer , o efeito de aparecer e sair é feito com javascript */
+      position: absolute; /*Para voce colocar o menu flutuando por cima da tela */
+      z-index: 99; /*Para ter certeza que fico por cima da tela mesmo */
+      background-color: rgba(0,0,0, 0.9); /*Bota uma cor preta com uma pequena transparencia atras para aparecer o fundo do site por tras do menu */
+      width: 80%; /*Voce pode colocar em porcentagem , isto é a largura  que o menu vai ocupar da tela quando ele for acionado no botão que ira ficar escondido os itens de menu   */
+      height: calc(100vh - 100px); /*Aqui voce vai usar o calc para voce usar 100vh da tela ocupar a tela toda , menos 100px  que seria do tamanho do menu que voce vai colocar pro top usando o atributo a seguir */
+      top: 100px; /*Coloca top 100px que é o tamanho do menu para ele descer 100px para baixo e aparecer fora do menu certinho*/
+      right: 0; /*E coloca right 0 para ele colar na tela no lado direito */
+   }
+   .menu ul {
+      flex-direction: column; /*Aqui no ul como ele normalmente estava com display flex e estava em linha um ao lado do outro , voce somente altera a direção para column , para ele aparecere em columa um abaixo do outro */
+   }
+   .menu li a {/*Voce aplica os efeitos agora para voce alterar os detalhes dos itens que estão no menu , mais não na tag li e sim na tag que esta dentro, pois é na tag a que estão os css */
+      font-weight: bold;
+      height: 60px; /*Voce diminui um pouco o espaçamento entre os itens*/
+      font-size: 20px; /*Voce diminui um pouco da letra */
+      margin-left: 30px; /*Voce diminui um pouco tambem antes o espaçamento do margim era 50 , no celular da pra usar um 30*/
+      border: 0;
+   }
+   .menu li.active a { /*Agora voce vai alterar o li que esta com o active, que é aquela borda laranja  que fica em baixo , voce vai tirar esta borda, agora aqui voce vai colocar somente a cor no tag que esta no active que é a cor padrão laranja */
+      border: 0;
+      color: #b28756;
+   }
+
+   .banner h1 { /*Aqui voce diminui o tamanho da font do titulo do banner*/
+      font-size: 30px;
+   }
+   .banner h2 {
+      font-size: 17px;
+   }
+
+
+   .section-aboutus { /*Voce somente coloca a seção do about us voce coloca como flex-direction column*/
+      flex-direction: column;
+   }
+   .section-aboutus--left { /*O texto que tem no section aboutus voce somente vai descolar do canto da tela dando um margin */
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-bottom: 30px;
+   }
+   .section-aboutus--right { /*A parte da imagem da section about , voce somente a largura coloca como auto , que automanticamente a imagem ira aparecer no centro da tela* e coloca uma margem dos 2 lados igual no texo.*/
+      width: auto;
+      margin-left: 30px;
+      margin-right: 30px;
+   }
+   .section-aboutus--right img { /*Fora voce colocar a tag acima como largura auto , e uma margem dos 2 lados . Voce tem que colocar a imagem como tamanho de 100% da div em que ela ocupa que no caso seria a div de cima ali que esta com o tamanho automatico .*/
+      width: 100%;
+   }
+
+
+   .section-services { /*Aqui voce coloca um flex wrap para ele quebrar de linha  quando chegar no final */
+      flex-wrap: wrap;
+   }
+   .section-service { /*Somente o flex wrap não ira aparecer um abaixo do outro pois ele vai se adapatando , então voce coloca o width como 50% ele ainda vai ser adaptar na tela , então voce coloca um min-width de 50% para pelo menos ter 50%   */
+      min-width: 100%; /*Agora de 50% o tamanho minimo voce coloca ,como 100% para que 1 item ocupe toda a tela aparecendo somente 1 item por vez*/
+      margin-bottom: 30px;
+   }
+   .section-service:first-child { /*Para tirar uma borda que esta la no lado do primeiro item */
+      border-left: 0;
+   }
+
+
+
+   .section-projects--filtrers { /*Voce coloca 1 margem de cada lado para descolar dos cantos o filtro*/
+      margin-left: 30px;
+      margin-right: 30px;
+   }
+   .section-projects--photo { /*E a foto da para voce aumentar o tamanho dela um pouco para que apareca melhor*/
+      width: 320px;
+   }
+   .section-projects--photoarea { /*E a foto area passa de ser de 260 para 300px para aumentar o tamanho da area da foto , e a altura da foto que era de 160px passa a ser 190px*/
+      width: 300px;
+      height: 190px;
+   }
+
+   .section-team { /*Agora como vai ter apenas 1 slide então o tamanho da largura max da tela vai ser o tamanho de 1 slider só que seria o de 280px */ 
+         max-width: 280px;
+      }
+   
+   .section-map { /*Aqui agora não teremos mais nenhum padding nas laterais . Apenas na parte de baixo voce da um padding grande para aparecer o fundo do mapa em baixo*/ 
+      padding: 0;
+      padding-bottom: 280px;
+   }
+   .section-map--area { /*Mesmo voce colocando um padding no map ira aparecer na tag map area ira ter um tamanho fixo e so voce colocar uma largura auto para para o padding da direita pegar direiinho na tela*/
+      width: auto;
+   }
+   .section-map--info {
+      width: auto; /*Aqui agora o info do site tinha um tamanho fixo de 50%  voce tira e coloca auto , para o tamanho da tela fica normal .*/
+   }
+   .section-map--info-item {
+      margin-bottom: 20px; /*Voce coloca uma margem maior em cada item da lista, para poder da uma descolada de um item para outro */
+   }
+   .section-map--info-item:last-child {
+      margin-bottom: 0; /*no ultimo item da lista voce tira a margem que voce coloca ali acima , voce usa o atributo last-child para poder colocar somente no ultimo item*/
+   }
+}
+
+
+@media (min-width: 450px) and (max-width: 800px) {/*Tela de tablete com o tamanho de minimo de 450px e max de 800px de tela */
+   .logo {
+      margin-left: 30px;
+   }
+   .menu-opener { /*Aqui é aquela imagem menu para fazer a interação com menu na tela  , o processo de abrir e fechar o menu é feito com javascript*/
+      display: block;
+      width: 45px;
+      margin-right: 30px;
+   }
+   nav {
+      display: none; /*Aqui o menu vai desaparecer , o efeito de aparecer e sair é feito com javascript */
+      position: absolute; /*Para voce colocar o menu flutuando por cima da tela */
+      z-index: 99; /*Para ter certeza que fico por cima da tela mesmo */
+      background-color: rgba(0,0,0, 0.9); /*Bota uma cor preta com uma pequena transparencia atras para aparecer o fundo do site por tras do menu */
+      width: 70%; /*Voce pode colocar em porcentagem , isto é a largura  que o menu vai ocupar da tela quando ele for acionado no botão que ira ficar escondido os itens de menu   */
+      height: calc(100vh - 100px); /*Aqui voce vai usar o calc para voce usar 100vh da tela ocupar a tela toda , menos 100px  que seria do tamanho do menu que voce vai colocar pro top usando o atributo a seguir */
+      top: 100px; /*Coloca top 100px que é o tamanho do menu para ele descer 100px para baixo e aparecer fora do menu certinho*/
+      right: 0; /*E coloca right 0 para ele colar na tela no lado direito */
+   }
+   .menu ul {
+      flex-direction: column; /*Aqui no ul como ele normalmente estava com display flex e estava em linha um ao lado do outro , voce somente altera a direção para column , para ele aparecere em columa um abaixo do outro */
+   }
+   .menu li a {/*Voce aplica os efeitos agora para voce alterar os detalhes dos itens que estão no menu , mais não na tag li e sim na tag que esta dentro, pois é na tag a que estão os css */
+      font-weight: bold;
+      height: 80px;
+      font-size: 27px;
+      margin-left: 50px;
+      border: 0;
+   }
+   .menu li.active a { /*Agora voce vai alterar o li que esta com o active, que é aquela borda laranja  que fica em baixo , voce vai tirar esta borda, agora aqui voce vai colocar somente a cor no tag que esta no active que é a cor padrão laranja */
+      border: 0;
+      color: #b28756;
+   }
+
+
+
+   .section-aboutus { /*Voce somente coloca a seção do about us voce coloca como flex-direction column*/
+      flex-direction: column;
+   }
+   .section-aboutus--left { /*O texto que tem no section aboutus voce somente vai descolar do canto da tela dando um margin */
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-bottom: 30px;
+   }
+   .section-aboutus--right { /*A parte da imagem da section about , voce somente a largura fixa e coloca como auto , que automanticamente a imagem ira aparecer no centro da tela*/
+      width: auto;
+   }
+
+
+   .section-services { /*Aqui voce coloca um flex wrap para ele quebrar de linha  quando chegar no final */
+      flex-wrap: wrap;
+   }
+   .section-service { /*Somente o flex wrap não ira aparecer um abaixo do outro pois ele vai se adapatando , então voce coloca o width como 50% ele ainda vai ser adaptar na tela , então voce coloca um min-width de 50% para pelo menos ter 50%   */
+      min-width: 50%;
+      margin-bottom: 30px;
+   }
+   .section-service:first-child { /*Para tirar uma borda que esta la no lado do primeiro item */
+      border-left: 0;
+   }
+
+
+   .section-team { /*Aqui voce vai ter que fazer com que apareca somente 2 itens dos sliders ao inves de 3 como aparece na tela de um desktop normal. Mais para isto voce vai ter que fazer as contas de quanto de largura da cada slider e somar as 2 .
+   Cada slide tem 280px + 20 de margem = 300px 1 slide
+   2 slide tem ao total de 600px só que voce tira os 20 de margem do segundo slider ira ficar 580 . Ai voce coloca como tamanho maximo de tela dos sliders que seria a div de section-team ali voce altera a propriedade de largura */ 
+      max-width: 580px;
+   }
+
+   
+   .section-map { /*voce coloca uma padding nos lados do info do mapa para descolar as laterais e ficar mais ao centro da tela*/
+      padding-left: 30px;
+      padding-right: 30px;
+   }
+   .section-map--area { /*Mesmo voce colocando um padding no map ira aparecer na tag map area ira ter um tamanho fixo e so voce colocar uma largura auto para para o padding da direita pegar direiinho na tela*/
+      width: auto;
+   }
+   .section-map--info {
+      width: auto; /*Aqui agora o info do site tinha um tamanho fixo de 50%  voce tira e coloca auto , para o tamanho da tela fica normal .*/
+   }
+   .section-map--info-item {
+      margin-bottom: 20px; /*Voce coloca uma margem maior em cada item da lista, para poder da uma descolada de um item para outro */
+   }
+   .section-map--info-item:last-child {
+      margin-bottom: 0; /*no ultimo item da lista voce tira a margem que voce coloca ali acima , voce usa o atributo last-child para poder colocar somente no ultimo item*/
+   }
 }
