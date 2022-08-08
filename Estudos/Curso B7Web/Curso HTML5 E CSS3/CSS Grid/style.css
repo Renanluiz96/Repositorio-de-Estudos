@@ -4,9 +4,11 @@
    box-sizing: border-box;
 }
 .container {
+   background-color: grey;
    display: grid;
-   grid-template-columns: auto 200px 100px;
+   grid-template-columns:repeat(3, minmax(100px, 150px));
    gap: 10px 30px;
+   justify-content: space-between;
 }
 .item {
    background-color: tomato;
