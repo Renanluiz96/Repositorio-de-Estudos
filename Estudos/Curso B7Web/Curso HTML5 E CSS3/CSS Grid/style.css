@@ -6,9 +6,9 @@
 .container {
    background-color: grey;
    display: grid;
-   grid-template-columns:repeat(3, minmax(100px, 150px));
-   gap: 10px 30px;
-   justify-content: space-between;
+   grid-template-columns:repeat(3, minmax(150px, 180px));
+   gap: 10px;
+   justify-content: center;
 }
 .item {
    background-color: tomato;
@@ -17,3 +17,50 @@
    color: white;
    font-size: 20px;
 }
+.item1 {
+   grid-column: 1 / span 3;
+   grid-row: 1 / span 3;
+}
+.item10 {
+   grid-column: 1/ span 3;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.item1 {
+   grid-column-start: 1;
+   grid-column-end: 4;
+}
+.item3 {
+   grid-column-start: 2;
+   grid-column-end: 4;
+
+   grid-row-start: 2;
+   grid-row-end: 5;
+}
+.item8 {
+   grid-column-start: 3;
+   grid-column-end: 4;
+
+   grid-row-start: 5;
+   grid-row-end: 7;
+}*/
