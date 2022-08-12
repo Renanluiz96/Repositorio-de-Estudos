@@ -6,9 +6,12 @@
 .container {
    background-color: grey;
    display: grid;
-   grid-template-columns:repeat(3, minmax(150px, 180px));
    gap: 10px;
-   justify-content: center;
+   grid-template-areas: 
+      "item1 item1 item2"
+      "item3 . item2"
+      "item4 item4 item4"
+   ;
 }
 .item {
    background-color: tomato;
@@ -18,16 +21,17 @@
    font-size: 20px;
 }
 .item1 {
-   grid-column: 1 / span 3;
-   grid-row: 1 / span 3;
+   grid-area: item1;
 }
-.item10 {
-   grid-column: 1/ span 3;
-
+.item2 {
+   grid-area: item2;
 }
-
-
-
+.item3 {
+   grid-area: item3;
+}
+.item4 {
+   grid-area: item4;
+}
 
 
 
