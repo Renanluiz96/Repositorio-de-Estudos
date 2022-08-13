@@ -7,11 +7,7 @@
    background-color: grey;
    display: grid;
    gap: 10px;
-   grid-template-areas: 
-      "item1 item1 item2"
-      "item3 . item2"
-      "item4 item4 item4"
-   ;
+   grid-template-columns: repeat(3,1fr);
 }
 .item {
    background-color: tomato;
@@ -20,19 +16,18 @@
    color: white;
    font-size: 20px;
 }
-.item1 {
-   grid-area: item1;
-}
-.item2 {
-   grid-area: item2;
-}
-.item3 {
-   grid-area: item3;
-}
-.item4 {
-   grid-area: item4;
+
+@media (max-width: 750px) {
+   .container {
+      grid-template-columns: 1fr;
+   }
 }
 
+@media (min-width: 751px) and (max-width: 1024px) {
+   .container {
+      grid-template-columns: repeat(2, 1fr);
+   }
+}
 
 
 

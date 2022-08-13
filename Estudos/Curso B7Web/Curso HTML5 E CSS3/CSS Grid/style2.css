@@ -36,3 +36,14 @@ footer {
 .adv {
    grid-area: adv;
 }
+
+
+@media (max-width: 750px) {
+   .container {
+      grid-template-areas:
+         "header header header menu"
+         "content content content content"
+         "footer footer footer adv "
+      ;
+   }
+}
