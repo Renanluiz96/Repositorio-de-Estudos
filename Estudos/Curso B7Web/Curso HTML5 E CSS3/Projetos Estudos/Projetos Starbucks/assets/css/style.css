@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Oswald:wght@400;700&display=swap');
+
+body {
+   font-family: 'Open Sans', sans-serif;
+   margin: 0;
+}
+header .line {
+   background-color: #117050;
+   height: 10px;
+}
+.container {
+   max-width: 1140px;
+   margin: auto;
+}
+.header--area {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 100px;
+}
+.header--left img{
+   width: 64px;
+   height: 64px;
+}
+
+.header--right {
+   display: flex;
+   align-items: center;
+}
+.header--search form {
+   display: flex;
+}
+.header--search input {
+   font-size: 16px;
+   padding: 10px 13px;
+   border: 1px solid #999999;
+   outline: 0;
+   width: 100%;
+   max-width: 220px;
+   padding-right: 25px;
+}
+.header--search button {
+   border: 0;
+   background-color: transparent;
+   margin-left: -27px; /*Coloca uma margin negativo para que o botão da lupa entre para dentro do campo de pesquisa search*/
+   cursor: pointer;
+}
+.header--search button img {
+   width: 16px;
+   height: 16px;
+}
+.header--menu {
+   margin-left: 50px;
+   cursor: pointer;
+}
+.header--menu img {
+   width: 24px;
+   height: 24px;
+}
+
+.banner {
+   background-image: url(../images/bg.jpg); /*Para que o background image apareca voce tem que usar com mais 2 propriedades para que apareca na tela certinho o background position e o background size*/
+   background-position: center; /*Para ficar centralizada*/
+   background-size: cover; /*Para pegar a area disponivel*/
+   padding-top: 90px;
+   padding-bottom: 90px;
+}
+.banner h1 {
+   font-family: 'Oswald', sans-serif;
+   font-size: 90px;
+   font-weight: bold;
+   line-height: 100px;/*Para voce alterar a distanciamento entre as linhas das palavras que esta muito grande*/
+   margin: 0;
+   margin-bottom: 35px;
+}
+.banner--images {
+   margin-top: 60px;
+}
+.banner--images img {
+   width: 148px;
+   height: 148px;
+   border: 6px solid #117050;
+   border-radius: 50%;
+   margin-right: 40px;
+}
