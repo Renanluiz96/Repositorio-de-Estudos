@@ -136,3 +136,155 @@ h2 {
    background-size: cover;
    background-position: center;
 }
+
+
+.area2 {
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+}
+.area2--content{
+   padding: 80px;
+}
+.area2--text {
+   margin-bottom: 50px;
+   line-height: 25px;
+}
+.area2--img1 {
+   background-color: green;
+   height: 450px;
+   background-image: url(../images/f4.jpg);
+   background-size: cover;
+   background-position: center;
+}
+.area2--img2 {
+   grid-column: 1/ 2;
+   grid-row: 1/3;
+   background-image: url(../images/f3.jpg);
+   background-size: cover;
+   background-position: center;
+}
+
+.area3 {
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+}
+.area3--content{
+   padding: 200px 80px;
+   background-image: url(../images/bg2.jpg);
+   background-size: cover;
+   background-position: left;
+}
+.area3--text {
+   margin-bottom: 50px;
+   line-height: 25px;
+}
+.area3--img1 {
+   background-image: url(../images/f5.jpg);
+   background-size: cover;
+   background-position: center;
+}
+
+.area4 {
+   display: grid;
+   grid-template-columns: 450px 1fr;
+   background-color: #e8e9ee;
+}
+.area4--content {
+   padding: 150px 80px;
+}
+.area4--text {
+   margin-bottom: 50px;
+   line-height: 25px; 
+}
+.area4--img1 {
+   background-image: url(../images/bg3.jpg);
+   background-position: left;
+}
+
+.area5 {
+   background-image: url(../images/bg4.jpg);
+   background-size: cover;
+   background-position: center;
+   height: 600px;
+}
+
+footer {
+   background-color: #333;
+   color: white;
+   padding: 80px;
+   text-align: center;
+}
+
+@media (min-width: 769px) and (max-width: 1140px) {
+   .container { /*Como o conteudo vai colar na tela quando a tela chegar a 1140px o container vai criar um padding para descolar o conteudo da tela*/
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+}
+
+@media (min-width: 426px) and (max-width: 768px) { /*Agora com a tela de 768px que seria a tela de um tablet*/
+   .container {
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+   /*Quando chegar na tela de 768px alem de conter os padding do outro media anterior , agora ele vai alterar os tamanhos das imagens e os conteudos fazendo com que a coluna do conteudo fique com 3fr de espaço disponivel . sendo a coluna da imagem fique com 2fr que fica mostrando menos da foto e mais do conteudo .*/
+   .area1, .area3 {
+      grid-template-columns: 3fr 2fr;
+   }
+   .area2 {
+      grid-template-columns: 2fr 3fr;
+   }
+}
+
+@media (max-width: 425px) { /*Agora com a tela de 425 que seria de um dispositivo movel*/
+   .container {
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+   /*Voce comeca fazer uma alteração na barra de input la do header voce diminui o tamanho dela.*/
+   .header--search input {
+      max-width: 80px;
+   }
+   /*Voce pode diminuir o espacamaneto da barra de texto do input para o botão de menu voce diminui o margin dela*/
+   .header--menu {
+      margin-left: 20px;
+   }
+   /*Voce diminui o tamanho das fontes do seus titulos h1*/
+   h1 {
+      font-size: 50px;
+      line-height: 50px;
+   }
+   /*Diminui o tamanho da fonte dos h2 tambem*/
+   h2 {
+      font-size: 25px;
+      line-height: 30px;
+   }
+   /*Altera o tamanho das imagens do banner para que fique os 3 um lado a lado do outro na tela celular menor de 320px*/
+   .banner--images img {
+      width: 70px;
+      height: 70px;
+      border: 3px solid #117050;
+      border-radius: 50%;
+      margin-right: 10px;
+   }
+   /*Agora quando a tela estiver pequena , não vai ter como aparecer nas areas que tem 2 colunas , agora terão que ter somente 1 coluna só , somente a coluna do conteudo , a coluna da foto não vai ter mais . E tem que tirar os padding dos conteudos , se não os conteudos ficarão muito espremido*/
+   .area1,
+   .area2,
+   .area3,
+   .area4 {
+      grid-template-columns: 1fr;
+   }
+   .area1--content,
+   .area2--content,
+   .area3--content,
+   .area4--content {
+      padding: 40px;
+   }
+   .area5 {
+      height: 200px;
+   }
+   footer {
+      font-size: 12px;
+      padding: 40px 20px;
+   }
+}
