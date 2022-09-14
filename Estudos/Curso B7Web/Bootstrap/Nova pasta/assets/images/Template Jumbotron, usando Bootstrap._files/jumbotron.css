@@ -1,0 +1,4 @@
+/* Move o conteúdo 3.5rem para baixo, porque usamos uma navbar fixa que tem altura de 3.5rem */
+body {
+  padding-top: 3.5rem;
+}
