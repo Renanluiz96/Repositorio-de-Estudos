@@ -1,0 +1,18 @@
+.texto {
+   width: 200px;
+   height: 900px;
+   overflow: auto; /* como  overflow auto  eu quero dizer que se o conteudo dentro deste item ficar muito grande , ele pode  fazer um scroll(uma barra de rolagem)*/
+   background-color: #ccc;
+}
+.scrollbutton {
+   width: 40px;
+   height: 40px;
+   border-radius: 15px;
+   background-color: red;
+   position: fixed;
+   right: 20px;
+   bottom: 20px;
+   z-index: 999;
+   cursor: pointer;
+   display: none;
+}
