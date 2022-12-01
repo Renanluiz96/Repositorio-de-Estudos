@@ -137,12 +137,44 @@ c('.pizzaInfo--addButton').addEventListener('click', ()=>{//Adicionando ação a
     */
     let size = parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key'));
     //Depois de ter pego o atributo data key para saber o tamanho voce vai acrescentando ao carrinho que é o array cart , com a função push todas as informações que serão guardada em um objeto no array, cada pizza selecionada vai ter como informação Qual pizza, Qual o tamanho e Quantidade
-    cart.push({
-        id:pizzaJson[modalKey].id,//Voce vai salvar o id da pizza pegando a informação do modalKey que esta dentro do pizzaJson voce vai acessar o id real dela com o .id
-        size, //Que seria o tamanho que voce pego com a variavel size ali em cima, voce poderia colocar ; size:size , ou somente size
-        qt:modalQt // E a quantidade da pizza que voce vai pegar na variavel modalQt
-    })
 
+    //Cria um identificador para a pizza que vai ser o id @ e o tamanho dela
+    let identifier = pizzaJson[modalKey].id+'@'+size;
+
+    //Ele vai fazer uma verificação para ver o identificador da pizza , para não acrescentar mais pizzas do mesmo id , e ficar la varios identificadores repetindo , ele vai fazer a verificação com o finIndex se ja algum identifier, se caso tiver ele vai me retornar o index dele , se não achar ele vai retornar -1
+    let key = cart.findIndex((item)=>item.identifier == identifier);
+
+    //Voce faz uma verifiação com o resultado do findIndex , se ele retornar algum valor maior que -1 ou seja se ele achar um item igual se repetindo, ele vai alterar a quantidade de key do identificador e vai acrescentar a mais na quantidade final de cada identificador
+    if(key > -1) {
+        cart[key].qt += modalQt;
+    }else {
+        cart.push({
+            identifier,
+            id:pizzaJson[modalKey].id,//Voce vai salvar o id da pizza pegando a informação do modalKey que esta dentro do pizzaJson voce vai acessar o id real dela com o .id
+            size, //Que seria o tamanho que voce pego com a variavel size ali em cima, voce poderia colocar ; size:size , ou somente size
+            qt:modalQt // E a quantidade da pizza que voce vai pegar na variavel modalQt
+        })
+    }
+    //Atualiza o carrinho
+    updateCart()
     //Fechar o modal após toda ação executando a função de fechar o modal
     closeModal()
 })
+
+//Função para atualizar o carrinho
+function updateCart() {
+    if (cart.length > 0) {
+        c('aside').classList.add('show');
+
+        //Agora faz um for para pegar item a item e exibir na tela
+        for (let i in cart) {//Para pegar os itens do cart
+            //Voce cria a variavel que vai acessar o pizzaJson e com a função find ele vai procurar , se o id do item da função find, vai ser o mesmo id do index do for , e no final ele vai retornar os item da pizza mesmo nome imagem ... todas as informações usando o find, o findindex só vai retornar o numero do index.
+            let pizzaItem = pizzaJson.find((item)=>item.id == cart[i].id);
+
+            console.log(pizzaItem)
+
+        }
+    } else {
+        c('aside').classList.remove('show');
+    }
+}
