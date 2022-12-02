@@ -161,20 +161,105 @@ c('.pizzaInfo--addButton').addEventListener('click', ()=>{//Adicionando ação a
     closeModal()
 })
 
+//Fazendo um evento de click no botão de carrinho no header da pagina , para mobile
+c('.menu-openner').addEventListener('click', ()=>{
+    //Para fazer com que o menu de pizza apareca na tela pelo mobile . Voce tem que colocar o left como 0 . Porque ele no css esta com uma posição de left 100vw , ou seja ele ta todo para direita . então voce seta o left como 0 para ele descolar de la . Mais voce tem que fazer uma verificação para caso ele vai mudar a posição do menu se caso "tiver" item no carrinho , se não tiver quer dizer que o menu esta zerado e ele não precisa mostrar o menu na tela com o carrinho zerado
+    if (cart.length > 0)  { //Se caso tiver itens no carrinho  ou seja maior que 0 voce abre
+        c('aside').style.left = '0';
+    }})
+//Fazendo um evento de click no botão x la de dentro do carrinho para poder fechar a tela do menu
+c('.menu-closer').addEventListener('click', ()=>{//Aqui ao clicar no botão ele vai empurrar o menu para o lado direito onde ele estava , setando o left dele para 100vw denovo
+    c('aside').style.left = '100vw';
+})
+
+
 //Função para atualizar o carrinho
 function updateCart() {
+    //No mobile para voce alterar a quantidade de tipos de itens que irão ser mostrada no  carrinho la no header da pagina  para a quantidade total de itens do carrinho
+    c('.menu-openner span').innerHTML= cart.length; 
+
     if (cart.length > 0) {
         c('aside').classList.add('show');
+
+        //Aqui voce pega a div que esta o carrinho com as informações que voce for adicionando , e vai zerando cada vez que for dar o update na tela, se não vai ficar acrescentando duplicadamente , zerar e mostrar ...
+        c('.cart').innerHTML = '';
+
+        //Criando as variaveis dos preços dos carrinhos valores de subtotal, desconto , e o total começando com 0 e depois la dentro do for que vai preenchendo estes valores
+        let subtotal = 0;
+        let desconto = 0;
+        let total = 0;
 
         //Agora faz um for para pegar item a item e exibir na tela
         for (let i in cart) {//Para pegar os itens do cart
             //Voce cria a variavel que vai acessar o pizzaJson e com a função find ele vai procurar , se o id do item da função find, vai ser o mesmo id do index do for , e no final ele vai retornar os item da pizza mesmo nome imagem ... todas as informações usando o find, o findindex só vai retornar o numero do index.
             let pizzaItem = pizzaJson.find((item)=>item.id == cart[i].id);
 
-            console.log(pizzaItem)
+            //Preenchendo a informação do subtotal
+            subtotal += pizzaItem.price * cart[i].qt; //Subtotal comecando com 0 , ele vai pegar o preco da pizza e multiplicar pela quantidade do item em especifico .
 
+
+            //Preenchendo as informações do carrinho
+
+            // Voce cria a variavel cartItem para clonar e exibir na tela os itens do  carrinho
+            let cartItem = c('.models .cart--item').cloneNode(true);
+
+            //Aqui voce cria uma variavel vazia e preenche ela com um switch para mostrar ao lado da pizza o tamanho dela por letras ao inves de numeros(que normalmente iria mostrar) então voce faz um switch para cada tamanho ele preencher a variavel de acordo com a letra certa
+            let pizzaSizeName;
+            switch(cart[i].size) {
+                case 0:
+                    pizzaSizeName = 'P';
+                    break;
+                case 1:
+                    pizzaSizeName = 'M';
+                    break;
+                case 2:
+                    pizzaSizeName = 'G';
+                    break;
+            }
+            //Aqui voce vai criar a variavel que vai conter um templateString com o nome da pizza + o tamanho da pizza que voce crio e preencheu antes com  o switch
+            let pizzaName = `${pizzaItem.name} ${pizzaSizeName}`;
+
+            //Aqui voce vai preenchendo os itens na variavel que voce clono do carrinho
+            cartItem.querySelector('img').src = pizzaItem.img; //Imagem da pizza
+            cartItem.querySelector('.cart--item-nome').innerHTML = pizzaName;// Nome da pizza + Tamanho 
+            cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qt;//Quantidade de pizza
+
+            //Colocando as ações de clique ao adicionar mais e menos no carrinho
+            cartItem.querySelector('.cart--item-qtmenos').addEventListener('click', ()=>{//Evento de click no botão -
+                if (cart[i].qt  > 1){
+                    cart[i].qt--;
+                }else {//Aqui voce vai fazer o item sumir do carrinho , para não ficar mostrando 0 unidades , então quando não tiver nenhum item ao tiver 1 item e se voce clicar novamente em diminuir ele vai dar um splice para tirar do carrinho este 1 item que ai ele zera e some do carrinho
+                    cart.splice(i, 1)
+                }
+                updateCart()
+            })
+            cartItem.querySelector('.cart--item-qtmais').addEventListener('click', ()=>{//Evento de click no botão +
+                //Aproveitando o contexto do for que voce esta no laço de repetição , voce vai aqui no caso acrescentar a mais a quantidade do proprio item especifico que o for ta fazendo o looping
+                cart[i].qt++ ; 
+
+                //E depois de adicionar o item incrementando a mais , é rodar novamente a função updateCart() na tela sempre quando  voce clicar  no botão , pra ele ir sempre atualizando a tela com a quantidade certa
+                updateCart()
+            })
+
+
+            //Depois de ter clonado e preenchido as informações voce vai exibir o item clonado na tela selecionando a div onde voce quer adicionar e dando um append do clone neste lugar
+            c('.cart').append(cartItem);
         }
+
+        //Depois do for eu calculo o restante dos itens
+        desconto = subtotal * 0.1; //Desconto vai ser 10% de todo o valor da compra 
+        total = subtotal - desconto; //Total vai ser o subtotal - o desconto eu vou chegar ao preco final
+
+        //Depois de ter feito Todo o calculo , agora é hora de colocar estes valores na tela. Voce seleciona a div e altera o valor que vai estar em um span.
+        c('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`;
+        c('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`;
+        c('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`;
+
     } else {
+        //Fecha no computador desktop
         c('aside').classList.remove('show');
+        // Fecha no celular tambem ao zerar o  item do menu carrinho
+        c('aside').style.left = '100vw' //Empurrando de volta para a posição inicial dele.
     }
+
 }
