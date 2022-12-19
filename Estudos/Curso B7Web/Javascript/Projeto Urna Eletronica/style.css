@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.urna {
+    background-color: #dbd5c9;
+    padding: 30px;
+    display: flex;
+}
+.tela {
+    width: 400px;
+    height: 320px;
+    background: linear-gradient(to right, #e8e8e8, #c1c1c1);
+}
+.teclado {
+   background-color: #4a3a3a;
+    margin-left: 30px;
+}
+.teclado-linha {
+    display: flex;
+    justify-content: center;
+}
+.teclado-botao {
+    width: 60px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px #444;
+}
