@@ -54,9 +54,52 @@ function comecarEtapa() {
 }
 
 //Sempre que voce fizer uma ação , voce digito um numero ele vai preencher o numero la na variavel numero de ambiente  e depois ele atualiza a interface . E depois de completar de digitar , ele vai verificar quem é o candidato e as informações dele na tela.
+
+
 function atualizaInterface() {
+    //Depois de digitar os numeros do candidato , tem que aparecer as informações dos candidatos na tela . 
+    //Tem que fazer uma procurar pelo numero do candidato
+    let etapa = etapas[etapaAtual] //Para pegar o numero e as informações dos objetos do array de candidatos e conseguir usar eles para pegar as informações
+
+    //Usa um filter , para filtrar o candidato que voce digito , se os numeros forem o mesmo que os numeros do candidato que esta salvo no array , e ele vai retornar true e vai salvar os numeros do candidato. ou vai retornar false e não vai salvar os numeros do candidato. E vai pegar as informações todas que conter dentro do objeto candidatos mesmo
+    let candidato = etapa.candidatos.filter((item)=> {
+        //Voce faz uma verificação se o numero do candidato que voce digito é igual ao numero que esta la salvo nele no array. se for voce mostra as informações na tela
+        if(item.numero === numero) {
+            return true
+        } else {
+            return false
+        }
+    }) //Depois de ter pego o candidato certo , e os dados dele que agora esta salvo na variavel candidato. Se ele não conseguir achar um candidato ele vai retornar um array vazio.
+
+    //Faz uma verificação se ele acho um candidato ou seja se o array candidato for maior do que 0 quer dizer que ele achou
+    if (candidato.length > 0) {
+        candidato = candidato[0]; // Que seria o proprio candidato mesmo
+
+        //Agora depois de ter achado o candidato voce vai preencher as informações na tela
+        seuVotoPara.style.display = 'block';
+        //Colocar as descrições dos candidatos usando as informações do array que esta salva na variavel candidato que voce digito e pego as informações
+        descricao.innerHTML = `Nome: ${candidato.nome} <br/>Partido: ${candidato.partido}`
+        aviso.style.display = 'block'
+        //Cada candidato tem um array de fotos , então tem que monta esta estrutura pois ele pode ter varias fotos
+        let fotosHtml = '';//Monta a estrutura onde vai ser inserida a foto
+        for( let i in candidato.fotos) {
+            //Faz um for para cada uma das fotos do candidato voce vai preenchendo aquela estrutura que comeco vazia , voce coloca a div html da foto ,e nela voce preenche as fotos de acordo com o propriedade do objeto
+            //Cada foto que tiver voce vai preenchendo com a div que contem a foto voce vai la pega a div onde esta o candidato , e no src da imagem voce altera a foto pela foto que esta dentro do array
+            fotosHtml += `<div class="d-1-image"><img src="images/${candidato.fotos[i].url}" alt=""><p>${candidato.fotos[i].legenda}</p></div>`;
+
+
+        }
+        lateral.innerHTML = fotosHtml //Depois de preenchido a estrutura voce inseri ela na lateral
+
+    } else { //Agora fazer o preenchimento do voto nulo ou caso voce erro de digitar o numero do candidato
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block'
+        //Agora na descrição voce coloca a mensagem do erro , e usa tambem a classe aviso grande e no css voce altera esta propriedade , e usa tambem a class pisca para fazer piscar a frase
+        descricao.innerHTML = '<div class="aviso--grande pisca">VOTO NULO</div>'
+    }
 
 }
+
 
 function clicou(n) {
     //Ao clicar voce vai verificar se tem algum quadrado com o pisca ativado ou seja a classe que tenha o numero com a classe que contenha tambem o pisca. Voce vai pegar este numero

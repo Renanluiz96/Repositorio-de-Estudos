@@ -104,7 +104,9 @@ body{
 /*Aqui onde vai ser colocado o numero do candidato vai ter um efeito de pisca  quando estiver selecionando o numero do candidato */
 .d-1-3 {
     height: 50px;
-    display: flex;
+    display: flex
+    
+    ;
     
 }
 .numero {
@@ -162,4 +164,9 @@ body{
 p {
     margin: 0;
     
+}
+
+.aviso--grande {
+    font-size: 30px;
+    font-weight: bold;
 }
