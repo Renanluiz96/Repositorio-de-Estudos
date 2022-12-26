@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+header {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: lightgray;
+}
+.header {
+    height: 50px;
+    background-color: red;
+}
+.slider {
+    flex: 1;
+    overflow: hidden;/* Tudo que passar fora desta div vai ser cortado , não vai aparecer , se não vai conter barra de rolagem*/
+}
+.slider--width {
+    height: 100%;/*100% do tamanho disponivel vai ser o tamanho do slider*/
+    display: flex;
+
+    transition: all ease 0.3s; /*A transição de margin-left para mover as imagens vai ser de 0.3 segundos só pra ter um efeito visual*/
+}
+.slider--item {
+    width: 100vw;/*E cada item vai ser 100% da tela do usuario*/
+    height: inherit;/*E a altura ele vai herdar a altura da div pai dela que serio o 100%*/
+
+    /*Efeitos de posicionamento das imagens , para posicionar ela no centro , um cover para independente do monitor , ela vai se ajustar para tentar pegar toda a area disponivel da tela do usuario*/
+    background-position: center;
+    background-size: cover;
+}
+
+.slider--controls {
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.slider--control {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}

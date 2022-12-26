@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlideShow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header"></div>
+        <!--Tem que ter pelo menos 2 divs. 1 onde vai ter o conteudo completo do slider, depois tem que ter pelo menos uma outra div que essa é a div que vai se mover para um lado e para o outro . 
+        Pois em um slider de imagens quem se  mov para um lado e para o outro não são as imagens , mais sim a div em que estas imagens estão dentro . Elas se movem sempre para esquerda-->
+        <div class="slider">
+            <!--O tamanho da div em que engloba as imagens , tem que ter  no "minimo" o tamanho  da largura das 3 imagens juntas . Se por exemplo cada imagem tem 100px de largura , então a div em que elas estão dentro tem que ter no minimo 300px . Pois se for menor que o tamanho das 3 juntas . a ultima imagem ira quebrar e ira para baixo . Por isso que a largura desta div tem que ser dinamica sempre de acordo com o conteudo que tem dentro dela(imagens)   -->
+
+            <div class="slider--width"> <!-- Esta div slider width vai ser a div em que vai engloba as imagens que são os slider item dentro dela . Então ela vai ter uma largura dinamica de acordo com a tela do usuario . Width vai ser o tamanho da tela multiplicado pelo quantidade de imagem que esta div vai ter-->
+
+                <!-- Botões de voltar e adiantar a foto vão ficar por cima da imagem -->
+                <div class="slider--controls">
+                    <div class="slider--control" onclick="goPrev()">voltar</div>
+                    <div class="slider--control" onclick="goNext()">proxima</div>
+                </div>
+
+
+                <!-- Cada div item aqui seria a imagem que vai ficar no background da div-->
+                <div class="slider--item" style="background-image: url(images/1.jpg);"></div>
+                <div class="slider--item" style="background-image: url(images/2.jpg);"></div>
+                <div class="slider--item" style="background-image: url(images/3.jpg);"></div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        Resto do site
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
