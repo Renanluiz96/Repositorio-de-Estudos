@@ -16,19 +16,18 @@
         <div class="slider">
             <!--O tamanho da div em que engloba as imagens , tem que ter  no "minimo" o tamanho  da largura das 3 imagens juntas . Se por exemplo cada imagem tem 100px de largura , então a div em que elas estão dentro tem que ter no minimo 300px . Pois se for menor que o tamanho das 3 juntas . a ultima imagem ira quebrar e ira para baixo . Por isso que a largura desta div tem que ser dinamica sempre de acordo com o conteudo que tem dentro dela(imagens)   -->
 
+             <!-- Botões de voltar e adiantar a foto vão ficar por cima da imagem -->
+             <div class="slider--controls">
+                <div class="slider--control" onclick="goPrev()">voltar</div>
+                <div class="slider--control" onclick="goNext()">proxima</div>
+            </div>
+
             <div class="slider--width"> <!-- Esta div slider width vai ser a div em que vai engloba as imagens que são os slider item dentro dela . Então ela vai ter uma largura dinamica de acordo com a tela do usuario . Width vai ser o tamanho da tela multiplicado pelo quantidade de imagem que esta div vai ter-->
 
-                <!-- Botões de voltar e adiantar a foto vão ficar por cima da imagem -->
-                <div class="slider--controls">
-                    <div class="slider--control" onclick="goPrev()">voltar</div>
-                    <div class="slider--control" onclick="goNext()">proxima</div>
-                </div>
-
-
                 <!-- Cada div item aqui seria a imagem que vai ficar no background da div-->
-                <div class="slider--item" style="background-image: url(images/1.jpg);"></div>
-                <div class="slider--item" style="background-image: url(images/2.jpg);"></div>
-                <div class="slider--item" style="background-image: url(images/3.jpg);"></div>
+                <div class="slider--item" style="background-image: url(images/1.jpg);">Viva o surf</div>
+                <div class="slider--item" style="background-image: url(images/2.jpg);">Aproveite a prancha</div>
+                <div class="slider--item" style="background-image: url(images/3.jpg);">Pega onda</div>
             </div>
         </div>
     </header>
