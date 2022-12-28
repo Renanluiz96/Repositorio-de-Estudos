@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de formularios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="leftside">
+            <img src="images/financial_data.png" alt="">
+        </div>
+
+        <div class="rightside">
+
+            <h1>Crie seu formulario</h1>
+
+            <form action="POST" action="cadastro.php" class="validator">
+                <label>
+                    Digite seu nome:<br>
+                    <input type="text" name="name" data-rules="required|min=2">
+                </label>
+                <label>
+                    Digite seu e-mail:<br>
+                    <input type="email" name="email">
+                </label>
+                <label>
+                    Digite sua senha:<br>
+                    <input type="password" name="password">
+                </label>
+                <label >
+                    <input type="submit" value="CADASTRAR">
+                </label>
+
+                <div class="">Ja tem a sua conta ?
+                    <a href="">Faça sua conta</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
