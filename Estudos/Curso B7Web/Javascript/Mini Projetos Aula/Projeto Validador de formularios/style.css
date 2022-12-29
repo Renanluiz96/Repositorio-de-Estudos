@@ -8,11 +8,13 @@ body {
 .container {
     height: 100vh;
     width: 100%;
-    display: flex;
+    display: grid;
+    
+    grid-template-areas: "left left left left right right right"
     
 }
 .leftside {
-    flex: 1;
+    grid-area: left;
     height: auto;
     display: flex;
     justify-content: center;
@@ -23,7 +25,8 @@ img {
     height: auto;
 }
 .rightside {
-    max-width: 500px;
+    grid-area: right;
+    max-width: 100%;
     background-color: #ccc;
     padding: 30px;
     
@@ -42,3 +45,43 @@ input {
     width: 100%;
     
 }
+
+.error {
+    font-size: 12px;
+    background-color: red;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+@media (min-width: 751px) and (max-width: 1024px) {
+    .container {
+       grid-template-columns: repeat(2, 1fr);
+    }
+ }
+
+ @media (max-width: 750px) {
+    .container {
+        grid-template-areas:
+         "left"
+         "right"
+         "right"
+        ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .leftside img {
+        width: 100%;
+    }
+    .rightside {
+        max-width: 80%;
+    }
+    .rightside h1 {
+        text-align: center;
+        font-size: 24px;
+        margin: 0;
+        padding-bottom: 5px;
+    }
+ }

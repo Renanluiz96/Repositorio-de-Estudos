@@ -8,7 +8,10 @@ let validator = {
         let send = true; //Inicialmente comeca como true para enviar o formulario
 
         //Pegando os inputs dos campos de texto que estão dentro do formulario voce usa um queryselector dentro da variavel form , porque la esta o formulario
-        let inputs = form.querySelectorAll(input);
+        let inputs = form.querySelectorAll('input');
+
+        //Ao clicar no submit , se tiver algum erro no input , voce ja limpa os erros que ja estão na tela , para não ficar aparecendo com a função clearErrors
+        validator.clearErrors()
         
         //Depois de pegar os inputs , vai fazer um loop para fazer uma verificação em cada um deles
         for(let i=0; i<inputs.length; i++) {
@@ -21,7 +24,9 @@ let validator = {
                 //Então como deu um erro , voce tem que passar o send para false para que ele não envie o formulario
                 send = false;
 
-                //Exibir o erro                
+                //Depois de checar os erros voce mostra ele na tela com uma função ShowError() mandando o input em qual o erro esta acontecendo e o erro em si , que no caso seria uma mensagem de erro.
+                validator.showError(input, check)
+                             
             }
 
         }
@@ -55,13 +60,56 @@ let validator = {
                         }
                     break;
                     case 'min':
+                        //Se a quantidade de caracteres tiver menor que o rdetails[1] que seria o que voce estipulo depois do = no min ou seja min=2 , então se for digitado menos que 2 caracteres ele vai mostrar este erro
+                        if(input.value.length < rDetails[1]) {
+                            return 'Campo tem que ter pelo menos ' +rDetails[1] + ' caracteres' 
+                        }
+                    break;
+                    case 'email':
+                        //Se o input estiver diferente de vazio , ou seja se tiver preenchido
+                        if(input.value != '') {
+                            //Para verificar se o campo digitado é um email voce usa expressão regular para verificar o email, se o email bate com um padrão que voce crio la na "expressão regular".
+                            let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // Expressão regular para verificação de email.
 
+                            //Ai voce faz um teste da sua expressão
+                            if(!regex.test(input.value.toLowerCase())) {
+                              return 'E-mail digitado não é valido'  
+                            }
+                        }
                     break;
                 }
             }
         }
 
         return true; //Caso não tiver regra , passa direto pelo if e da um retorno true dizendo que não tem nenhuma regra
+    },
+    //FUNÇÃO PARA MOSTRAR ERROS NA TELA
+    showError:(input, error) => {
+        //Mostra uma mensagem de erro logo apos o campo de input.
+
+        //Trocar a cor da borda do input para vermelho
+        input.style.borderColor = 'red'
+
+        //Colocando uma mensagem na tela , abaixo do input. Voce vai ter que criar o elemento pois , não existe no html , então sera criado a partir do javascript e colocado acima do label de baixo pois pelo javascript , voce não pode colocar ele em baixo somente em cima . Então usa-se uma propriedade para ele colocar acima do proximo item ,e visualmente fica parecendo que esta abaixo do input que voce quer
+        let errorElement = document.createElement('div');
+        errorElement.classList.add('error')
+        errorElement.innerHTML = error; //Voce vai inserir nesta div criada o seu erro , que no caso seria aquela frase da string
+
+        //Colocando na posição certa o erro . Voce usa o parentElement = para voltar um item acima ou seja ele esta dentro do label , então ele volta para este label. insertBefore = função do javascript que vai inserir "antes" alguma coisa , que no caso seria a div que eu criei via javascript. elementSibling = Vai acrescentar ao proxima tag html ou seja vai acrescentar antes do proximo label. Que visualmente fica abaixo do label de cima.
+        input.parentElement.insertBefore(errorElement, input.ElementSibling);
+    },
+    //FUNÇÃO PARA LIMPAR OS ERRORS NA TELA
+    clearErrors:() => {
+        //Tirar a borda vermelha dos inputs
+        let inputs = form.querySelectorAll('input');
+        for(let i=0;i<inputs.length; i++) {
+            inputs[i].style = ''
+        }
+        //Todas as divs que tiverem a classlist error, ele vai remover esta classe
+        let errorElements  = document.querySelectorAll('.error');
+        for(let i = 0; i<errorElements.length;i++) {
+            errorElements[i].remove()
+        }
     }
 }
 
