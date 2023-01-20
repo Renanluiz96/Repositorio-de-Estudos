@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src", "Aulas/Children e Fragment/components"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
