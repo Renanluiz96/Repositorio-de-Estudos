@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "Aulas/Children e Fragment/components"],
+  "include": ["src", "Aulas/Children e Fragment/components", "Aulas/State/Introducao ao useState/App.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,5 +1,5 @@
-import { Header } from './Header'
-import { Photo } from './Photos'
+import { Header } from './Components/Header'
+import { Photo } from './Components/Photos'
 const App = () => {
 
   return (
