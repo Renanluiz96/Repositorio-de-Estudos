@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from '../Aulas/State/comunicacao-entre-componentes/App'
+import App from '../Aulas/Renderizando-listas/App'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
