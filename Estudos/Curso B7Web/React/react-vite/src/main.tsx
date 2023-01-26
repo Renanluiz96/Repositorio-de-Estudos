@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from '../Aulas/renderizando-conteudo-adicional/App'
+import App from '../Aulas/Estilizacao/Estilizando-com-Stylesheet/App'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
