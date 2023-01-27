@@ -29,11 +29,8 @@ const App = () => {
     return (
         <div>
             {/*Usando os componentes , com o C. antes */}
-            <C.Container bgcolor="orange">
-
-                {/*Tags dentro de componentes voce pode estilizar dentro do componente container ,como um filho dele */}
-                <span>Texto do componente.</span>
-                <a className='link' href="">Link Qualquer</a>
+            <C.Container bgcolor="orange"> 
+                Texto do componente.
 
                 {/*Passando uma prop no componente, no caso da prop small , como é um boolean pode ser escrito assim . Colocando props para adaptar o componente do jeito que quisermos*/}
                 <C.Botao bg="#FF0000" >Botao grande</C.Botao>

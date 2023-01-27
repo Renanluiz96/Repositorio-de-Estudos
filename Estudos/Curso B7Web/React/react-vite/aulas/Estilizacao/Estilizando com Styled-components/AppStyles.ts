@@ -25,42 +25,7 @@ type ContainerProps = {
     bgcolor?: string;
 }
 export const Container = styled.div<ContainerProps>`
-    max-width : 400px;
-    margin: auto;
     background-color: ${props => props.bgcolor};
     color: white;
     padding: 20px;
-    display: flex;
-
-    span {
-        font-weight: bold;
-        color : #000;
-    }
-
-    .link {
-        color: #FFF;
-
-
-        &:hover {
-            color: #00FF00;
-        }
-    }
-
-    @media (max-width: 300px) {
-        background-color: green;
-        flex-direction: column;
-
-        span {
-            color: #0000FF;
-        }
-    }
 `;
-//Estilizando tags filhas dentro de componentes voce estilicando dentro do proprio componentes, e se tiver mais outros componentes dentro deste componentes . Voce estiliza como um css normal. posso coloca um hover da propria tag colocando como & dentro da tag que quero usar para dizer que o hover é dele mesmo
-
-
-/*
-Responsividade = Cada componentes no styled-components é independente então cada um tem suas proprias estilizações , animações, efeitos e hovers . Componente totalmente independente.
-Então voce pode tambem criar responsividades independentes tambem com o @media (Tamanho da tela ...) {Estilizações ...}.
-Estilizar ao mudar o tamanho da tela  tambem os componentes ou tags filhas de dentro do seu componentes
-
-*/
