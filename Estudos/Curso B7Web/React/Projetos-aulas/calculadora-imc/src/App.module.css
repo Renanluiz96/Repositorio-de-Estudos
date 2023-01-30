@@ -1,0 +1,60 @@
+* { box-sizing: border-box; }
+body {
+    font-family: Arial,Helvetica, sans-serif;
+}
+.headerContainer {
+    max-width: 900px;
+    margin: 40px auto;
+}
+.container {
+    display: flex;
+    max-width: 900px;
+    margin: auto;
+}
+
+/*Estilizando o container da esquerda*/
+.container .leftSide {
+    flex: 1;
+    margin-right: 40px;
+}
+.container .leftSide h1 {
+    margin: 0;
+    font-size: 40px;
+    color: #3A4B5C;
+}
+.container .leftSide p {
+    font-size: 16px;
+    margin-bottom: 40px;
+    color: #6A7d8b;
+}
+/*Estilização do input não precisa de class, como so tem estes input, voce pode fazer a estilização direto na tag, que vai funcionar nos dois inputs*/
+.container .leftSide input {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid rgba(150, 163, 171, .5);
+    padding: 10px 2px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    outline: 0;
+}
+.container .leftSide button {
+    background-color: #227c9d;
+    color: white;
+    font-size: 15px;
+    border: 0;
+    border-radius: 10px;
+    padding: 15px 0px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: all ease .3s;
+    /*Efeito de transição para trocar o efeito hover mais suave*/
+}
+.container .leftSide button:hover {
+    opacity: .9;
+}
+
+
+.container .rightSide {
+    flex: 1;
+}
