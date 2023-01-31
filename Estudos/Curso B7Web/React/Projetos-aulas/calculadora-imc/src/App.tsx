@@ -58,7 +58,7 @@ const App = () => {
         </div>
         
         <div className={styles.rightSide}>
-          {/*Criando o right side , vai ser um grid que ele vai pegar o array como os levels de de */}
+          {/*Criando o right side , vai ser um grid que ele vai pegar o array como os levels de de vai fazer um map , e ira mostrar na tela o componente grid , que vai ter a prop item que seria o proprio objeto , então cada item deste map , vai ser o objeto que contem as informações la do imc. E voce trabalha dentro do componente, e ele vai ser renderizado aqui . */}
           <div className={styles.grid}>
             {levels.map((item, key) => (
               <GridItem key={key} item={item}  />
