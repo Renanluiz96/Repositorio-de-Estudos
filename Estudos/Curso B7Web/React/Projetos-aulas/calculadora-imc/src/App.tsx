@@ -3,6 +3,10 @@ import styles from "./App.module.css"; //Usando o module.css no projeto . Toda v
 
 //Importando os arquivos de imagens e colocando nome neles para ser passados como props na tag
 import poweredImage from './assets/powered.png'
+import { GridItem } from './components/GridItem';
+
+//Importando o arquivo com a logica de todo o imc
+import { levels, calculateImc } from './helpers/imc'
 
 
 const App = () => {
@@ -52,8 +56,14 @@ const App = () => {
 
           <button onClick={handleCalculateButton}>Calcular</button>
         </div>
+        
         <div className={styles.rightSide}>
-          ...
+          {/*Criando o right side , vai ser um grid que ele vai pegar o array como os levels de de */}
+          <div className={styles.grid}>
+            {levels.map((item, key) => (
+              <GridItem key={key} item={item}  />
+            ))}
+          </div>
         </div>
       </div>
     </div>
