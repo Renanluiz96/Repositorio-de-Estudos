@@ -26,11 +26,13 @@ export const GridItem = ({item}: Props) => {
 
                 {/* Faz uma verificação se tiver algum item  preenchido no toShow, ao mostrar a div grande na tela com o imc do usuario, vai ser criado uma nova div no meio mostrando qua foi o imc do usuario */}
                 {item.yourImc &&
-                    <div className={styles.yourImc}>Seu IMC é de {item.yourImc} KG/M²</div>
+                    <div className={styles.yourImc}>Seu IMC é de {item.yourImc} KG/M²
+                    </div>
                 }
 
                 <div className={styles.gridInfo}>
-                    <>{/*Faz um fragment para poder usar o strong e dentro dele coloca o valor do imc que é um array  que tem os 2 valores , então coloca de acordo que vai do valor do primeiro item do array, até o segundo item do array imc que esta dentro do objeto. */}
+                    {/*Faz um fragment para poder usar o strong e dentro dele coloca o valor do imc que é um array  que tem os 2 valores , então coloca de acordo que vai do valor do primeiro item do array, até o segundo item do array imc que esta dentro do objeto. */}
+                    <>
                         IMC esta entre <strong>{item.imc[0]}</strong> e <strong>{item.imc[1]}</strong>
                     </>
                 </div>

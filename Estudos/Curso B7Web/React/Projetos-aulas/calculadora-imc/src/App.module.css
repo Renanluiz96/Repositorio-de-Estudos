@@ -2,14 +2,19 @@
 body {
     font-family: Arial,Helvetica, sans-serif;
 }
+.geral {
+    padding-bottom: 20px;
+}
 .headerContainer {
     max-width: 900px;
     margin: 40px auto;
+    padding: 20px;
 }
 .container {
     display: flex;
     max-width: 900px;
     margin: auto;
+    padding: 15px;
 }
 
 /*Estilizando o container da esquerda*/
@@ -37,6 +42,9 @@ body {
     font-size: 14px;
     outline: 0;
 }
+.container .leftSide input:disabled {
+    opacity: .5;
+}
 .container .leftSide button {
     background-color: #227c9d;
     color: white;
@@ -53,7 +61,10 @@ body {
 .container .leftSide button:hover {
     opacity: .9;
 }
-
+.container .leftSide button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
 
 .container .rightSide {
     flex: 1;
@@ -87,4 +98,32 @@ body {
 }
 .container .rightSide .rightArrow:hover {
     opacity: .8;
+}
+
+@media (max-width: 770px) {
+    
+    .container {
+        padding: 0 20px;
+        flex-direction: column;
+    }
+    .container .leftSide {
+        margin-right: 0;
+    }
+    .container .rightSide {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+    .container .rightSide .rightArrow {
+        margin-top: 0;
+        margin-left: 0;
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 430px) {
+    .container .rightSide .grid {
+        grid-template-columns: 1fr;
+    }
 }

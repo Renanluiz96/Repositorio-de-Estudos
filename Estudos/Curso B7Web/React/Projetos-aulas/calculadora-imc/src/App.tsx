@@ -39,7 +39,7 @@ const App = () => {
   }
 
   return(
-    <div className={styles.main}> 
+    <div className={styles.geral}> 
       <header>
         <div className={styles.headerContainer}>
           <img src={poweredImage} alt="" width={150}/>
@@ -58,6 +58,7 @@ const App = () => {
 
            //Ao clicar no botão voce ira alterar o valor do input, mas o value por padrão é uma string, e como voce tipou a state para um number, então tem que usar a função parseFloat para transformar o valor da string em numero, se não fizer isto ira dar problema
            onChange={e => setHeightField(parseFloat(e.target.value))}
+           disabled={toShow ? true : false} //Ativa o disable . Caso o toshow estiver true ou seja se ele estiver com algum conteudo  ele ativa , para não digitar mais nada novamente, caso contrario não tiver nada digitado , ele fica como false podendo o usuario digitar.
           />
 
           <input 
@@ -65,9 +66,10 @@ const App = () => {
           placeholder='Digite seu peso. Ex: 73.3 (em kg)'
           value={weightField > 0 ? weightField : ''}
           onChange={e => setWeightField(parseFloat(e.target.value))}
+          disabled={toShow ? true : false}
           />
 
-          <button onClick={handleCalculateButton}>Calcular</button>
+          <button onClick={handleCalculateButton} disabled={toShow ? true : false}>Calcular</button>
         </div>
         
 
