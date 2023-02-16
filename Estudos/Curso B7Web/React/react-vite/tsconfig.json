@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "Aulas/Children e Fragment/components", "Aulas/State/Introducao ao useState/App.tsx"],
+  "include": ["src", "Aulas/Children e Fragment/components", "Aulas/State/Introducao ao useState/App.tsx", "aulas/Requisicao/requisicao-post/components", "aulas/Requisicao/requisicao-post/api.ts", "aulas/Requisicao/requisicao-post/App.tsx", "aulas/Requisicao/requisicao-post/Post.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
