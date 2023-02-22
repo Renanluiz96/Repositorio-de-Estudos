@@ -1,4 +1,4 @@
-import { useContagem } from "./reducer/contagem"; //Usando o useContagem voce ja vai ter acesso a todo que tem la dentro do arquivoc contagem e com o hook do useReducer que vai ta dentro o useContagem
+import { useContagem } from "./contagem"; //Usando o useContagem voce ja vai ter acesso a todo que tem la dentro do arquivoc contagem e com o hook do useReducer que vai ta dentro o useContagem
 
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
     Depois de todos criados, voce precisa tipar eles.
 
     */
-    const [state, dispatch] = useContagem();
+    const [state, dispatch] = useContagem(); //Aqui voce so faz em state e dispatch e usa o hook useContagem que ele vai usar o useReducer que ta la organizadinho na pasta dele. e aqui voce ja pode usar tudo que estiver dentro dele.
 
     return (
         <div className="p-5">
