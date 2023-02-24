@@ -48,3 +48,11 @@ export const GridArea = styled.div`
         margin: 0 15px;
     }
 `;
+
+export const Grid = styled.div`
+    //Precisa de um tamanho fixo para posicionar ele ,na tela. Mas os cards dentro do grid não eles se ajustarão conforme o tamanho
+    width: 400px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+`;
