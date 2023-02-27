@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import * as C from './App.styles'; //Importa o arquivo de estilos do styled componentes . Importei tudo e alterei o nome para 'C'
 import logoImage from './assets/devmemory_logo.png';
+import RestartIcon from './svgs/restart.svg'
+
 import { Button } from './components/Button';
 import { InfoItem } from './components/InfoItem';
-import RestartIcon from './svgs/restart.svg'
+import { GridItem } from './components/GridItem';
+
+import { GridItemType } from './types/GridItemType';
+import { items } from './data/items';
 
 const App = () => {
   // State para saber so o jogo esta rolando ou não.
@@ -12,18 +17,54 @@ const App = () => {
   const [timeElapsed, setTimeElapsed] = useState<number>(0);
   //State para cada movimento que foi feito , ou seja cada vez que clico no card .
   const [moveCount, setMoveCount] = useState<number>(0);
-  //
-  const [shownCount, setShownCount] = useState(0);
-  //
-  const [gridItems, setGridItems] = useState(false);
+  //State para mostrar a quantidade de cards que estão virados na tela.
+  const [shownCount, setShownCount] = useState<number>(0);
+  //State que vai ser um array das informações do grid
+  const [gridItems, setGridItems] = useState<GridItemType[]>([]);
 
 
   useEffect(() => resetAndCreateGrid(), []
   )
 
-  const resetAndCreateGrid = () => {
+  const resetAndCreateGrid = () => {//Passo a passo para criar o jogo
+    // Passo 1ª  = Resetar o jogo  zerando os contadores
+    setTimeElapsed(0);
+    setMoveCount(0);
+    setShownCount(0);
+
+    //Passo 2 Criar o Grid
+    //2.1 - Criar um grid vazio
+    let gridTemporario: GridItemType[] = []; //Cria um array temporario para guardar os items
+    // Faz um for com tamanho dinamico de quantidade de items do grid multiplicado por 2 , e depois voce inseri dentro do array temporario que voce crio vazio , inseri um objeto contendo os items com as propriedades vazia e false para poder ser alterada futuramente. 
+    for (let i = 0; i < (items.length * 2); i++) {
+      gridTemporario.push({item: null, shown: false, permanentShown: false})
+    }
+
+    // 2.2 - Preencher o grid
+    for(let w = 0; w < 2; w++) { //Como ele tem que ser selecionado o card 2 vezes primeiro cria um for com 2 items
+      for(let i = 0; i < items.length; i++) {//Depois faz um for pelo tamanho total da variavel items
+        let pos = -1; //Comeca uma pos -1 pois 0 ja vai ser 1 posição do array. -1 para poder entrar no while
+        while(pos < 0 || gridTemporario[pos].item !== null) {
+        //Faz uma verificação se tiver algum item acima de 0 , e algum item na posição que não tenha o null , ou seja se tiver algum item vazio . ele entra no while
+          pos = Math.floor(Math.random() * (items.length * 2)); // Aqui preenche uma posição aleatoria. do valor total do array item vezes 2 pois seria o total de cards na tela. 
+        }
+        gridTemporario[pos].item = i; //Depois de sair do while ele vai achar o item vazio e vai preencher com o i
+      }
+    }
+
+
+    //2.3 - jogar no state
+    setGridItems(gridTemporario);
+
+    // Passo 3 - Comecar o jogo
+    setPlaying(true)
 
   }
+  
+  const handleItemClick = (index:number) => {
+
+  }
+
 
   return(
     <C.Container> 
@@ -43,7 +84,13 @@ const App = () => {
 
       <C.GridArea>
         <C.Grid>
-
+          {gridItems.map((item, index)=> ( 
+            <GridItem 
+            key={index}
+            item={item}
+            onClick={()=> handleItemClick(index)}
+            />
+          ))}
         </C.Grid>
       </C.GridArea>
     </C.Container>
