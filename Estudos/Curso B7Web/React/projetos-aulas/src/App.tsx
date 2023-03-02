@@ -40,6 +40,67 @@ const App = () => {
     return () => clearInterval(timer)//Criar um return , para que quando saia da memoria, ou atualiza a tela  ou qualquer uma coisa aconteca com a aplicação , ele tem que "zerar o timer" , mandando um clearInterval , e  voce manda a variavel que esta o setinterval, que ele zera o setInterval.- return do useEffect serve para isso.
   }, [playing, timeElapsed])
 
+  //useEffect para fazer a verificação dos movimentos.
+  
+  useEffect(() => {
+    // Verificar se o contador esta igual a 2 . Se tiver 2 cards exibidos na tela.
+    if(shownCount === 2) { 
+      //Fazer um array para pegar os items que estão com o shown true . Se o shown for true ele vai entrar no filtro que seria um novo array
+      let opened = gridItems.filter(item => item.shown === true);
+
+      //Depois de filtrado, se o opened for 2 , faz mais uma verificação
+      if(opened.length === 2) {
+
+        //v1 - Se eles são iguais, faz o shown ficar permanente  se o item do array 1 é igual ao item do array 2 .
+        if (opened[0].item === opened[1].item) {
+
+          //Criar o clone do grid sempre. Para não fazer alterações no array principal
+          let tmpGrid = [...gridItems];
+          //Faz um loop dentro do array temporario
+          for( let i in tmpGrid) {
+            //E verifica cada um , se o shown for verdadeiro . Ele vai pegar o permanentShown e transformar ele para true. Deixando ele true, e vai setar de volta o shown para false. 
+            if (tmpGrid[i].shown) {
+              tmpGrid[i].permanentShown = true;
+              tmpGrid[i].shown = false;
+
+            }
+          }
+          //Depois de verificado , setado para a posição certa cada card. Seta o gridItems como o temporario grid, para ele pega as informações deles. e altera o contador na tela para zero novamente.
+          setGridItems(tmpGrid);
+          setShownCount(0);
+        } else {
+          //v2 - Se eles não são iguais, fechar todos os shown
+          //Fazer uma função para setar um tempo de 1 segundo , para podermos visualizar quais cards virou errados antes deles virarem novamente.
+          setTimeout(()=> {
+            let tmpGrid = [...gridItems];
+            // Cria um clone tambem, e faz um loop , setando o shown deles para false novamente.
+            for(let i in tmpGrid) {
+              tmpGrid[i].shown = false;
+            }
+            //Depois de setar para a posição inicial . Setar o gridItems como o temportario igual no if, e o contador para 0 tambem
+            setGridItems(tmpGrid);
+            setShownCount(0);
+          }, 1000)
+        }
+
+        //Setando a state do contador incrementando a cada 1 jogada feita, ao final ele vai incrementar o contador
+        setMoveCount( moveCount => moveCount + 1)
+      }
+
+    }
+
+  }, [shownCount, gridItems])
+
+  //useEffect para verificar se o jogo ja acabou
+  useEffect(() => {
+    //Verifica se o moveCount > 0 , então quer dizer que tem alguma jogada. E se todos os itens estão com permanentShown true. Usa a função every que auxilia que se "todos" os itens satisfazerem uma condicional dentro do every, então o every retorna true. Então verifica se todos os permanentShown estiverem true , então ele vai retornar true, e mostra que o jogo esta finalizado.
+    if(moveCount > 0 && gridItems.every(item => item.permanentShown === true
+      )) {
+        //Se ele terminar o jogo, ele seta o playing para false, que automaticamente, tudo para de funcionar. Unica coisa que vai funcionar na tela, é o botão de reiniciar , para poder reiniciar o game novamente.
+        setPlaying(false)
+    }
+
+  }, [moveCount, gridItems])
 
   const resetAndCreateGrid = () => {//Passo a passo para criar o jogo
     // Passo 1ª  = Resetar o jogo  zerando os contadores
@@ -77,23 +138,39 @@ const App = () => {
   }
   
   const handleItemClick = (index:number) => {
-    if(playing && index !== null && shownCount > 2) {
+    //Faz uma verificação para ver se o jogo estiver rodando(playing estiver true), se o card que voce clico tiver alguma carta para mostrar(se o index tiver diferente de null  então tem algo para mostrar), e se o shownCount for menor que 2 para poder mostrar até 2 carta por vez
+    if(playing && index !== null && shownCount < 2) {
+
+      //Cria um array que vai ser a copia do array original , para não alterar direto do array original(da problema no react.)
       let tmpGrid = [...gridItems]
+      
+      //Faz outra verificação se o permanentShown e o shown do index tiverem false(então basicamente o card esta de costas.) , sendo assim agora tem que virar o card.
+      if (tmpGrid[index].permanentShown === false && tmpGrid[index].shown === false) {
+
+        //Se ele tiver false. Agora voce coloca como true o shown para alterar visualmente na tela, e aquela index do card ou seja o card mesmo ,passa a ser true.
+        tmpGrid[index].shown = true;
+        //Depois de virada a carta o contador incrementa mais um numero.
+        setShownCount(shownCount + 1)
+      }
+
+      //Depois de toda a modificação voce manda o clone que voce crio e fez toda a alteração nele , voce manda ele agora , para o react entender que voce ta mandando um array totalmente diferente do original , daquele que voce tinha antes. aquele la ta intacto.
+      setGridItems(tmpGrid)
     }
   }
+
 
 
   return(
     <C.Container> 
       <C.Info>
         <C.LogoLink href=''>
-          <img src={logoImage} alt="" />
+          <img src={logoImage} alt="" width={200}/>
         </C.LogoLink>
         
 
         <C.InfoArea>
           <InfoItem label="Tempo" value={formatTimeElapsed(timeElapsed)} />
-          <InfoItem label="Movimentos" value="0"/>
+          <InfoItem label="Movimentos" value={moveCount.toString()}/>
         </C.InfoArea>  
 
         <Button label='Reiniciar' icon={RestartIcon} onClick={resetAndCreateGrid} />

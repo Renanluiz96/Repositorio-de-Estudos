@@ -19,5 +19,5 @@ type IconProps = {
 export const Icon = styled.img<IconProps>`
     width: 40px;
     height: 40px;
-    opacity: ${props => props.opacity ?? 1}; //se props.opacity for receber o mesmo valor voce pode colocar ?? , exemplo 
+    opacity: ${props => props.opacity ?? 1}; //se props.opacity for receber o mesmo valor voce pode colocar ?? , exemplo props.opacity ? props.opacity : 1. Então se a a propriedade for receber ela mesma caso o contrario recebe outra , voce pode simplificar usando o ?? , sempre se for do caso dela receber ela mesma.
 `;
