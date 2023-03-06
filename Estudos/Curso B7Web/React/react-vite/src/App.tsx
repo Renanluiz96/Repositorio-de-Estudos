@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom"
 //Importando as paginas que serão carregadas . no Routes
 import { Home } from "./pages/Home"
 import { About } from "./pages/About"
+import { AboutRenan } from "./pages/AboutRenan"
+import { AboutPedro } from "./pages/AboutPedro"
 
 
 const App = () => {
@@ -18,6 +20,9 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/sobre" element={<About />} />
+                    <Route path="/sobre/renan" element={<AboutRenan />} />
+                    <Route path="/sobre/pedro" element={<AboutPedro />} />
+
                 </Routes>
 
             </div>

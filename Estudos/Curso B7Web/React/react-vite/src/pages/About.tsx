@@ -1,5 +1,10 @@
 export const About = () => {
     return(
-        <div>Pagina About </div>
+        <div>Pagina sobre
+            <ul>
+                <li>Renan</li>
+                <li>Pedro</li>
+            </ul>
+        </div>
     )
 }
