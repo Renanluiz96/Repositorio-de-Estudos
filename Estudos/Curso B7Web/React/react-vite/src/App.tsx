@@ -5,6 +5,7 @@ import { Home } from "./pages/Home"
 import { About } from "./pages/About"
 import { AboutRenan } from "./pages/AboutRenan"
 import { AboutPedro } from "./pages/AboutPedro"
+import { NotFound } from "./pages/NotFound"
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
                     <Route path="/sobre" element={<About />} />
                     <Route path="/sobre/renan" element={<AboutRenan />} />
                     <Route path="/sobre/pedro" element={<AboutPedro />} />
+                    <Route path="*" element={<NotFound />} /> {/*Rota para pagina não encontrada usa o path="*" para dizer que qualquer url que for digitada não achar nenhuma rota , ela vai redirecionar para esta rota aqui .  */}
 
                 </Routes>
 
