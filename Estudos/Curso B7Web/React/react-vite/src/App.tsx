@@ -6,6 +6,7 @@ import { About } from "./pages/About"
 import { AboutRenan } from "./pages/AboutRenan"
 import { AboutPedro } from "./pages/AboutPedro"
 import { NotFound } from "./pages/NotFound"
+import { AboutItem } from "./pages/AboutItem"
 
 
 const App = () => {
@@ -23,7 +24,13 @@ const App = () => {
                     <Route path="/sobre" element={<About />} />
                     <Route path="/sobre/renan" element={<AboutRenan />} />
                     <Route path="/sobre/pedro" element={<AboutPedro />} />
-                    <Route path="*" element={<NotFound />} /> {/*Rota para pagina não encontrada usa o path="*" para dizer que qualquer url que for digitada não achar nenhuma rota , ela vai redirecionar para esta rota aqui .  */}
+                    {/* Rotas normais onde poderão ser acessadas pela url, ou redirecionada atraves de algum botão pode ser redirecionado para estas rotas. */}
+
+                    <Route path="/sobre/:slug" element={<AboutItem />}/>
+                    {/* Rota dinamica usando o : referencia que esta é uma rota dinamica e o valor depois dela slug(normalmente um identificador para substituir um id) este é um parametro que vai servir de idnetificação la na pagina que aqui seria o componente AboutItem. */}
+
+                    <Route path="*" element={<NotFound />} /> 
+                    {/*Rota para pagina não encontrada usa o path="*" para dizer que qualquer url que for digitada não achar nenhuma rota , ela vai redirecionar para esta rota aqui .  */}
 
                 </Routes>
 
