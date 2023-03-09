@@ -1,4 +1,4 @@
-import { MainRoutes } from "./Routes/MainRoutes"
+import { MainRoutes } from "./Routes/MainRoutes" //Só importa o componente. e o usa no site, o restante das rotas voce cria la e aqui só importa e usa ele de fato. Para deixar o seu App principal com menos codigo acumulado possivel.
 const App = () => {
     return (
         <div className="p-4">
