@@ -9,7 +9,7 @@ type Props = {
 export const RequireAuth = ({ children }: Props) => { //Todo o componente que estiver dentro de outro componente ele é um "children" então tem que passar ele como parametro entre {} - ficara { children } e tem que fazer um type para esta Props.
 
     //Normalmente estas pagina de verificação sempre retorna um boolean , então se for true = mostra o conteudo dentro. Caso de false = mostra outra tela, ou a pagina inicial normalmente(Barrando a passagem para a rota privada) . Basicamente é assim. Ai voce cria uma variavel , faz algum tipo de verificação que retorna ou true ou false.
-    const isAuth = false;
+    const isAuth = true;
 
 
     //Aqui é se caso a varivavel de autenticação der false(!isAuth) então ele pega e retorna para a pagina inicial , ou outra pagina que não seja a que voce quer redirecionar, voce manda ele para algum lugar para que o usuario não fique vendo uma tela em branco.
