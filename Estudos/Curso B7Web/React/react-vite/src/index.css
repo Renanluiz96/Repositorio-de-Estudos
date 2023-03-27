@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+    padding: 15px;
+}
+h1 {
+    font-weight: bolder;
+    font-size: 20px;
+    padding: 50px;
+}
