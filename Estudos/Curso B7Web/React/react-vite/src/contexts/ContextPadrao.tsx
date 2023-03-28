@@ -18,29 +18,29 @@ Fazer o Contexto como estar abaixo
 
 
 //Tipagem dos dados do contexto
-type ContextType = {
-    name: string;
-    age: number
-}
+// type ContextType = {
+//     name: string;
+//     age: number
+// }
 
 //Dados que vai ter acesso global dentro do componente
-const initialState = {
-    name: 'Renan',
-    age: 26
-}
+// const initialState = {
+//     name: 'Renan',
+//     age: 26
+// }
 
 
 //Criando o contexto usando o createContext Tipando ele com a tipagem dos dados a serem usados, e passando entre parenteses a variavel que vai ter as informação global para uso.
-export const Context = createContext<ContextType>(initialState);
+// export const Context = createContext<ContextType>(initialState);
 
 
 //Criando como um componente o Context Provider como uma função que retorna um componente. Este componente precisa de um parametro "children" - este children basicamente é todo o conteudo que voce vai colocar dentro dele seja ele um componente ou o site inteiro.
 // O componente Context.Provider tera que ter um value  que seria a variavel com as informações globais a serem usadas (aqui declarei como initialstate) . Voce exporta ela e usa no app.tsx e usando dentro do contexto que voce quer usar apenas colocando este component e dentro do componente o que voce quer que tenha estes dados .
-export const ContextProvider = ({ children }: React.PropsWithChildren
-    ) => {
-    return (
-        <Context.Provider value={initialState}>
-            {children}
-        </Context.Provider>
-    )
-}
+// export const ContextProvider = ({ children }: React.PropsWithChildren
+//     ) => {
+//     return (
+//         <Context.Provider value={initialState}>
+//             {children}
+//         </Context.Provider>
+//     )
+// }

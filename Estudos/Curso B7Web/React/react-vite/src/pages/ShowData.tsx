@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 
 import { useContext } from 'react';
-import { Context } from '../contexts/ContextPadrao';
+import { Context } from '../contexts/ContextReducer';
 
 export const ShowData = () => {
 
-    const { name, age } = useContext(Context)
+    const { state, dispatch } = useContext(Context)
 
     return (
         <div>
-            Tela ShowData de {name} , que tem  {age} anos.
+            Tela ShowData de {state.user.name} , que tem  {state.user.age} anos.
             <br/>
             <Link to="/">Voltar para SignUp</Link>
         </div>

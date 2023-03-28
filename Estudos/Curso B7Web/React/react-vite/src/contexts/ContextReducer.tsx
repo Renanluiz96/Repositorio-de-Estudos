@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { Children, createContext, useReducer } from "react";
 //Importando os dados la do arquivo reducer
 import { UserType, userInitialState, userReducer } from "../reducers/userReducer";
 import { reducerActionType } from "../types/reducerActionType";
@@ -28,7 +28,7 @@ const initialState = {
 
 //Criando um contexto utilizando reducers. Mandando dentro do createContext dois parametros o primeiro que seria o dado da state, e o segundo seria o dispatch(que é a função do reducer, para alteração do reducer por ações.)
 
-export const ContextReducer = createContext<ContextType>({
+export const Context = createContext<ContextType>({
     //State com o type que vai ter aquela state "global" que dentro desta state ja tem a deste reducer, podendo ter até mais.
     state: initialState,
     
@@ -42,3 +42,13 @@ const mainReducer = (state:initialStateType, action: reducerActionType) => ({
     //Aqui vai ter este reducer que vai ter uma função do reducer criada externamente, utilizando  o dado do proprio usuario que foi pego tambem em um arquivo externo e tipado para este reducer.
     user: userReducer(state.user, action)
 });
+
+export const ContextProvider = ({ children }: React.PropsWithChildren) => {
+    const [state, dispatch] = useReducer(mainReducer, initialState);
+
+    return (
+        <Context.Provider value={{state, dispatch}}>
+            {children}
+        </Context.Provider>
+    )
+}
