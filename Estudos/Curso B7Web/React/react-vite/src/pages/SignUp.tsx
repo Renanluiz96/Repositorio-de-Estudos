@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 //Usar os dados do contexto voce importa eles onde voce quer usar, voce importa o contexto apenas, o provider não precisan pois ele voce só importa ele uma vez. Mas quando voce quer usar um componentes ou paginas especificas dentro de onde estiver o provider englobando ou seja esta page ja esta dentro do provider ou seja do componente provider.
 
 //Usa o contexto importando ele da pagina Context
-import { Context } from '../contexts/Context';
+import { Context } from '../contexts/ContextPadrao';
 
 //Para usar em qualquer parte do componente ou pagina, voce usa um hook chamado useContext sempre que quer usar ele . Para usar o hook voce precisa importa-lo
 import { useContext } from 'react';
