@@ -1,7 +1,8 @@
-import { Children, createContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 //Importando os dados la do arquivo reducer
 import { UserType, userInitialState, userReducer } from "../reducers/userReducer";
 import { reducerActionType } from "../types/reducerActionType";
+import { ThemeType, themeInitialState, themeReducer } from "../reducers/themeReducer";
 
 
 
@@ -9,6 +10,7 @@ import { reducerActionType } from "../types/reducerActionType";
 type initialStateType = {
     //Criar um type que vai ser usado neste reducer, que poderia ter mais de 1 reducer , e este type vai ser o type exportao junto com a constante que ja tem salvo os dados.
     user: UserType
+    theme: ThemeType
 }
 
 // Criando um type para o contexto que vai tertypes mais genericos.
@@ -22,7 +24,8 @@ type ContextType = {
 const initialState = {
     //Como pode ter mais de um reducer eu coloco um user com uma tipagem do reducer que quero usar, se tiver outro reducer pode colocar um outro dado com a tipagem para outro reducer
 
-    user: userInitialState //Este user vai ser usado em um reducer, por isso que coloquei esta tipagem , pois la ja vai ter acesso ao name e age que são os dados que quero usar.
+    user: userInitialState, //Este user vai ser usado em um reducer, por isso que coloquei esta tipagem , pois la ja vai ter acesso ao name e age que são os dados que quero usar.
+    theme: themeInitialState
 }
 
 
@@ -40,7 +43,8 @@ export const Context = createContext<ContextType>({
 //Reducer global - que vai receber por parametros a state com o type global de state. e o actio que vai ter um type para action externo
 const mainReducer = (state:initialStateType, action: reducerActionType) => ({
     //Aqui vai ter este reducer que vai ter uma função do reducer criada externamente, utilizando  o dado do proprio usuario que foi pego tambem em um arquivo externo e tipado para este reducer.
-    user: userReducer(state.user, action)
+    user: userReducer(state.user, action),
+    theme: themeReducer(state.theme, action)
 });
 
 export const ContextProvider = ({ children }: React.PropsWithChildren) => {

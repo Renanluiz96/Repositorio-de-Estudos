@@ -32,7 +32,7 @@ export const SignUp = () => {
     return (
         <div>
             
-            <h3>Tela de Sign up</h3>
+            <h3>Tela de Sign up (Tema: {state.theme.status})</h3>
 
             <input
                 type="text"
