@@ -15,19 +15,38 @@ export const SignUp = () => {
     //Agora posso ter acesso as informações la do contexto e usa-las aqui. Apenas chamando pela variavel que esta quebrada dentro do objeto.
     const { state, dispatch} = useContext(Context)
 
-    const handleChangeName = () => {
+   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch({
             type: 'CHANGE_NAME',
-            payload: {
-                name: 'Pedro'
-            }
+            payload: { name: e.target.value }
         })
-    }
+   }
+
+   const handleAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+        type: 'CHANGE_AGE',
+        payload: { age: parseInt(e.target.value) }
+    })
+   }
 
     return (
         <div>
-            Tela SignUp de {state.user.name} que tem {state.user.age} anos
-            <button onClick={handleChangeName}>Trocar nome para pedro</button>
+            
+            <h3>Tela de Sign up</h3>
+
+            <input
+                type="text"
+                placeholder='Digite seu nome'
+                value={state.user.name}
+                onChange={handleNameChange}
+            />
+            <input
+                type="text"
+                placeholder='Digite sua idade'
+                value={state.user.age}
+                onChange={handleAgeChange}
+            />
+
             <br />
             <Link to="/exibir">Ir para ShowData</Link>
         </div>

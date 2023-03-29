@@ -11,8 +11,8 @@ export type UserType = {
 
 //Dados iniciais que o meu reducer vai ter(futuramente pode ser alterado.)
 export const userInitialState = {
-    name: 'Renan',
-    age: 26
+    name: '',
+    age: 0
 }
 
 //Criando o proprio reducer, usando os type do userType, e o type externo para a action.
