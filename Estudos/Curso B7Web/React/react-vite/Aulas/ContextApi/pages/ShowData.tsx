@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { useContext } from 'react';
-import { Context } from '../contexts/ContextReducer';
+import { Context } from '../../aulas/ContextApi/contexts/ContextReducer';
 
 export const ShowData = () => {
 
