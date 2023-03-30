@@ -34,6 +34,7 @@ Visão geral do redux :
 Normalmente se cria uma pasta chamada redux , e dentro desta pasta se coloca todas as outras relacionadas ao redux nela , as pastas reducers, hooks e types.
 
 Sempre no redux comeca criando os reducers primeiro ou seja a pasta reducers e cada reducer como arquio .ts do reducer em especifico, ou seja quer criar um reducer de usuario cria userReducer.ts .
+Depois de criado os reducers, voce precisa cria e configurar o store. Cria um arquivo dentro da pasta do redux mesmo , chamado store.ts .
 
 */
 
