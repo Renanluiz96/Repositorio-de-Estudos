@@ -2,6 +2,7 @@
 
 //Importa o configureStore dentro do toolkit.
 import { configureStore} from '@reduxjs/toolkit'
+import themeReducer from './reducers/themeReducer';
 
 //Importa o reducer do userReducer para guardar no store
 import userReducer from './reducers/userReducer'
@@ -11,7 +12,8 @@ import userReducer from './reducers/userReducer'
 export const store = configureStore({
     reducer: {
         //Dentro aqui voce coloca um  nome do reducer e importa o reducer aqui e coloca ele junto aqui. Ex : nomedoreducer: reducer
-        user: userReducer
+        user: userReducer,
+        theme: themeReducer
     }
 });
 

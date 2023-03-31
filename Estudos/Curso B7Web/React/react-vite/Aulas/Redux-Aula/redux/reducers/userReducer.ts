@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 //Criando um reducer usando a função creatSlice e dentro dela usando um objeto .
-export const slice = createSlice({
+const slice = createSlice({
     // Dentro da função createSlice ele espera que voce mande um name: nome do reducer. Estado inicial - que seria o initialState que é o estado inicial que vai comecar o reducer , normalmente comeca vazio se tiver string , e depois vai incrementando ou alterando. E por fim os reducers - que seria os proprios reducers , as funções das actions .
     // Não precisa tipar nada pois ele ja tem essa estrutura e ele ja sabe o que é cada coisa aqui dentro.
 
