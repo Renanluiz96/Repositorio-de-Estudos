@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "Aulas/Children e Fragment/components", "Aulas/State/Introducao ao useState/App.tsx", "aulas/Requisicao/requisicao-post/components", "aulas/Requisicao/requisicao-post/api.ts", "aulas/Requisicao/requisicao-post/App.tsx", "aulas/Requisicao/requisicao-post/Post.ts", "aulas/React-Routes/pages", "aulas/React-Routes/Routes", "aulas/React-Routes/App.tsx", "aulas/React-Routes/RequireAuth.tsx", "aulas/ContextApi/contexts", "aulas/ContextApi/pages", "aulas/ContextApi/reducers", "aulas/ContextApi/types", "aulas/ContextApi/App.tsx", "aulas/Redux/hooks"],
+  "include": ["src", "Aulas/Children e Fragment/components", "Aulas/State/Introducao ao useState/App.tsx", "aulas/Requisicao/requisicao-post/components", "aulas/Requisicao/requisicao-post/api.ts", "aulas/Requisicao/requisicao-post/App.tsx", "aulas/Requisicao/requisicao-post/Post.ts", "aulas/React-Routes/pages", "aulas/React-Routes/Routes", "aulas/React-Routes/App.tsx", "aulas/React-Routes/RequireAuth.tsx", "aulas/ContextApi/contexts", "aulas/ContextApi/pages", "aulas/ContextApi/reducers", "aulas/ContextApi/types", "aulas/ContextApi/App.tsx", "aulas/Redux/hooks", "setupTests.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
