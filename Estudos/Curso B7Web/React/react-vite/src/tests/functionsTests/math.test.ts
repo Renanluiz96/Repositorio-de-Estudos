@@ -37,4 +37,3 @@ describe('testing math function', () => {
         expect(result).toBe(2)
     })
 });
-
