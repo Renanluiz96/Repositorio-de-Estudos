@@ -75,6 +75,7 @@ it('should go to the registration page when clicking on the register button', ()
         registerButton.click();
     });
 
+    
     //Depois de acessar a pagina nova ja clicada, fiz uma verificação se na pagina nova existia um texto com o screen.getByText para pegar um texto basico que estaria na tela. Depois de salvar esta verificação de texto na tela. 
     const registrationTitle = screen.getByText('Cadastro de carro');
     //Faz um except para ver se o valor da variavel estaria no documento . Se passar no teste quer dizer que ele acesso o botão , fez o click e testo um texto na pagina nova renderizada
