@@ -5,4 +5,10 @@
 
 import validator from "validator";
 
-console.log(validator.isEmail('renan@gmail.com'))
+let nome: string = 'Renan'
+
+if(validator.isLowercase(nome)) {
+    console.log(`O seu nome ${nome} esta todo minusculo`)
+} else {
+    console.log(`O seu nome ${nome} NÃO esta todo minusculo`)
+}
