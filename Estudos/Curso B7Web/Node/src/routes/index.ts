@@ -10,8 +10,10 @@ const router = Router();
 //Agora é apenas configurar , igual configuro a rota la no servidor, mais voce vai salvar ela na variavel que voce crio acima. Tem que importa tambem o Request e Response para criar aqui tambem exatamente como estava la no servidor.
 
 router.get('/', (req: Request, res: Response) => {
+    //res.send('Ola Mundo!')
 
-    res.send('Ola Mundo!')
+    //Para usar o arquivo mustache tem que uar o .render e dentro dela voce coloca somente o nome da pagina que voce quer renderizar na tela como uma string
+    res.render('home')
 })
 
 router.get('/contato', (req: Request, res: Response) => {
