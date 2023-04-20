@@ -1,5 +1,5 @@
 //Servidor - vai usar o arquivo de rotas que foi criado separadamente, e este arquivo "é apenas para o uso das rotas que foram criados externamente."
-import express from 'express';
+import express, { Response, Request } from 'express';
 //Importando o arquivo de rota
 import mainRoutes from './routes/index'
 import painelRoutes from './routes/painel'
@@ -14,5 +14,11 @@ server.use('/', mainRoutes);
 // Ex : /painel/noticia - acessa outra parte do site.
 //Para ter acesso as rotas do painel tem que passar na url /painel primeiro para ter acesso 
 server.use('/painel', painelRoutes)
+
+//Caso queira fazer uma pagina de não encontrado , caso o usuario queira acessar uma pagina que  não tenha na rota , voce pode mostrar para ele uma pagina padrão que fica configurada exclusivamente no servidor.
+server.use((req: Request, res: Response)=> {
+    //Caso o usuario tento acessa alguma rota e não conseguiu ter acesso a nada então mostra este resutado para ele , e passando o status da pagina para 404(para o navegador entender que é uma pagina não encontrada.)
+    res.status(404).send('Pagina não encontrada!')
+})
 
 server.listen(80);
