@@ -25,7 +25,17 @@ router.get('/', (req: Request, res: Response) => {
         //Segundo parametro do render é um objeto contendo as informações que voce quer enviar para usar na tela  , do primeiro parametro . Podendo ser variaveis que voce cria aqui mesmo como esta ali acima , ou criar variaveis aqui mesmo .
         name: 'Renan',
         lastName: 'Luiz',
-        showOld
+        showOld,
+        products: [
+            {title: 'Produto X', price: 10},
+            {title: 'Produto Y', price: 15},
+            {title: 'Produto Z', price: 20}
+        ],
+        frasesQualquer: [
+            'Alguma frase boa',
+            'Outra fase melhor ainda',
+            'Esta frase é uma string ?'
+        ]
     })
 })
 

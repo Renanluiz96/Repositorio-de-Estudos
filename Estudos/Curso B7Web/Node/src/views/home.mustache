@@ -8,10 +8,25 @@
         <h1>Titulo da pagina</h1>
         <hr/>
 
-        {{! Fazendo a verificação caso o valor do conteudo showold(que é a variavel boolean de verificação) for true ele mostra o conteudo , caso não ele não mostra. }}
+        {{! Fazendo a verificação caso o valor do conteudo showold(que é a variavel boolean de verificação) for true ele mostra o conteudo , caso não ele não mostra. Usando sempre # abri a tag com  o nome da variavel boolean. e depois fecha  usando / nome da variavel . e entre ela o conteudo a ser mostrado }}
         {{#showOld}}
             opa {{ name }}, tudo bem ? {{ lastName }}
         {{/showOld}}
+
+
+        {{! Fazendo um loop no mustache a sintaxe é igual a de condicional com p # e / fechando tag. Só que o mustache ele vai saber quem é quem de acordo com a variavle passada depois do # . Se for um array e dentro dele tiver objeto os nomes das variaveis do objeto pode escrever direto pois no ambiente ali ele vai saber que é a varial que vai estar dentro do objeto, se for um array de strings . e quer mandar em um loop voce so passa ele com um ponto que ele vai fazer um loop mostrando todas as strings daquele array }}
+
+        <ul>
+            {{#products}}
+                <li> {{ title }} - R$ {{ price }}</li>
+            {{/products}}
+        </ul>
+    
+        <ul>
+            {{#frasesQualquer}}
+                <li>{{.}}</li>
+            {{/frasesQualquer}}
+        </ul>
         
 
     </body>
