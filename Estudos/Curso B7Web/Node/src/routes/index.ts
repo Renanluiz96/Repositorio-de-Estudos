@@ -32,9 +32,11 @@ router.get('/', (req: Request, res: Response) => {
             {title: 'Produto Z', price: 20}
         ],
         frasesQualquer: [
+            /*
             'Alguma frase boa',
             'Outra fase melhor ainda',
             'Esta frase é uma string ?'
+            */
         ]
     })
 })
