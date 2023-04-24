@@ -11,9 +11,16 @@ const router = Router();
 
 router.get('/', (req: Request, res: Response) => {
     //res.send('Ola Mundo!')
-
-    //Para usar o arquivo mustache tem que uar o .render e dentro dela voce coloca somente o nome da pagina que voce quer renderizar na tela como uma string
-    res.render('home')
+    let pessoa = {
+        name: 'renan',
+        age: 90
+    }
+    //Para usar o arquivo mustache tem que uar o .render e dentro dela voce coloca somente o nome da pagina que voce quer renderizar na tela como uma string.
+    res.render('home', {
+        //Segundo parametro do render é um objeto contendo as informações que voce quer enviar para usar na tela  , do primeiro parametro . Podendo ser variaveis que voce cria aqui mesmo como esta ali acima , ou criar variaveis aqui mesmo .
+        user: 'Fulano',
+        user2: pessoa
+    })
 })
 
 router.get('/contato', (req: Request, res: Response) => {
