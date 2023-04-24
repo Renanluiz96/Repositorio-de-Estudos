@@ -7,7 +7,12 @@
     <body>
         <h1>Titulo da pagina</h1>
         <hr/>
-        opa {{ user2.name }}, tudo bem ? {{user2.age}}
+
+        {{! Fazendo a verificação caso o valor do conteudo showold(que é a variavel boolean de verificação) for true ele mostra o conteudo , caso não ele não mostra. }}
+        {{#showOld}}
+            opa {{ name }}, tudo bem ? {{ lastName }}
+        {{/showOld}}
+        
 
     </body>
 </html>

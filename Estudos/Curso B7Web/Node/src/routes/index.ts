@@ -11,15 +11,21 @@ const router = Router();
 
 router.get('/', (req: Request, res: Response) => {
     //res.send('Ola Mundo!')
-    let pessoa = {
-        name: 'renan',
-        age: 90
+
+    //Fazer uma exibição condicional voce tem que fazer ela aqui e depois mostar o resultado la no mustache, o arquivo mustache não faz verificações de condicionais la então voce faz aqui e usa la. 
+    let age: number = 90;
+    let showOld: boolean = false ; //Faz uma variavel que comeca como false. Faz uma verificação aqui caso for satisfeita voce altera o valor desse boolean para true assim . mandando esta variavel la no render . para ser mostrado . E la ele verifica se tiver true a variavel ele vai mostrar o conteudo na tela se tiver false ele não mostra o conteudo.
+    if (age > 50) {
+        showOld = true;
     }
+
+
     //Para usar o arquivo mustache tem que uar o .render e dentro dela voce coloca somente o nome da pagina que voce quer renderizar na tela como uma string.
     res.render('home', {
         //Segundo parametro do render é um objeto contendo as informações que voce quer enviar para usar na tela  , do primeiro parametro . Podendo ser variaveis que voce cria aqui mesmo como esta ali acima , ou criar variaveis aqui mesmo .
-        user: 'Fulano',
-        user2: pessoa
+        name: 'Renan',
+        lastName: 'Luiz',
+        showOld
     })
 })
 
