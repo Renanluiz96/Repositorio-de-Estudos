@@ -1,0 +1,33 @@
+{{! Para usar as informações voce tem que criar 2 objetos um dentro do outro ficando com  o formato de um bigode . e dentro dele podendo usar informações como variavel , e fazendo codigos javascript. }}
+
+{{>partials/header}}
+
+{{! Fazendo a verificação caso o valor do conteudo showold(que é a variavel boolean de verificação) for true ele mostra o conteudo , caso não ele não mostra. Usando sempre # abri a tag com  o nome da variavel boolean. e depois fecha  usando / nome da variavel . e entre ela o conteudo a ser mostrado }}
+{{#showOld}}
+    opa {{ name }}, tudo bem ? {{ lastName }}
+{{/showOld}}
+{{! Quando for um else ou seja não tiver conteudo voce usa o simbolo de '^' e passa o nome da tag como uma condicional mesmo. Então caso não tiver nada ou nesse caso o resultado for um false mostra essa mensagem na tela. }}
+{{^showOld}}
+    Não a nada a ser mostrado na tela por enquanto ...
+{{/showOld}}
+
+
+
+{{! Fazendo um loop no mustache a sintaxe é igual a de condicional com p # e / fechando tag. Só que o mustache ele vai saber quem é quem de acordo com a variavle passada depois do # . Se for um array e dentro dele tiver objeto os nomes das variaveis do objeto pode escrever direto pois no ambiente ali ele vai saber que é a varial que vai estar dentro do objeto, se for um array de strings . e quer mandar em um loop voce so passa ele com um ponto que ele vai fazer um loop mostrando todas as strings daquele array }}
+
+<ul>
+    {{#products}}
+        {{>partials/productItem}}
+    {{/products}}
+</ul>
+
+<ul>
+    {{! Aqui da mesma maneira ele vai fazer da mesma maneira ele vai mandar uma mensagem , caso tiver algum item neste array como ta no loop. Se caso o loop estiver vazio faz um else usando o '^' e colocando algo caso não a conteudo a ser mostrado em um loop. e se for uma condicional , caso caia um um else num false por exemplo ira mostrar o conteudo do '^' sempre.}}
+    {{#frasesQualquer}}
+        <li>{{.}}</li>
+    {{/frasesQualquer}}
+    {{^frasesQualquer}}
+        Não há nenhuma frase no momento.
+    {{/frasesQualquer}}
+</ul>
+{{>partials/footer}}

@@ -21,7 +21,7 @@ router.get('/', (req: Request, res: Response) => {
 
 
     //Para usar o arquivo mustache tem que uar o .render e dentro dela voce coloca somente o nome da pagina que voce quer renderizar na tela como uma string.
-    res.render('home', {
+    res.render('pages/home', {
         //Segundo parametro do render é um objeto contendo as informações que voce quer enviar para usar na tela  , do primeiro parametro . Podendo ser variaveis que voce cria aqui mesmo como esta ali acima , ou criar variaveis aqui mesmo .
         name: 'Renan',
         lastName: 'Luiz',
@@ -43,12 +43,12 @@ router.get('/', (req: Request, res: Response) => {
 
 router.get('/contato', (req: Request, res: Response) => {
 
-    res.send('Formulario de contato')
+    res.render('pages/contato')
 })
 
 router.get('/sobre', (req: Request, res: Response) => {
 
-    res.send('Pagina institucional sobre a empresa')
+    res.render('pages/sobre')
 })
 
 //Depois de criar a variavel , e configurar ela toda , voce exporta ela como default, exportando ela assim , na hora de importa la no servidor para uso , "voce pode chamar ela do que quiser" dependendo do contexto , para ficar mais facil o entendimento
