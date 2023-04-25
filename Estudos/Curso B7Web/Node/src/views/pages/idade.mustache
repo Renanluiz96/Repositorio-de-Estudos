@@ -1,11 +1,12 @@
 {{>partials/header}}
 <h2>Qual é o ano que voce nasceu</h2>
-<form method="GET">
-    <input type="number" name="ano" placeholder="Digite o ano que voce nasceu" required
+<form method="POST" action="/idade-resultado">
+    <input type="number" name="ano" placeholder="Digite o ano que voce nasceu"
     />
     <input type="submit" value="Enviar" />
 </form>
 
+{{! Faz uma verificação se a variavel mostrarIdade tiver true , voce mostra o conteudo na tela , ja tendo a variavel idade preenchida ja com a logica la na requisição. Apenas pegando o dados do formulario e mostrando na tela. }}
 {{#mostrarIdade}}
     <hr/>
     voce tem {{idade}} anos 

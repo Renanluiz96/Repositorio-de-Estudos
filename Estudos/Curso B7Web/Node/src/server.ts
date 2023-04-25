@@ -22,6 +22,8 @@ server.engine('mustache', mustache())
 // atraves da pasta public , para o usuario ter acesso atraves do navegador. Bem usado quando quer pegar algum arquivo que eu tenho salvo atraves da url. Vai usar o .use , e dentro dele vai usar uma função do express chamada static e dentro dela voce passa a rota do pasta public, e usa a lib path, para salvar onde ficara a pasta public .
 server.use(express.static(path.join(__dirname, '../public')));
 
+// HABILITANDO PARA PODER USAR O METHODO POST, USANDO O URLENCODED DO EXPRESS, HABILITA PEGAR OS DADOS DO BODY DA REQUISIÇÃO.  E PASSANDO O EXTEND COMO TRUE PARA PODER PEGAR TODOS OS DADOS DE VARIAVEIS DETALHADOS .
+server.use(express.urlencoded({extended: true}))
 
 //Para usar o arquivo do servidor aqui voce usa a função use()
 // que ja tem no express para uso de arquivos de rotas externos. Usando assim ,voce ja vai ter acesso a todas as rotas configuradas naquele arquivo. A partir do / vai ser usado as rotas que estão neste arquivo.

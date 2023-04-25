@@ -71,6 +71,7 @@ router.get('/nome',(req: Request, res: Response) => {
 })
 
 router.get('/idade',(req: Request, res: Response) => {
+    /*
     let mostrarIdade: boolean = false;
     let idade: number = 0;
 
@@ -83,8 +84,25 @@ router.get('/idade',(req: Request, res: Response) => {
         mostrarIdade = true
     }
 
+    */
+    res.render('pages/idade')
+})
+
+// FAZENDO UMA REQUISIÇÃO VIA POST DA PAGINA /IDADE E AO ENVIO DO FORMULARIO VAI ENVIAR PARA OUTRA URL /IDADE-RESULTADO.
+router.post('/idade-resultado', (req: Request, res: Response)=> {
+    let mostrarIdade: boolean = false;
+    let idade: number = 0;
+
+    //Só que agor eu troco o query que seria do metodo Get , para o corpo da requisição que seria  o body do methodo Post. Fazendo assim os dados não ira mais para a url , e sim serão enviado internamente.
+    if(req.body.ano) {
+        let anoNascimento: number = parseInt(req.body.ano as string);
+        let anoAtual: number = new Date().getFullYear();
+        idade = anoAtual - anoNascimento;
+        mostrarIdade = true
+    }
+
     res.render('pages/idade', {
-        idade, 
+        idade,
         mostrarIdade
     })
 })
