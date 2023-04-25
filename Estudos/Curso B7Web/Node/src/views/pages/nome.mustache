@@ -1,0 +1,19 @@
+{{>partials/header}}
+{{! Quando for enviar os dados do formulario ao clicar no submit ele enviara esses dados para a url como é via get ele vai enviar para url. Que é chamada de "QUERY STRINGS" que seria tudo que esta  depois do sinal de ? na url , ele visualmente parece da url , mais não é . E para pegar esses dados que foi enviado voce pega la na requisição onde fica o req e o res la no arquivo index onde esta a rota.}}
+<h2>Qual é o seu nome</h2>
+<form method="GET">
+    <input type="text" name="nome" placeholder="Digite seu nome"
+    />
+    <input type="number" name="idade" placeholder="Digite sua idade" required
+    />
+    <input type="submit" value="Enviar" />
+</form>
+
+{{! Depois de ter pego o conteudo enviado do formulario e pego ele na requisição da rota no arquivo index. e salvado ele em uma variavel, e passado essa variavel ja salva com o conteudo da requisição, e passado essa variavel no render como segundo parametro para poder usar na pagina do site. }}
+{{! Voce faz uma verificação se tiver a variavel , voce faz esse if la na requisição mesmo , e aqui ele vai vir ou não , se caso vir ai voce mostra um conteudo. }}
+{{#nome}}
+    <hr/>
+    Opa {{nome}}, tudo bem ? voce tem {{idade}} anos ?
+{{/nome}}
+
+{{>partials/footer}}
