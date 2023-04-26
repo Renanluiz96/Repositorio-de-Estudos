@@ -7,3 +7,5 @@ V = VIEW - SÃO AS PAGINAS DE FATO , CONTEUDOS PARCIAIS.
 C = CONTROLLER  - QUEM GERENCIA AS INFORMAÇÕES QUEM LIDA COM OS DADOS RECEBE E ORGANIZA. DEPOIS CHAMA OS MODELS PARA FAZER O PROCESSAMENTO DESSES DADOS DO BANCO DE DADOS , E DEPOIS DE RECEBER OU LIDAR COM OS DADOS , ELE ENVIA PARA O VIEW , E ASSIM VAI FAZENDO ESSE MEIO DE CAMPO ENTRE O USUARIO E AS INFORMAÇÕES DO PROJETO .
 
 Ideal que o controller , crie um arquivo para cada grupo de informação = paginas insitucionais onde contem um grupo de informação e tudo que for relacionado , voce junta todas elas em um unico arquivo só . Um outro arquivo relacionado a produtos, ou um grupo de informações relacionadas ao produto.
+
+Model - Se criar um model relacionado a cada coisa , a um produto , outro para o usuario . Se tiver um login, vai ter um model para o produto , e um model para o usuario deste login. Normalmente ao criar arquivo voce cria o nome do arquivo no singular pois pode ser 1 item ou mais. Usa-se PascalCase

@@ -15,11 +15,22 @@
 
 {{! Fazendo um loop no mustache a sintaxe é igual a de condicional com p # e / fechando tag. Só que o mustache ele vai saber quem é quem de acordo com a variavle passada depois do # . Se for um array e dentro dele tiver objeto os nomes das variaveis do objeto pode escrever direto pois no ambiente ali ele vai saber que é a varial que vai estar dentro do objeto, se for um array de strings . e quer mandar em um loop voce so passa ele com um ponto que ele vai fazer um loop mostrando todas as strings daquele array }}
 
+<hr />
+<h2>Produtos </h2>
 <ul>
     {{#products}}
         {{>partials/productItem}}
     {{/products}}
 </ul>
+
+<hr />
+<h2>Produtos a partir de R$ 12 </h2>
+<ul>
+    {{#expensives}}
+        {{>partials/productItem}}
+    {{/expensives}}
+</ul>
+
 
 <ul>
     {{! Aqui da mesma maneira ele vai fazer da mesma maneira ele vai mandar uma mensagem , caso tiver algum item neste array como ta no loop. Se caso o loop estiver vazio faz um else usando o '^' e colocando algo caso não a conteudo a ser mostrado em um loop. e se for uma condicional , caso caia um um else num false por exemplo ira mostrar o conteudo do '^' sempre.}}
