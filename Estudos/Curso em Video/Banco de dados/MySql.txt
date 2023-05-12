@@ -1,0 +1,123 @@
+Banco de dados = SQL
+
+
+Comandos SQL = 
+
+-  Select : Comando para "mostrar" todas as coluna ou uma coluna da propria tabela. SELECT * FROM produtos; ira selecionar todas as colunas da tabela produtos. SELECT id FROM produtos; ira mostrar somente os dados da coluna id.
+
+    - Where : Comando para filtrar os dados  de alguma coluna ou seja estou procurando alguns dados de um tal fornecedor , 
+        SELECT * FROM produtos WHERE id_fornecedor = 6; Ele vai me retornar todos os dados do registo que tem o id_fornecedor com o numero 6.
+        - Where usando AND/OR : 
+            -"AND" seria quando 2ou mais condicoes forem satisfeita(As 2 condiçoes tem que ser satisfeita para poder retornar) caso somente uma for sartisfeita , não ira retornar nada.
+            -   SELECT * FROM produtos WHERE preco >= 100 AND preco <= 1000; // Aqui vai me retornar a lista de preços que forem maior que 100 "E" menores que 1000.
+            -"OR" seria quando voce tem 2 ou + condições e tanto 1 ou outra for satisfeita ele ira retoranr o resultado (Não precisa as 2 estarem ok somente uma o resultado vem tambem).
+            -   SELECT * FROM produtos WHERE preco >= 100 OR minestoque = 10; //Aqui ira retornar ou dados com o preco maior que 100 , "Ou"dados em que o minestoque que tiver com o valor igual a 10.
+
+        Where Like : que seria uma busca mais flexivel ou seja para pesquisar por uma palavra ou frase em algum dos dados. Usa o like depois da coluna. E dentro da string se usa simbolo de porcentagem % .
+            -SELECT * FROM produtos WHERE nome LIKE '%gamer%'; // Vai pesquisar na coluna nome todos os resultados que tiverem a palavra gamer nos dados.
+            Simbolo de porcentagem : No inicio ira pesquisar algum resultado e se no final tiver a palavra que estiver procurando ele retorna '%gamer'.
+            No final 'gamer%' ele ira procurar a palavra no final.
+            Se tiver no meio entre 2 simbolos ele ira procurar entre o inicio e o final do dado '%gamer%' .
+
+        Where Between / IN = Seria a mesma coisa que os operadores and/or só que como atalho . 
+            Between = vai pegar os dados ente um resultado e outro .
+            - SELECT * FROM produtos WHERE id_fornecedor BETWEEN 2 AND 4; / Aqui ira retoranr os dados em que tiverem entre o id_fornecedor 2 ao 4.
+            In = Vai pegar os dados de uma condição ou outra condição.
+            - SELECT * FROM produtos WHERE id_fornecedor IN (1, 3, 6); /Aqui ira pegar os dados do id_fornecedor que tiver no numero 1 ,3 e 6 e ira retornar estes dados.
+    .
+
+    - Order by = Comando para fazer a ordenação. (Normalmente colocado no fial das conficoes . Pois se colocar primeiro no caso antes do where ,ira ocasionar erro de sintax). Voce pode ordendar ASC = ascendente(do menor pro maior), e DESC = descendente (do maior para o menor). Pode tambem colocar 2 ordenação na mesma query, para que quando se tiver por exemplo 2 dados com o mesmo valor , ele ordenar estes mesmo dados por exemplo uma outra coluna por ordem alfabetica , fazendo um efeito  cascata
+        - SELECT * FROM produtos ORDER BY minestoque ASC; / Ordenando a coluna minestoque de valores menores para maiores.
+
+        - SELECT * FROM produtos ORDER BY minestoque ASC, nome ASC; / Ordenando alem do minestoque , se ele tiver itens repetidos ele cai na segunda ordenação onde ele vai ordenar o minestoque e depois ele vai ordenar a coluna nome do valor menor para maior.
+
+        - SELECT * FROM produtos WHERE id_fornecedor = 6 ORDER BY minestoque ASC, nome ASC; / Vai selecionar os dados do fornecedor 6 e depois ira ordenar as colunas. Se fizer a ordenação primeiro depois a condição ira ocasionar um erro de syntax.
+    .
+
+    - Limit = Para limitar uma quantidade de dados mostrados na tela. Importante sempre colocar o limit no final ou seja depois do where e do order by, se colocar antes vai dar erro de syntax. Voce pode mesclar tudo e fazer uma condição e se for muitos resultados voce limita ele no final.
+
+        - SELECT * FROM produtos LIMIT 5; / Peguei todos os dados da tabela , e coloquei um limite dos 5 primeiros.
+
+        - SELECT * FROM produtos WHERE  id_fornecedor  = 6  LIMIT 0,2; / Peguei os dados do fornecedor 6 e limitei os 2 primeiros itens, se voce coloca o limit sem virgula ele automaticamente pega os primeiros. Se voce coloca um numero antes da virgula a não ser o 0 ele vai pegar a partir dali , como uma paginação que pega do 0 ao 10 , e depois do  10 ao 20 . para fazer isso voce coloca limit 10,10 . onde ele vai pular os 10 primeiros itens e ira pegar os proximos 10 itens . depois 20, 10  ... e assim vai .
+    .
+
+    - Count = Count ele faz uma contagem da quantidade de dados que eu tenho na tabela e me retorna este valor.
+        Usa o comando count apos o select , e apos isso voce passa a coluna que voce quer saber a contagem , ou se for tudo usa *.
+        - SELECT COUNT(*) FROM produtos;  / Seleciona todas as colunas
+
+        - SELECT COUNT(*) FROM produtos WHERE id_fornecedor = 6; / Com where , ele vai procurar todas as colunas que tiverem o fornecedor com o valor 6 e retornara a quantidade de registro que comtem este fornecedor.
+
+        - SELECT COUNT(*) AS contador FROM produtos WHERE id_fornecedor = 6; / Usando o "as"(ele dara um apelido) usando o as e um nome depois ele renomeara a coluna, se não ele usa somente o nome count.
+    ;
+
+    - AVG = Avg ele pega a media dos dados. Coloca o nome da coluna que voce quer fazer esta media 
+        
+        SELECT AVG(preco) AS media FROM produtos; / Seleciona a coluna preco fez a media e apelido esta coluna como media.
+
+        SELECT AVG(preco) AS media, COUNT(*) AS contagem  FROM produtos; / Alem de fazer a media , pode tambem mostrar a quantidade de coluna separando com uma virgula , e usando o count para ver a quantidade de dados que foi feito.
+
+        SELECT AVG(preco) AS media, COUNT(*) AS contagem  FROM produtos WHERE id_fornecedor = 6; / Faz a filtragem, fazendo a media somente do fornecedor 6 .
+    ;
+    - SUM = SUM faz a soma da quantidade total de registros que voce tem.
+        SELECT SUM(estoque) as soma from produtos; / Faz a soma da quantidade total de todos os dados da coluna estoque, e apelida esta coluna como soma.
+    ;
+
+    Exemplo de uso do COUNT , AVG, SUM = 
+            SELECT
+            AVG(preco) AS media,
+            COUNT(*) AS contagem,
+            SUM(estoque) AS soma
+        FROM produtos 
+        WHERE id_fornecedor = 1;
+    ;
+
+    - Group By = Separa em grupo , usado com o count/avg/sum . Para mostrar a quatidade de item de um tal id ou usuario.
+        SELECT SUM(estoque) AS estoquetotal, id_fornecedor FROM produtos GROUP BY id_fornecedor; / Aqui ele vai fazer uma soma da coluna estoque , e vai fazer um grupo para cada fornecedor, mostrando a quantidade que cada fornecedor tem de estoque , para mostrar os estoques e o fornecedor logo ao lado voc usa uma virgula e coloca o id_fornecedor para mostrar  = fornecedor 1 tem ... , fornecedor 2 tem ... e assim vai ate o ultimo.
+    ;
+
+    - JOIN = Para fazer a junção de 2 ou mais tabelas.
+        SELECT
+            produtos.*,
+            fornecedor.nome AS fornecedores
+        FROM produtos
+        INNER JOIN fornecedor ON fornecedor.id = produtos.id_fornecedor;
+
+        Para fazer o join voce tem que especificar no select quais colunas voce quer se  voce usar * voce pegara todas e não precisa de todas , e voce tem que especificar quais , usando o nome da tabela. e depois o nome da coluna = tabela.coluna de cada um.
+        Depois do from voce usa o join ou inner join e depois voce coloca o nome da tabela que voce quer acrescentar a mais . Depois disso voce vai precisar entrelacar os dados de uma coluna na outra usando o ON ali acima entrelacei os dados da tabela da nova tabela fornecedor selecionando a coluna fornecedor.id com os dados do outro minha primeira tabela produtos , entrelacei com a coluna produtos.id_fornecedor. E no final coloquei no select todos as colunas da tabela fornecedor , e a coluna nome da tabela fornecedor, e troquei o nome para fornecedores.
+
+        INNER JOIN = O inner só vai retornar os dados se a tabela da esquerda(inicial) baterem de maneira relacional com os dados  com a tabela da direita(tabela acrescentada) e a da direta bater com os dados da tabela da esquerda se os 2 tiverem dados relacionados, esse dados vai aparecer, se caso algum dos 2 lados não tiverem como os dados relacionados não ira aparecer o registro dela
+
+        LEFT JOIN = O left ele ira retoranar os dados da tabela da esquerda independente se os dados baterem de maneira relacional com os dados da tabela da direita.
+
+        RIGHT JOIN = ira retornar todos os dados da tabela da direita , independente se os dados da tabela da direita baterem de maneira relacional ,com os dados da tabela da esquerda.
+    ;
+;
+
+- INSERT : Para inserir dados no banco de dados.
+    Usa o comando insert into , depois coloca o nome da tabela. Apos o nome da tabela entre parenteses , voce coloca o nome das colunas que voce quer preencher (se a coluna for um tipo de coluna identificador que usa autoIncrement como um id por exemplo, voce não precisa colocar ela entre parenteses, pois ela vai se preencher sozinha na hora de inserir os dados) .
+    Depois usa o values e entre parenteses voce coloca os dados se for varchar(string) coloca entre aspas separnado por virgula , e respeitando a ordem das colunas indicado no primeiro parenteses , aqui no caso preenche o nome, depois a data.  
+
+        INSERT INTO usuarios (nome, datacadastro) VALUES ('ciclano', '2021-04-05'); /Inserindo apenas um registro.
+
+        INSERT INTO usuarios (nome, datacadastro) VALUES ('outronome', '2021-04-05'), ('beltrano', '2016-09-14'); / Inserindo mais de um registro de uma vez separando por virguala cada um.
+
+        INSERT INTO usuarios (nome, datacadastro) VALUES ('outronome', NOW() ); / Inserindo dados usando a função do mysql now() onde ele vai pegar a data atual do cadastro, se for datetime ira pegar tambem junto as horas.
+;
+    
+- Update : Para trocar informações dos registro .
+    Para trocar informações de algum dado de alguma tabela update depois nome da tabela, set para setar novo valor, coloca o igual  e depois o novo valor. "SEMPRE COLOCA O WHERE" usa o where para identificar qual é a coluna que voce quer trocar aqui no caso a coluna id para identificar. Ele vai na coluna id procura o id 2 depois vai la na coluna nome e altera o valor la para o novo setado.
+        UPDATE usuarios SET nome = 'pedro da silva' WHERE id = 2;
+
+    DICA =  sempre que digita o update coloca logo ja apos o set ja coloca o where com o identificador, antes de coloca o valor do set. Se voce dar um update sem where ele vai trocar todos os campos da coluna , ai iria ficar todos com os mesmos dados. Ja faz assim basicamente =
+        UPDATE usuarios set where id = 2; / ja faz assim pra se precaver pois se sem querer voce seta o valor novo , e da um enter sem querer. Ja era altero tudo, depois de fazer assim ai voce volta la no set e preenche.
+
+    Pode tambem alterar mais de um registro por vez , alterando um grupo com o mesmo identificador. Por exemplo voce tem alguns produtos que tem um fornecedor que teria exemplo 5 produtos e estes produtos tem o mesmo fornecedor separado em outra tabela, fazendo a relaçao com os dados da tabela produtos atraves de uma relacionamento de tabelas. E voce quer aumentar por exemplo um valor de todos os produtos deste fornecedor. Exemplo quer aumentar um valor de 10% de todos os produtos do fornecedor X . voce da um update e no where voce coloca o id do identificador do fornecedor que todos os produtos terão o mesmo dele.
+        UPDATE produtos SET preco = preco * 1.1 WHERE id_fornecedor = 6; / Alterei todos os valores da coluna preco em que tem o id do identificador como 6 . Fiz uma alteração onde setei os preco que recebeu o valor dele mesmo multiplicando 1.1 que seria o valor dele mais 10 % .
+;
+
+- Delete : Deletar dados, e grupo de dados com mesmo identificador
+    Deletando usando o comando delete, coloca o from e o nome da tabela que voce quer deletar, "usa sempre o where não se esquece" usa o where e coloca o id como identificador .
+        DELETE FROM `usuarios` WHERE  `id`=10;
+
+    Deletando um grupo de dados com o mesmo identificador. Exemplo aqui quero apagar todos os produtos do fornecedor X .
+        DELETE FROM `produtos` WHERE  `id_fornecedor` = 6;
