@@ -1,17 +1,20 @@
 import { Request, Response } from 'express';
 
 // Importando a configuração da conexão do banco de dados que foi feita la no arquivo mysql. para uso aqui no controller.
-import { sequelize } from '../instances/mysql';
+// import { sequelize } from '../instances/mysql';
+
+// Importando a configuração da conexão do postgres aqui para teste .
+import { sequelize } from '../instances/pg'
 
 import { Product } from '../models/Product';
 
 export const home = async (req: Request, res: Response)=>{
     // Fazendo um try catch para testar se a conexão com o banco de dados deu certa. Com a função authenticate que ja é do proprio sequelize para teste mesmo.
     try {
-        await sequelize.authenticate()
-        console.log('Conexão estabelecida com sucesso!')
+        await sequelize.authenticate();
+        console.log('Conexão com o postgres estabelecida com sucesso!');
     } catch (error) {
-        console.log('Deu problema: ', error)
+        console.log('Deu problema: ', error);
     }
 
 

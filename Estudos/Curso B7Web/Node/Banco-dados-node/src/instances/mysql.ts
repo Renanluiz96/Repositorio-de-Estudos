@@ -1,3 +1,4 @@
+//  Tem que instalar a lib mysql2 para fazer essa conexão aqui com o banco de dados . npm install mysql2 .
 import { Sequelize } from "sequelize";
 import dotenv from 'dotenv';
 
