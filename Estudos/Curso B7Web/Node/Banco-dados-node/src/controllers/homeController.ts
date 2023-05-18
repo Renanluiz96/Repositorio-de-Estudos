@@ -4,18 +4,18 @@ import { Request, Response } from 'express';
 // import { sequelize } from '../instances/mysql';
 
 // Importando a configuração da conexão do postgres aqui para teste .
-import { sequelize } from '../instances/pg'
+// import { sequelize } from '../instances/pg'
+
 
 import { Product } from '../models/Product';
 
+// Importando o User do model para usar os dados do banco de dados aqui
+import { User } from '../models/Users';
+
 export const home = async (req: Request, res: Response)=>{
-    // Fazendo um try catch para testar se a conexão com o banco de dados deu certa. Com a função authenticate que ja é do proprio sequelize para teste mesmo.
-    try {
-        await sequelize.authenticate();
-        console.log('Conexão com o postgres estabelecida com sucesso!');
-    } catch (error) {
-        console.log('Deu problema: ', error);
-    }
+    
+    // Criando uma variavel onde vai conter todos os usuarios do banco de dados User , com a função findAll(). Tem que ser await , como é uma função assincrona.
+    let users = await User.findAll();
 
 
     let age: number = 90;
@@ -34,6 +34,7 @@ export const home = async (req: Request, res: Response)=>{
         showOld,
         products: list,
         expensives: expensiveList,
-        frasesDoDia: []
+        frasesDoDia: [],
+        users // Colocando a variavel que vai conter todas os dados do banco para usar la no views na tela.
     });
 };

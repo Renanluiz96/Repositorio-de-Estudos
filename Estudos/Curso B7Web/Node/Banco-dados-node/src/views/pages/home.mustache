@@ -9,6 +9,15 @@ Opa {{name}} {{lastName}}, tudo bem?
 {{/showOld}}
 
 <hr/>
+<h2>Usuarios do banco</h2>
+<ul>
+    {{#users}}
+        <li> {{nome}} - Idade: {{age}} </li>
+    {{/users}}
+</ul>
+
+
+<hr/>
 <h2>Produtos</h2>
 <ul>
     {{#products}}
