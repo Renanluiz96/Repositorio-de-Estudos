@@ -6,6 +6,7 @@ import { Request, Response } from 'express';
 // Importando a configuração da conexão do postgres aqui para teste .
 // import { sequelize } from '../instances/pg'
 
+import { Op } from 'sequelize'; // Importando do sequelize o op para fazer operações dentro do banco de dados como o "OR" em uma condição no filtro where.
 
 import { Product } from '../models/Product';
 
@@ -15,7 +16,22 @@ import { User } from '../models/Users';
 export const home = async (req: Request, res: Response)=>{
     
     // Criando uma variavel onde vai conter todos os usuarios do banco de dados User , com a função findAll(). Tem que ser await , como é uma função assincrona.
-    let users = await User.findAll();
+    let users = await User.findAll({
+        // Para pegar algum atributo especifico , e não todos voce diz qual atributo quer pelo "attributes".
+        // attributes: ['nome', 'age']
+
+        // Para fazer uma filtragem usando where;
+        // where: {age: 50, nome: 'pedro'} filtragem simples , ele vai buscar quem tem age = a 50 e nome = pedro. Quanto mais voce colocar , mais ele vai filtrar.
+        // Tem tambem o filtro "OU" que é ou um resultado ou outro, para isso vai ter que importar o "Op" do sequelize .
+        where: {
+            //Tem que usar o OP.or desta formar e dentro do array voce passa cada condição dentro de objeto diferente . ele vai entender que "ou" uma busca "ou" a outra , a cada objeto colocado ele vai colocando na busca e vai retornar.
+            [Op.or]: [
+                {  age: 50 },
+                { nome: 'ze' }
+            ]
+        }
+
+    });
 
 
     let age: number = 90;
