@@ -6,15 +6,15 @@ import { Request, Response } from 'express';
 // Importando a configuração da conexão do postgres aqui para teste .
 // import { sequelize } from '../instances/pg'
 
-import { Op } from 'sequelize'; // Importando do sequelize o op para fazer operações dentro do banco de dados como o "OR" em uma condição no filtro where.
+import { Op } from 'sequelize'; // Importando do sequelize o "Op" para fazer operações dentro do banco de dados como o "OR" em uma condição no filtro where.
 
 import { Product } from '../models/Product';
 
 // Importando o User do model para usar os dados do banco de dados aqui
 import { User } from '../models/Users';
 
-export const home = async (req: Request, res: Response)=>{
-    
+export const home = async (req: Request, res: Response) => {
+
     // Criando uma variavel onde vai conter todos os usuarios do banco de dados User , com a função findAll(). Tem que ser await , como é uma função assincrona.
     let users = await User.findAll({
         // Para pegar algum atributo especifico , e não todos voce diz qual atributo quer pelo "attributes".
@@ -25,11 +25,15 @@ export const home = async (req: Request, res: Response)=>{
         // Tem tambem o filtro "OU" que é ou um resultado ou outro, para isso vai ter que importar o "Op" do sequelize .
         where: {
             //Tem que usar o OP.or desta formar e dentro do array voce passa cada condição dentro de objeto diferente . ele vai entender que "ou" uma busca "ou" a outra , a cada objeto colocado ele vai colocando na busca e vai retornar.
-            [Op.or]: [
-                {  age: 50 },
-                { nome: 'ze' }
-            ]
-        }
+            // [Op.or]: [{ age: 50 },{ nome: 'ze' }]
+            age: {
+                [Op.gte]: 18
+            },
+        },
+        order: [ //Para fazer ordenação usa o order dentro dele usar um array e dentro usa um array para cada tipo de ordenação que quer fazer
+            ['age', 'ASC'], // Faz uma segunda ordenação se caso tiver o resultado com o mesmo nome ,ele vai pegar a coluna age e ira fazer por exemplo aqui de forma decrescente.
+            ['nome', 'DESC'] // Fazendo uma ordenação pelo nome de forma ascendente(Que seria o comportamento padrão , então se não colocar nada este vai ser o padrão).
+        ]
 
     });
 
@@ -37,7 +41,7 @@ export const home = async (req: Request, res: Response)=>{
     let age: number = 90;
     let showOld: boolean = false;
 
-    if(age > 50) {
+    if (age > 50) {
         showOld = true;
     }
 
