@@ -33,7 +33,9 @@ export const home = async (req: Request, res: Response) => {
         order: [ //Para fazer ordenação usa o order dentro dele usar um array e dentro usa um array para cada tipo de ordenação que quer fazer
             ['age', 'ASC'], // Faz uma segunda ordenação se caso tiver o resultado com o mesmo nome ,ele vai pegar a coluna age e ira fazer por exemplo aqui de forma decrescente.
             ['nome', 'DESC'] // Fazendo uma ordenação pelo nome de forma ascendente(Que seria o comportamento padrão , então se não colocar nada este vai ser o padrão).
-        ]
+        ],
+        offset: 4,
+        limit: 2
 
     });
 
