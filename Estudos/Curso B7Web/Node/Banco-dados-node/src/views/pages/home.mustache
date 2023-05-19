@@ -6,9 +6,19 @@ Opa {{name}} {{lastName}}, tudo bem?
 {{/showOld}}
 {{^showOld}}
     Beleza?
-{{/showOld}}
+{{/showOld}} <hr/>
 
-<hr/>
+
+<fieldset>
+    <legend>Novo Usuario</legend>
+    <form method="POST" action="/novousuario">
+        <input type="text" name="nome" placeholder="Digite um nome"/><br/><br/>
+        <input type="text" name="age" placeholder="Digite a idade"/><br/><br/>
+        <input type="submit" value="Inserir novo Usurario"/>
+    </form>
+</fieldset>
+
+<br/>
 <h2>Usuarios do banco</h2>
 <ul>
     {{#users}}

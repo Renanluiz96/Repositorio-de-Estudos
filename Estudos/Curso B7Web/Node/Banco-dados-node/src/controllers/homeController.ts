@@ -15,6 +15,34 @@ import { User } from '../models/Users';
 
 export const home = async (req: Request, res: Response) => {
 
+    let users = await User.findAll()
+
+    /* Inserção ao banco de dados
+    //Inserção ao banco de dados = build + save
+    const user = User.build({
+        // Somente o comando build ele cria na memoria do node, ele ainda não manda para o banco de dados. Mais voce ainda consegue ter acesso aos dados dele vendo no console.
+        nome: 'Fulano',
+        
+    });
+    //  Fazendo alguma coisa , modificando algo esperando alguma resposta para depois completar os dados , ai só depois disso voce faz o save . Ai sim salva no banco de dados.
+    let idade: number = 27;
+    user.age = idade;
+    await user.save()
+
+    
+
+
+    //Inserção ao banco de dados = Create , ele ja vai inserir diretamente os dados no banco.
+    // const user = await User.create({
+    //     nome: 'ciclano',
+    //     age: 23
+    // })
+
+
+    // console.log("Nome do novo usuario ", user.nome)
+    // console.log("Idade  do usuraio ", user.age)
+    */
+    /* Conteudo de consulta
     // Criando uma variavel onde vai conter todos os usuarios do banco de dados User , com a função findAll(). Tem que ser await , como é uma função assincrona.
     let users = await User.findAll({
         // Para pegar algum atributo especifico , e não todos voce diz qual atributo quer pelo "attributes".
@@ -34,11 +62,11 @@ export const home = async (req: Request, res: Response) => {
             ['age', 'ASC'], // Faz uma segunda ordenação se caso tiver o resultado com o mesmo nome ,ele vai pegar a coluna age e ira fazer por exemplo aqui de forma decrescente.
             ['nome', 'DESC'] // Fazendo uma ordenação pelo nome de forma ascendente(Que seria o comportamento padrão , então se não colocar nada este vai ser o padrão).
         ],
-        offset: 4,
-        limit: 2
+        offset: 0, // Offset serve para pular os dados , ou seja aqui ele vai pular a quantidade que eu especificar, se deixar 0 ele pega o primeiro dados . Usado com o limit para paginação na tela.
+        limit: 2 //Para limitar a quantidade de dados na tela.
 
     });
-
+    */
 
     let age: number = 90;
     let showOld: boolean = false;
@@ -60,3 +88,19 @@ export const home = async (req: Request, res: Response) => {
         users // Colocando a variavel que vai conter todas os dados do banco para usar la no views na tela.
     });
 };
+
+export const novoUsuario = async (req: Request, res: Response) => {
+    let { nome, age } = req.body;
+
+    if(nome) {
+        const newUser = User.build({ nome });
+
+        if(age) {
+            newUser.age = parseInt(age);
+        }
+
+        await newUser.save();
+    }
+
+    res.redirect('/');
+}
