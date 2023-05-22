@@ -15,7 +15,7 @@ import { User } from '../models/Users';
 
 export const home = async (req: Request, res: Response) => {
 
-    /*Fazendo Update 
+    /*Update 
     // Fazendo Update Na Função update voce passa nela 2 parametros que são objetos ou variaveis com os dados salvos.
     // 1. Os dados com os valores novos a serem atualizados.
     // 2. Condição para encontrar o(s) item(s), pode ser mais de uma condição(where)
@@ -33,9 +33,8 @@ export const home = async (req: Request, res: Response) => {
     await User.update({ nome: 'Seu Chico', age: 56 },{
         where: {id: 4}
     })
-    */
 
-    // Para fazer um update pegando um usuario especifico.
+      // Para fazer um update pegando um usuario especifico.
     // Salva em uma variavel , um findAll() e no parametro voce coloca o where filtrando quem voce quer pegar o dado , caso aqui o id 5. Ele sempre ira retornar um array com o resultado
     let results = await User.findAll({ where: { id: 5 } });
 
@@ -51,8 +50,40 @@ export const home = async (req: Request, res: Response) => {
         // E no final, da um .save() na variavel que voce crio para intermediar a manipulação do update, para que seja salvo no banco o novo dado atualizado, na tabela.
         await usuario.save();
     }
+    */
 
+    /*Delete   
+    // Deletando usando o comando destroy(), ele tem apenas 1 parametro . Ele é usado da mesma maneira que o update.
+    // 1 - Usando de maneira massiva ,onde ele vai procurar todos os dados que tiverem em uma condição.
+
+    // Ira deletar todos os dados de quem tiver o valor da coluna age menor que 19 , ele ira deletar todo os dados deste usuario.
+    // await User.destroy({
+    //     where: {
+    //         age: {
+    //             [Op.lt]: 19
+    //         }
+    //     }
+    // })
+    */
+
+    // 2 - Usando de maneira especifica, onde faz um findAll passando o o dado especifico no parametro , salvando ele em uma variavel intermediadora, e depois dando um destroy nesta variavel intermediadora, pois não pode fazer alteração direto na variavel retornada do findAll.
+
+    // Filtro o usuario pelo nome , salvo em uma variavel
+    let results = await User.findAll({ where: {nome: 'ciclano'} });
+    // Fez uma verificação para que se a variavel tivesse algum resultado.
+    if(results.length > 0) {
+        // Salvo o resultado em uma variavel intermediadora(pois NÃO PODE ALTERAR o dado retornado do findAll)
+        let usuario = results[0];
+
+        // Como esta deletando um usuario, ele da um destroy na variavel intermediadora que ira conter o dado do usuario. Obs: não precisa dar o save , save é só no caso do update.
+        await usuario.destroy()
+    }
+
+
+
+  
     let users = await User.findAll()
+
 
     /* Inserção ao banco de dados
     //Inserção ao banco de dados = build + save
