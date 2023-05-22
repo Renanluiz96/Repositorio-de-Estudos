@@ -15,6 +15,26 @@ import { User } from '../models/Users';
 
 export const home = async (req: Request, res: Response) => {
 
+    /*Fazendo Update */
+    // Fazendo Update Na Função update voce passa nela 2 parametros que são objetos ou variaveis com os dados salvos.
+    // 1. Os dados com os valores novos a serem atualizados.
+    // 2. Condição para encontrar o(s) item(s), pode ser mais de uma condição(where)
+
+    // Aqui altererei todos os valores da coluna age para 18 , todos em que o age fossem menor que 18 , para isso usei o where filtrando os dados de age com o Op.lt que fossem menor que 18. Metodo de alteração em massa.
+    /*await User.update({ age: 18 },{
+        where: {
+            age: {
+                [Op.lt]: 18
+            }
+        }
+    })*/
+
+    // Alterei o valor da coluna nome para "Seu Chico", e o age para 56, e filtrei o id 4 , para pegar em especifico esse usuario , e setei os valores de dados dele como o primeio parametro
+    await User.update({ nome: 'Seu Chico', age: 56 },{
+        where: {id: 4}
+    })
+
+
     let users = await User.findAll()
 
     /* Inserção ao banco de dados
