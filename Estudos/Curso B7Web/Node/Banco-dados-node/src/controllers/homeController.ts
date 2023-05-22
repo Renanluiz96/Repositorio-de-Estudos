@@ -15,7 +15,7 @@ import { User } from '../models/Users';
 
 export const home = async (req: Request, res: Response) => {
 
-    /*Fazendo Update */
+    /*Fazendo Update 
     // Fazendo Update Na Função update voce passa nela 2 parametros que são objetos ou variaveis com os dados salvos.
     // 1. Os dados com os valores novos a serem atualizados.
     // 2. Condição para encontrar o(s) item(s), pode ser mais de uma condição(where)
@@ -27,13 +27,30 @@ export const home = async (req: Request, res: Response) => {
                 [Op.lt]: 18
             }
         }
-    })*/
+    })
 
     // Alterei o valor da coluna nome para "Seu Chico", e o age para 56, e filtrei o id 4 , para pegar em especifico esse usuario , e setei os valores de dados dele como o primeio parametro
     await User.update({ nome: 'Seu Chico', age: 56 },{
         where: {id: 4}
     })
+    */
 
+    // Para fazer um update pegando um usuario especifico.
+    // Salva em uma variavel , um findAll() e no parametro voce coloca o where filtrando quem voce quer pegar o dado , caso aqui o id 5. Ele sempre ira retornar um array com o resultado
+    let results = await User.findAll({ where: { id: 5 } });
+
+    // Usa um if para verifica se a variavel estiver com maior de 0 , ela esta preenchida com o resultado. 
+    if(results.length > 0) {
+        // Pega o resultado que esta no primeiro valor do array retornado e salva ela em uma variavel , para poder fazer a manipulação . Pois não pode fazer a manipulação direto no resultado do findAll.
+        let usuario = results[0];
+
+        // Com a variavel onde vai conter o resultado da filtragem , aqui voce pode alterar os dados como quiser.
+        usuario.nome = 'Testador Alterado';
+        usuario.age = 20;
+
+        // E no final, da um .save() na variavel que voce crio para intermediar a manipulação do update, para que seja salvo no banco o novo dado atualizado, na tabela.
+        await usuario.save();
+    }
 
     let users = await User.findAll()
 
