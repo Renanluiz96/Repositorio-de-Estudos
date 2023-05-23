@@ -15,7 +15,7 @@ import { User } from '../models/Users';
 
 export const home = async (req: Request, res: Response) => {
 
-    /*Update 
+    /*UPDATE 
     // Fazendo Update Na Função update voce passa nela 2 parametros que são objetos ou variaveis com os dados salvos.
     // 1. Os dados com os valores novos a serem atualizados.
     // 2. Condição para encontrar o(s) item(s), pode ser mais de uma condição(where)
@@ -52,19 +52,18 @@ export const home = async (req: Request, res: Response) => {
     }
     */
 
-    /*Delete   
+    /*DELETE   
     // Deletando usando o comando destroy(), ele tem apenas 1 parametro . Ele é usado da mesma maneira que o update.
     // 1 - Usando de maneira massiva ,onde ele vai procurar todos os dados que tiverem em uma condição.
 
     // Ira deletar todos os dados de quem tiver o valor da coluna age menor que 19 , ele ira deletar todo os dados deste usuario.
-    // await User.destroy({
-    //     where: {
-    //         age: {
-    //             [Op.lt]: 19
-    //         }
-    //     }
-    // })
-    */
+    await User.destroy({
+        where: {
+            age: {
+                [Op.lt]: 19
+            }
+        }
+    })
 
     // 2 - Usando de maneira especifica, onde faz um findAll passando o o dado especifico no parametro , salvando ele em uma variavel intermediadora, e depois dando um destroy nesta variavel intermediadora, pois não pode fazer alteração direto na variavel retornada do findAll.
 
@@ -78,6 +77,9 @@ export const home = async (req: Request, res: Response) => {
         // Como esta deletando um usuario, ele da um destroy na variavel intermediadora que ira conter o dado do usuario. Obs: não precisa dar o save , save é só no caso do update.
         await usuario.destroy()
     }
+    */
+
+    
 
 
 

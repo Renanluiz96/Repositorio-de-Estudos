@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { User } from '../models/Users';
 
 export const nome = (req: Request, res: Response) => {
     let nome: string = req.query.nome as string;
@@ -30,3 +31,35 @@ export const idadeAction = (req: Request, res: Response) => {
         mostrarIdade
     });
 };
+
+export const addidade = async (req: Request, res: Response) => {
+    let id: string = req.params.id
+
+    let results = await User.findAll({where: {id}});
+    if (results.length > 0) {
+        let usuario = results[0];
+        usuario.age++;
+        await usuario.save();
+    }
+
+    res.redirect('/');
+}
+export const diminuiridade = async (req: Request, res: Response) => {
+    let id: string = req.params.id
+
+    let results = await User.findAll({where: {id}});
+    if (results.length > 0) {
+        let usuario = results[0];
+        usuario.age--;
+        await usuario.save();
+    }
+
+    res.redirect('/');
+}
+export const excluir = async (req: Request, res: Response) => {
+    let id: string  = req.params.id;
+
+    await User.destroy({where: {id}});
+
+    res.redirect('/');
+}

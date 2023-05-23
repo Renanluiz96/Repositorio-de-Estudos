@@ -22,7 +22,13 @@ Opa {{name}} {{lastName}}, tudo bem?
 <h2>Usuarios do banco</h2>
 <ul>
     {{#users}}
-        <li> {{nome}} - Idade: {{age}} </li>
+        <li>
+         {{nome}}
+         - Idade: {{age}}
+         - <a href="/usuario/{{id}}/mais">+</a>
+         | <a href="/usuario/{{id}}/menos">-</a>
+         | <a href="/usuario/{{id}}/excluir"> Remover </a>
+        </li> 
     {{/users}}
 </ul>
 
