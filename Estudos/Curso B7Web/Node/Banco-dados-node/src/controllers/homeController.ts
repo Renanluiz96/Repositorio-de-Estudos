@@ -80,8 +80,45 @@ export const home = async (req: Request, res: Response) => {
     */
 
     
+    /*Metodos Finder
+    - FindAll = Onde ele vai achar todos os registros, ele vai retornar um array. E para pegar algum resultado voce tem que pegar pelo numero do array com objetos
 
+    - FindOne = Onde ele vai retornar apenas 1 resultado, se caso na filtragem achar mais de 1 usuario , ele vai retornar apenas o primeiro usuario achado.
+        let usuario  = await User.findOne({
+        where: {
+            nome: 'renan'
+        }
+    })
 
+    - FindByPk - Onde ele vai filtrar apenas pela chave primaria(Primary key), passando o id da chave primaria no parametro.
+    - let usuario = await User.findByPk(3)
+
+    - FindOrCreate = Esse find ele vai procurar um usuario ou dado. se caso ele não achar , ele vai criar la no banco de dados.
+    Dentro voce cria um let ou const , e passa 2 variaveis 1º que vai ser o usuario de fato, e 2º que vai ser se caso não tiver vai ser onde ele vai criar.
+    Dentro da função voce passa um objeto que vai ter o where onde voce vai filtrar para procurar , e o 2º é um objeto com nome defaults, ali ele passara os dados padrões que voce quer inserir caso ele não ache o usuario, ele vai completar os dados com o que voce coloco no where , e mais os dados para complementar voce passa ali dentro de defaults
+    -  const [usuario, created] = await User.findOrCreate({
+        where: {nome: 'Feijó'},
+        defaults: {
+            age: 46
+        }
+    });
+
+    if(created) {
+        console.log("Usuario criado com sucesso!")
+    } else {
+        console.log("Achamos o usuario")
+    }
+    console.log("Nome: ", usuario.nome)
+    */
+
+   
+
+    
+    // if(usuario) {
+    //     console.log(`O usuario ${usuario.nome} possui ${usuario.age} anos.`)
+    // } else {
+    //     console.log("Usuario não encontrado")
+    // }
 
   
     let users = await User.findAll()
