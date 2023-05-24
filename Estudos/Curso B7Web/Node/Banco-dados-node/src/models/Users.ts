@@ -21,10 +21,26 @@ export const User = sequelize.define<UserInstance>("User",{
     nome: {
         type: DataTypes.STRING,
         //Metodo get = ele vai intervir em toda vez que for pegar algum dado do usuario , aqui por exemplo quero que todo usuario tenho o nome em maiusculo voce usa o get. e retorna ele mesmo(this), e com a função getDataValue voce passa entre parametro o nome da coluna por exemplo que voce quer alterar aqui nome, e depois voce coloca toUpperCase() , ai no caso todos os usuarios terão nome maiusculos.
+        // get() {
+        //     return this.getDataValue('nome').toUpperCase();
+        // }
+    },
+    lastName: {
+        type: DataTypes.STRING
+    },
+    fullName: {
+        //Criando um campo virtual , ele não fica salvo no banco de dados. Usa o DataTypes tipo VIRTUAL. Fica salvo no sequelize para uso dos dados no seu sistema. Onde não precisa de um campo la no banco.
+        // Aui por exemplo voce quer pegar o nome e sobrenome de algum usuario e como ja tem 2 campos contendo estas informação , voce não precisara criar um 3º campo repetindo os mesmos dados. Voce cria um campo virtual , e pega as informações desses 2 campos e cria um get e retorna os 2 campos juntos .
+        type: DataTypes.VIRTUAL,
         get() {
-            return this.getDataValue('nome').toUpperCase();
+            // Pegando os dados dos campos em especifico com getDAtaValue, e salvando em uma variavel para uso, voce tem quer tipar . 
+            let name: string = this.getDataValue('nome');
+            let lastName: string = this.getDataValue('lastName');
+            return `${name} ${lastName}`
+            // Esse metodo é muito usado em sistemas, onde voce quer informações de 2 campos , mas não nessecariamente voce precisa criar um 3 , voce cria um virtual para auxiliar.
         }
     },
+
     age: {
         type: DataTypes.INTEGER,
         defaultValue: 18,
