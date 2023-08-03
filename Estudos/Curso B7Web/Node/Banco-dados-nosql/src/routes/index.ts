@@ -7,11 +7,6 @@ import * as UserController from '../controllers/userController';
 const router = Router();
 
 router.get('/', HomeController.home);
-router.post('/novousuario', HomeController.novoUsuario);
-
-router.get('/usuario/:id/mais', UserController.addidade)
-router.get('/usuario/:id/menos', UserController.diminuiridade)
-router.get('/usuario/:id/excluir', UserController.excluir)
 
 router.get('/contato', InfoController.contato);
 router.get('/sobre', InfoController.sobre);

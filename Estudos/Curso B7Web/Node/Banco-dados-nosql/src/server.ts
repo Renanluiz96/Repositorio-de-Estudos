@@ -7,7 +7,7 @@ import mainRoutes from './routes/index';
 
 dotenv.config();
 
-mongoConnect();
+mongoConnect()
 
 const server = express();
 
@@ -19,6 +19,7 @@ server.use(express.static(path.join(__dirname, '../public')));
 
 server.use(express.urlencoded({extended: true}));
 
+server.use(mainRoutes);
 
 server.use((req: Request, res: Response)=>{
     res.status(404).send('Página não encontrada!');
