@@ -3,6 +3,7 @@ import path from 'path';
 import mustache from 'mustache-express';
 import dotenv from 'dotenv';
 import { mongoConnect } from './database/mongo';
+import mainRoutes from './routes/index';
 
 dotenv.config();
 
