@@ -41,13 +41,31 @@ export const home = async (req: Request, res: Response)=>{
     
     /*Metodo de ordenação SORT
         Para fazer uma ordenação seja ela ordem alfabetica , ou numeral. Voce vai usar sempre a numeração de 1 e -1 . Que o 1 seria de forma crescente, e -1 de forma decrescente .
-            User.find({age:{$gt:18,}}).
+            User.find({age:{$gt:18,}}).sort({
+                age: 1 - Vai ordenar os itens do resultado de forma crescente
+                age: -1 - Forma decrescente.
+
+                name : 1 = Vai ordenar de forma alfabetica crescente
+
+                Se tiver 2 resultados iguais, pode por uma segunda condição pra dezempate. 
+                age: 1 , name: -1 - Vai pegar as idades crescente, se tiver alguem com a mesma idade, ele vai dezempatar pelo name de forma decrescente.
+
+                Para ordenar usando por um objeto filho , usa a mesma logica do find e escreve igual
+                "name.firstName": 1 - ira ordenar de acordo com a condição dentro do objeto . e se quiser fazer o dezempate , pode colocar uma segunda apenas colocando uma virgula
+            })
+    */
+
+    /*Limite de usuarios
+        Use o .limit para fazer um limite de usuarios na tela. 
+        Use o skip para pular de quanto em quanto usuarios ira pular , na tela. Usada para paginação .
+        Se tiver 1000 resultados na tela voce pode limitar para mostar de 10 em 10 e fazer com que cada pagina ir pulando de 10 em 10 e mostrando sempre o resultado 0 que ele pularia 10 e mostraria o primeiro resultado logo apos que seria o 0.
+            User.find({})skip(0).limit(2) - aqui ira pular o 0 e ira comecar do zero basicamente ira comecar do comeco.
+
+            User.find({})skip(10).limit(10) - Aqui ira pular 10 resultados, e ira mostrar o primeiro resultado sempre limitando o resultado na tela a 10 .
     */
     let usuarios = await User.find({
         age : { $gt: 5,} 
-    }).sort({
-        age: 1
-    })
+    }).skip(2).limit(2)
     
     
 
