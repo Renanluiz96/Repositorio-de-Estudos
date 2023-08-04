@@ -38,9 +38,15 @@ export const home = async (req: Request, res: Response)=>{
             LT = Lower then - Menor
             LTE = Lower then or Equal - Menor ou igual
     */
-
+    
+    /*Metodo de ordenação SORT
+        Para fazer uma ordenação seja ela ordem alfabetica , ou numeral. Voce vai usar sempre a numeração de 1 e -1 . Que o 1 seria de forma crescente, e -1 de forma decrescente .
+            User.find({age:{$gt:18,}}).
+    */
     let usuarios = await User.find({
-        age : { $gt: 18, $lt: 66 } 
+        age : { $gt: 5,} 
+    }).sort({
+        age: 1
     })
     
     
