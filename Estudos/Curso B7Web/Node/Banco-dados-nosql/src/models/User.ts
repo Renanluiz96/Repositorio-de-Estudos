@@ -8,7 +8,7 @@ import { Schema, model, connection, Model } from 'mongoose';
 type UserType = {
     email: string,
     age: number,
-    interests: [string],
+    interests: string[],
     name: {
         firstName: string,
         lastName: string

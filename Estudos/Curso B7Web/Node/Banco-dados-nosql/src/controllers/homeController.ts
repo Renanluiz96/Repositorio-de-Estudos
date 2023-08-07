@@ -63,13 +63,38 @@ export const home = async (req: Request, res: Response)=>{
 
             User.find({})skip(10).limit(10) - Aqui ira pular 10 resultados, e ira mostrar o primeiro resultado sempre limitando o resultado na tela a 10 .
     */
-    let usuarios = await User.find({
-        age : { $gt: 5,} 
-    }).skip(2).limit(2)
     
+    /*Criando usuarios no banco de dados
+
+        Usando o create() =  Salvando um usuario em uma variavel e usando o .create (Ao rodar o programa ele vai salvar direto no banco de dados com o create)
+        let newUser = await User.create({
+            name: {firstName: 'Monaliza', lastName: 'Fernandes'},
+            email: 'mona@algumacoisa.org',
+            age: 500,
+            interests: ['arte', 'pintura']
+        })  
+    
+        CRIANDO O USUARIO INSTANCIANDO O MODEL, PREENCHENDO A VARIAVEL COM AS INFORMAÇÕES , E DEPOIS DE PREENCHIDO(Ele vai estar salvo na memoria do node ainda nao vai estar no banco de dados.)  CRIAR UMA VARIAVEL E DAR UM .save() PARA PODER SALVAR NO BANCO DE DADOS.
+        - Usado para voce ja ter as informações , e querer fazer alguma manipulação de dados como a idade da pessoa, ou preencher algum array com um for. Antes de salvar no banco de dados.
+
+        let newUser = new User();
+        newUser.name = {firstName: 'Joaquim', lastName: 'Magal'};
+        newUser.email = 'Joaquim@gmail.com';
+        newUser.age = 61;
+        newUser.interests = ['balela', 'bufunfa']
+        let resultado = await newUser.save()
+
+    */
+
+    let newUser = new User();
+    newUser.name = {firstName: 'Joaquim', lastName: 'Magal'};
+    newUser.email = 'Joaquim@gmail.com';
+    newUser.age = 61;
+    newUser.interests = ['balela', 'bufunfa']
+    let resultado = await newUser.save()
     
 
-    console.log("USUARIOS", usuarios)
+    console.log("NOVO USUARIO", resultado)
 
 
     let age: number = 90;
