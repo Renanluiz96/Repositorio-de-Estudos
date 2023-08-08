@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import User from '../models/User';
 
 export const nome = (req: Request, res: Response) => {
     let nome: string = req.query.nome as string;
@@ -30,3 +31,4 @@ export const idadeAction = (req: Request, res: Response) => {
         mostrarIdade
     });
 };
+
