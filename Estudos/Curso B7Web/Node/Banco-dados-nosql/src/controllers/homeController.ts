@@ -4,6 +4,16 @@ import User from '../models/User'
 
 export const home = async (req: Request, res: Response)=>{
 
+    let joaquim = await User.findOne({email: 'Joaquim@gmail.com'});
+    if(joaquim ) { // Faz uma verificação se a variavel que voce acabou de criar ela existe.
+        joaquim.name.lastName = 'Tavares';
+        joaquim.age = 66
+        await joaquim.save();
+    }
+    
+
+    
+
     let users = await User.find({}).sort({"name.FirstName": 1})
 
     res.render('pages/home', {
@@ -11,9 +21,6 @@ export const home = async (req: Request, res: Response)=>{
     });
 };
 
-// Registrando novo usuario no banco de dados
-
-// Aqui vai receber as informações do formulario que voce vai enviar via post, voce vai criar as variaveis com o mesmo nome la do name do input
 export const registrarUsuario = async (req: Request, res: Response) => {
     let firstName = req.body.firstName as string;
     let lastName = req.body.lastName as string;
@@ -120,4 +127,28 @@ export const registrarUsuario = async (req: Request, res: Response) => {
         newUser.interests = ['balela', 'bufunfa']
         let resultado = await newUser.save()
 
+    */
+
+    /*Metodos para update.
+        Tem 3 metodos para dar um update em algum dados no banco de dados.
+        
+        1° = Alterando multiplos dados usando a função updateMany(junto com await), esse voce pode alterar mais de um dado por vez. Voce passa 2 parametros nesta função . 1° usa as condições para achar o dado , seja ele uma um numero ou string. 2° voce coloca o que voce quer alterar;
+            await User.updateMany(
+                {age: {$lte: 18} }, // Procurei todos os dados que tenham age menor que 18
+                {age : 18} // Alterei "todos" os dados que foi achado na condição acima para 18
+            )       
+            
+        2° = Alterando apenas 1 dado usando a função updateOne(junto com await), serve da mesma maneira que o updateMany, passa 2 parametros, mas nesse 1 parametro de condição para achar , voce tem que ser mais especifico .
+            await User.updateMany(
+                {email: 'nomefacil@gmail.com' }, // Procurei um dado pelo email dele
+                {email: 'nomedificil@gmail.com'} // Alterei apenas 1 dado , se tiver mais de 1 dado com a condição acima ele vai alterar o primeiro dado.
+            )
+        
+        3° = Procurando o dado(com a função find())e salvando ele em uma variavel e alterando o valor dentro desta variavel, e dando um .save() no final da alteração.
+                let joaquim = await User.findOne({email: 'Joaquim@gmail.com'});
+                if(joaquim ) { // Faz uma verificação se a variavel que voce acabou de criar ela existe.
+                    joaquim.name.lastName = 'Tavares';
+                    joaquim.age = 66
+                    await joaquim.save();
+                }
     */
