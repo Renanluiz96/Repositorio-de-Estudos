@@ -15,7 +15,10 @@
 <h3>Usuarios</h3>
 <ul>
     {{#users}}
-        <li>{{name.firstName}} - {{age}} anos</li>
+        <li>{{name.firstName}} - {{age}} anos - 
+        <a href="/usuario/{{_id}}/addidade"> Adicionar idade </a></li> - 
+        <a href="/usuario/{{_id}}/diminuiridade"> Diminuir idade </a></li> - 
+        <a href="/usuario/{{_id}}/removeridade"> Remover idade </a></li>
     {{/users}}
 </ul>
 

@@ -11,6 +11,35 @@ export const nome = (req: Request, res: Response) => {
     });
 };
 
+export const increaseAge = async (req:Request, res: Response) => {
+    const id = req.params.id
+
+    if (!id) throw new Error (`Erro não comtem nenhum id`)
+    const usuario = await User.findOne({_id : id})
+    if (usuario?.age) usuario.age++;
+    usuario?.save()
+    res.redirect('/')
+}
+
+export const decreaseAge = async (req: Request, res: Response) => {
+    const id = req.params.id
+
+    if (!id) throw new Error (`Erro não comtem nenhum id`)
+    const usuario = await User.findOne({ _id: id })
+    if(usuario?.age) usuario.age--;
+    usuario?.save()
+    res.redirect('/')
+}
+
+export const deleteUsuario =async (req: Request, res: Response) => {
+    const id = req.params.id
+
+    if (!id) throw new Error (`Erro não comtem nenhum id`)
+    const usuario = await User.findOne({ _id: id })
+    if(usuario) usuario.deleteOne()
+    res.redirect('/')
+}
+
 export const idadeForm = (req: Request, res: Response) => {
     res.render('pages/idade');
 };

@@ -8,6 +8,9 @@ const router = Router();
 
 router.get('/', HomeController.home);
 router.post('/novo-usuario', HomeController.registrarUsuario)
+router.get('/usuario/:id/addidade', UserController.increaseAge)
+router.get('/usuario/:id/diminuiridade', UserController.decreaseAge)
+router.get('/usuario/:id/removeridade', UserController.deleteUsuario)
 
 router.get('/contato', InfoController.contato);
 router.get('/sobre', InfoController.sobre);

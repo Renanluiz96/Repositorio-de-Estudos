@@ -16,6 +16,8 @@ export const home = async (req: Request, res: Response)=>{
     });
 };
 
+
+
 export const registrarUsuario = async (req: Request, res: Response) => {
     let firstName = req.body.firstName as string;
     let lastName = req.body.lastName as string;
@@ -154,5 +156,7 @@ export const registrarUsuario = async (req: Request, res: Response) => {
         - Delete usado a função findOneAndDelete e entre os parametro vai passar um objeto com o dado que voce quer deletar .
             await User.findOneAndDelete({ email: 'mona@algumacoisa.org' })
 
-        - Remove  voce seleciona o usuario com o findOne e salva em uma variavel, e depois utiliza o comando remove nessa variavel
+        - Remove  voce seleciona o usuario com o findOne e salva em uma variavel, e depois utiliza o comando remove nessa variavel.
+            let dificil  = await User.findOne({email: 'nomedificil@gmail.com'})
+    await dificil?.deleteOne()
     */
