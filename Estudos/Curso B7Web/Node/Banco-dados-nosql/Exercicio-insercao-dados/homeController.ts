@@ -1,44 +1,44 @@
-import { Request, Response } from 'express';
+// import { Request, Response } from 'express';
 
-import User from '../models/User'
+// import User from '../models/User'
 
-export const home = async (req: Request, res: Response)=>{
+// export const home = async (req: Request, res: Response)=>{
 
-    let users = await User.find({}).sort({"name.FirstName": 1})
+//     let users = await User.find({}).sort({"name.FirstName": 1})
 
-    res.render('pages/home', {
-        users
-    });
-};
+//     res.render('pages/home', {
+//         users
+//     });
+// };
 
-// Registrando novo usuario no banco de dados
+// // Registrando novo usuario no banco de dados
 
-// Aqui vai receber as informações do formulario que voce vai enviar via post, voce vai criar as variaveis com o mesmo nome la do name do input
-export const registrarUsuario = async (req: Request, res: Response) => {
-    let firstName = req.body.firstName as string;
-    let lastName = req.body.lastName as string;
-    let email = req.body.email as string;
-    let age = req.body.age as number;
-    let interests = req.body.interests.split(',');
+// // Aqui vai receber as informações do formulario que voce vai enviar via post, voce vai criar as variaveis com o mesmo nome la do name do input
+// export const registrarUsuario = async (req: Request, res: Response) => {
+//     let firstName = req.body.firstName as string;
+//     let lastName = req.body.lastName as string;
+//     let email = req.body.email as string;
+//     let age = req.body.age as number;
+//     let interests = req.body.interests.split(',');
 
-    // Salvando o novo usuario, no banco de dados instanciando e salvando ele no final
-    let newUser = new User();
-    // Criando um if para fazer uma verificação que se tiver todas as variaveis preenchidas então ele preenche os dados.
-    if(firstName && email && age) {
-        newUser.name = { firstName: firstName, lastName: lastName };
-        newUser.email = email;
-        newUser.age = age;
-        newUser.interests = interests;
+//     // Salvando o novo usuario, no banco de dados instanciando e salvando ele no final
+//     let newUser = new User();
+//     // Criando um if para fazer uma verificação que se tiver todas as variaveis preenchidas então ele preenche os dados.
+//     if(firstName && email && age) {
+//         newUser.name = { firstName: firstName, lastName: lastName };
+//         newUser.email = email;
+//         newUser.age = age;
+//         newUser.interests = interests;
 
-        let saveNewUser = await newUser.save();
-        console.log(saveNewUser);
+//         let saveNewUser = await newUser.save();
+//         console.log(saveNewUser);
 
-        res.redirect('/') // Ao final redireciona para a pagina inicial
-    }else {
-        console.log('Aconteceu algum erro ao cadastrar o usuario')
-    }
+//         res.redirect('/') // Ao final redireciona para a pagina inicial
+//     }else {
+//         console.log('Aconteceu algum erro ao cadastrar o usuario')
+//     }
     
-}
+// }
 
     /* Metodos de consultas FIND
 

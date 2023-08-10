@@ -4,13 +4,8 @@ import User from '../models/User'
 
 export const home = async (req: Request, res: Response)=>{
 
-    let joaquim = await User.findOne({email: 'Joaquim@gmail.com'});
-    if(joaquim ) { // Faz uma verificação se a variavel que voce acabou de criar ela existe.
-        joaquim.name.lastName = 'Tavares';
-        joaquim.age = 66
-        await joaquim.save();
-    }
-    
+   let dificil  = await User.findOne({email: 'nomedificil@gmail.com'})
+   await dificil?.deleteOne()
 
     
 
@@ -129,7 +124,7 @@ export const registrarUsuario = async (req: Request, res: Response) => {
 
     */
 
-    /*Metodos para update.
+    /*Metodos para update
         Tem 3 metodos para dar um update em algum dados no banco de dados.
         
         1° = Alterando multiplos dados usando a função updateMany(junto com await), esse voce pode alterar mais de um dado por vez. Voce passa 2 parametros nesta função . 1° usa as condições para achar o dado , seja ele uma um numero ou string. 2° voce coloca o que voce quer alterar;
@@ -151,4 +146,13 @@ export const registrarUsuario = async (req: Request, res: Response) => {
                     joaquim.age = 66
                     await joaquim.save();
                 }
+    */
+
+    /*Deletando usuarios
+        Deletando usuarios tem 2 comandos tem o delete, e o remove. 
+
+        - Delete usado a função findOneAndDelete e entre os parametro vai passar um objeto com o dado que voce quer deletar .
+            await User.findOneAndDelete({ email: 'mona@algumacoisa.org' })
+
+        - Remove  voce seleciona o usuario com o findOne e salva em uma variavel, e depois utiliza o comando remove nessa variavel
     */
