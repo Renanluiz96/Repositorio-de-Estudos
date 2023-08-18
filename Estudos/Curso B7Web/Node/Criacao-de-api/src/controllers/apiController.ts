@@ -24,7 +24,27 @@ export const createPhrase =async (req:Request, res: Response) => {
     // Salva esses dados enviados do body em uma variavel. Cria uma variavel, para que possa gerar o id e enviar depois com este id
     let newPhrase = await Phrase.create({ author, texto })
 
+
+    res.status(201)
     // Envia como json para o banco de dados , o id que foi pego na variavel acima , envia tambe as variaveis author e texto que ja vai conter o conteudo do body  
     res.json({ id: newPhrase.id, author, texto })
 
+}
+
+// Pegando todas as frases.
+export const listPhrases = async (req:Request, res:Response) => {
+    let list = await Phrase.findAll();
+    res.json({ list })
+}
+
+// Pegando uma frase através do id.
+export const getPhrase  =async (req:Request, res: Response) => {
+    let { id } = req.params;
+
+    let phrase = await Phrase.findByPk(id);
+    if(phrase) {
+        res.json({ phrase })
+    }else {
+        res.json({ error: 'FRASE NÃO ENCONTRADA' })
+    }
 }
