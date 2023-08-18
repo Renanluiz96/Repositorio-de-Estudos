@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-
+import { Sequelize } from "sequelize";
 import { Phrase } from "../models/Phrases";
 
 export const ping = (req: Request, res: Response) => {
@@ -77,4 +77,20 @@ export const deletePhrase  = async (req:Request, res: Response) => {
     let { id } = req.params;
     await Phrase.destroy({ where: { id } })
     res.json({});
+}
+
+// Pegando frases aleatoriamente
+export const randomPhrase =async (req:Request, res:Response) => {
+    // Precisa usar uma função do sequelize(tem que importar ele) para usar est função de escolher eleatoriamente. 
+    let phrase = await Phrase.findOne({
+        // Ordena pela função fn do sequelize passando por parametro RANDOM(se for banco postgree). RAND(se for banco mysql) 
+        order: [ Sequelize.fn('RANDOM') ]
+    })
+
+    if(phrase){
+        res.json({ phrase })
+    }else {
+        res.json({ error: 'NÃO HÁ FRASES CADASTRADAS.' })
+    }
+
 }
