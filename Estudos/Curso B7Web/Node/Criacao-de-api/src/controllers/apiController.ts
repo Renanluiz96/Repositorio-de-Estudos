@@ -71,3 +71,10 @@ export const updatePhrase = async (req: Request, res: Response) => {
         res.json({ error: 'ERRO AO ATUALIZAR OS DADOS' })
     }
 }
+
+// Deletando frase
+export const deletePhrase  = async (req:Request, res: Response) => {
+    let { id } = req.params;
+    await Phrase.destroy({ where: { id } })
+    res.json({});
+}
