@@ -5,7 +5,7 @@ import { sequelize } from '../instances/pg'
 export interface PhraseInterface extends Model {
     id: number;
     author: string;
-    text: string;
+    texto: string;
 }
 
 // Criando o model
@@ -18,7 +18,7 @@ export const Phrase  = sequelize.define<PhraseInterface>('Phrase',{
     author: {
         type: DataTypes.STRING
     },
-    text: {
+    texto: {
         type: DataTypes.STRING
     }
 }, {

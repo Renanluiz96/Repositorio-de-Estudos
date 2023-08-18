@@ -15,4 +15,6 @@ router.get('/random' , ApiController.random);
 // Endpoint onde me retornara o algum nome que eu passar na url usando o params com o : na url para mostrar nomes dinamicos via url na tela
 router.get('/nome/:nome', ApiController.nome);
 
+router.post('/frases', ApiController.createPhrase)
+
 export default router;
