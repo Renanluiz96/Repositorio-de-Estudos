@@ -18,7 +18,7 @@ export const nome = (req: Request, res: Response) => {
 
 
 // Criando frase enviando via POST através do corpo da requisição internamente(body) la no postman , inserindo dados via postman. 
-export const createPhrase =async (req:Request, res: Response) => {
+export const createPhrase = async (req:Request, res: Response) => {
     let { author, texto } = req.body // Salva os dados enviadas do corpo da requisição(enviadas pelo body(Através do postman) e não por parametros da url)
 
     // Salva esses dados enviados do body em uma variavel. Cria uma variavel, para que possa gerar o id e enviar depois com este id
@@ -38,7 +38,7 @@ export const listPhrases = async (req:Request, res:Response) => {
 }
 
 // Pegando uma frase através do id.
-export const getPhrase  =async (req:Request, res: Response) => {
+export const getPhrase  = async (req:Request, res: Response) => {
     let { id } = req.params;
 
     let phrase = await Phrase.findByPk(id);
@@ -46,5 +46,28 @@ export const getPhrase  =async (req:Request, res: Response) => {
         res.json({ phrase })
     }else {
         res.json({ error: 'FRASE NÃO ENCONTRADA' })
+    }
+}
+
+// Atualizando a frase.
+export const updatePhrase = async (req: Request, res: Response) => {
+    // Pegando os dados , o id , e o conteudo enviado do body e salvando em variaveis
+    let { id } = req.params
+    let { author, texto } = req.body
+
+    // Selecionando a frase pelo id.
+    let phrase = await Phrase.findByPk(id)
+    // Verifica se a frase existe pelo id
+    if(phrase) { 
+        // Se existir altera o valor pelo novo valor da variavel com dados do body da nova requisição
+        phrase.author = author;
+        phrase.texto = texto;
+        await phrase.save(); // Depois de alterado , agora salva com os dados novos
+
+        // Ao final envia o json novamente para atualizar os dados .
+        res.json({ phrase })
+
+    }else {
+        res.json({ error: 'ERRO AO ATUALIZAR OS DADOS' })
     }
 }
