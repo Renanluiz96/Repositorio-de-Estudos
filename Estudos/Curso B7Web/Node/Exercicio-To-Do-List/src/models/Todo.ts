@@ -2,26 +2,26 @@ import { Model, DataTypes } from "sequelize";
 import { sequelize } from '../instances/pg'
 
 // Criar um type em forma de interface , para poder extender o model
-export interface PhraseInterface extends Model {
+export interface TodoInstance extends Model {
     id: number;
-    author: string;
-    texto: string;
+    title: string;
+    done: boolean;
 }
 
-// Criando o model
-export const Phrase  = sequelize.define<PhraseInterface>('Phrase',{
+export const Todo = sequelize.define<TodoInstance>('Todo', {
     id: {
         primaryKey: true,
         autoIncrement: true,
         type: DataTypes.INTEGER
     },
-    author: {
+    title: {
         type: DataTypes.STRING
     },
-    texto: {
-        type: DataTypes.STRING
+    done: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
 }, {
-    tableName: 'phrases',
-    timestamps: false
+   tableName: 'to_dos',
+   timestamps: false 
 })
