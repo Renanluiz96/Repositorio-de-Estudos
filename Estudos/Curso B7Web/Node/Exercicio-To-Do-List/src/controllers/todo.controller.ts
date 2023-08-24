@@ -26,21 +26,31 @@ export const add = async (req: Request, res: Response) => {
 }
 
 export const update =async (req: Request, res: Response) => {
-    const id: string = req.params.id;
+    const id: string = req.params.id; // Pegando o id na url :id sempre vai ser uma string
 
-    let todo = await Todo.findByPk(id);
+    let todo = await Todo.findByPk(id); // Acessando o conteudo pelo id e salvando na variavel para alteração nos dados
+
+    // Faz um if para caso o id exista que foi mandada na url :id . Ai faz o processo de atualizar
     if (todo) {
-        
-        if (req.body.title) {
-            todo.title  = req.body.title;
+        // Depois de cair aqui e tiver um usuario fazer , uma condição para atualizar cada um independentemente. Não precisando atualizar tudo novamente .
+
+        if (req.body.title) {  //Se for enviado um title pelo body da pagina ou pelo postman 
+            todo.title  = req.body.title; // Ai sim altera o conteudo title la do banco de dados do id pego pelo todo . salva o novo dado enviado da requisição.
         }
 
+        // Caso envio um boolean ai entra neste if
         if (req.body.done) {
-            switch (req.body.done.toLowerCase()) {
+            // Faz um switch para cada opção de dado que for enviado pelo usuario , caso não mande não vai ser alterado (LEMBRANDO QUE TUDO E STRING) .
+
+            switch (req.body.done.toLowerCase()) { // Tem que usar lowerCase pois como e case sensitive, se for mandar um TRUE e FALSE maiusculo ele não vai entender. para garantir , voce ja transforma pra letra pequena.
+
+                // Caso enviar true ou 1 , ele vai alterar o boolean para true.
                 case 'true':
                 case '1':
                     todo.done = true;   
                     break;
+
+                // Caso enviar false ou 0 ele vai alterar o boolean para false.
                 case 'false':
                 case '0':
                     todo.done = false;
@@ -57,5 +67,11 @@ export const update =async (req: Request, res: Response) => {
 }
 
 export const remove =async (req: Request, res: Response) => {
-    
+    let id: string = req.params.id;
+    let todo = await Todo.findByPk(id)
+    if (todo) {
+        await todo.destroy()
+        
+    }
+    res.json({})
 }
