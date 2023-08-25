@@ -11,3 +11,5 @@ LOGICA PASSO A PASSO DE COMO ENVIAR O ARQUIVO INTERNAMENTE.
 -- UM ARQUIVO NORMALMENTE SEMPRE SERA ENVIADO VIA "POST" , NO BODY DA REQUISIÇÃO . 
 
 Se estiver usando um postman para envio e teste de api , ao clicar no campo body , seleciona a opção "form-data" que ela sim e especifico para envio de arquivos, vai aparecer a tela para preencher os dados, como um url encoded(que envia dados para a requisição) ,só que vai ter a opção text, e a opção "file" que e do envio de arquivos.
+
+Ao escolher uma biblioteca para uso em geral de qualquer coisa , sempre perceber se essa biblioteca tem muitos usuarios baixando ela, verificar se tem os types para o typescript, e verificar a quanto tempo os desenvolvedores fazem atualizações na biblioteca. Quanto mais foram feitas atualizações mais recentes, quer dizer que tem é onde o pessoal esta usando mais e esta sendo melhorada com o tempo . As que tem menos tempo de atualização se uma atualização que lancou faz muito tempo então pode ter algo com bug de alguma atualização que ficou mais recente que possa estar dando conflito. 
