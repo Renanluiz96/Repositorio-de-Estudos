@@ -1,0 +1,13 @@
+LOGICA PASSO A PASSO DE COMO ENVIAR O ARQUIVO INTERNAMENTE.
+
+- O usuario seleciona um arquivo no campo de imagens quando aparecer aquela caixinha para selecionar arquivos.
+
+- O usuario envia esse arquivo ao clicar em enviar ou selecionar o arquivo , isso ira manter por enquanto com o navegador , ao enviar o arquivo ele vai quebrar o arquivos em bytes e manda-los.
+
+- No lado do servidor , ele recebe esse arquivos quebrados em bytes , e monta ele de volta no arquivo original.
+
+- Depois o seu sistema decide o que vai fazer com esse arquivo . Processar, fazer a manipulação desse arquivo ,fazer uma verificação para ver se o arquivo é o ideal para o que voce ta querendo( seja ele esperando uma imagem) caso não enviar essa imagem ele não recebe, ou retorna alguma mensagem de erro.
+
+-- UM ARQUIVO NORMALMENTE SEMPRE SERA ENVIADO VIA "POST" , NO BODY DA REQUISIÇÃO . 
+
+Se estiver usando um postman para envio e teste de api , ao clicar no campo body , seleciona a opção "form-data" que ela sim e especifico para envio de arquivos, vai aparecer a tela para preencher os dados, como um url encoded(que envia dados para a requisição) ,só que vai ter a opção text, e a opção "file" que e do envio de arquivos.
