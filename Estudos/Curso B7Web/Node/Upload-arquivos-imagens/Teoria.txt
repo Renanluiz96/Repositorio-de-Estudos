@@ -1,15 +1,20 @@
 LOGICA PASSO A PASSO DE COMO ENVIAR O ARQUIVO INTERNAMENTE.
 
-- O usuario seleciona um arquivo no campo de imagens quando aparecer aquela caixinha para selecionar arquivos.
+    - O usuario seleciona um arquivo no campo de imagens quando aparecer aquela caixinha para selecionar arquivos.
 
-- O usuario envia esse arquivo ao clicar em enviar ou selecionar o arquivo , isso ira manter por enquanto com o navegador , ao enviar o arquivo ele vai quebrar o arquivos em bytes e manda-los.
+    - O usuario envia esse arquivo ao clicar em enviar ou selecionar o arquivo , isso ira manter por enquanto com o navegador , ao enviar o arquivo ele vai quebrar o arquivos em bytes e manda-los.
 
-- No lado do servidor , ele recebe esse arquivos quebrados em bytes , e monta ele de volta no arquivo original.
+    - No lado do servidor , ele recebe esse arquivos quebrados em bytes , e monta ele de volta no arquivo original.
 
-- Depois o seu sistema decide o que vai fazer com esse arquivo . Processar, fazer a manipulação desse arquivo ,fazer uma verificação para ver se o arquivo é o ideal para o que voce ta querendo( seja ele esperando uma imagem) caso não enviar essa imagem ele não recebe, ou retorna alguma mensagem de erro.
+    - Depois o seu sistema decide o que vai fazer com esse arquivo . Processar, fazer a manipulação desse arquivo ,fazer uma verificação para ver se o arquivo é o ideal para o que voce ta querendo( seja ele esperando uma imagem) caso não enviar essa imagem ele não recebe, ou retorna alguma mensagem de erro.
 
 -- UM ARQUIVO NORMALMENTE SEMPRE SERA ENVIADO VIA "POST" , NO BODY DA REQUISIÇÃO . 
 
 Se estiver usando um postman para envio e teste de api , ao clicar no campo body , seleciona a opção "form-data" que ela sim e especifico para envio de arquivos, vai aparecer a tela para preencher os dados, como um url encoded(que envia dados para a requisição) ,só que vai ter a opção text, e a opção "file" que e do envio de arquivos.
 
-Ao escolher uma biblioteca para uso em geral de qualquer coisa , sempre perceber se essa biblioteca tem muitos usuarios baixando ela, verificar se tem os types para o typescript, e verificar a quanto tempo os desenvolvedores fazem atualizações na biblioteca. Quanto mais foram feitas atualizações mais recentes, quer dizer que tem é onde o pessoal esta usando mais e esta sendo melhorada com o tempo . As que tem menos tempo de atualização se uma atualização que lancou faz muito tempo então pode ter algo com bug de alguma atualização que ficou mais recente que possa estar dando conflito. 
+Ao escolher uma biblioteca para uso em geral de qualquer coisa :
+  - Sempre perceber se essa biblioteca tem muitos usuarios baixando ela por semana.
+  - Verificar se tem os types para o typescript.
+  - Verificar a quanto tempo os desenvolvedores fazem atualizações na biblioteca. Quanto mais foram feitas atualizações mais recentes, quer dizer que tem é onde o pessoal esta usando mais e esta sendo melhorada com o tempo . As que tem menos tempo de atualização se uma atualização que lancou faz muito tempo então pode ter algo com bug de alguma atualização que ficou mais recente que possa estar dando conflito. 
+  - Verificar a classificação de Dependents = Que seria a quantidade de outras bibliotecas depende desta biblioteca para funcionar. QUANTO MAIS DEPENDENTS significa que muita gente usa e depende dela.
+  
