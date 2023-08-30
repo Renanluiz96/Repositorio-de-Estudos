@@ -78,8 +78,20 @@ export const randomPhrase =async (req:Request, res:Response) => {
 export const uploadFile =async (req:Request, res: Response) => {
     // Agora para manipular os arquvios no controller bom voce ver as informações com um console.log para ves as informações do arquivo voce usa o req.file . Que ele usa o type do multer. ele vai passar todas as informações sobre o arquivo enviado , e ai sim voce faz a manipulação pelos dados que estão aparecendo ali no console.
 
+    /*Type Upload
+    
+        type UploadTypes = {
+            [fildname: string]: Express.Multer.File[] //Type onde vai poder receber qualquer nome de arquivo enviado no postman.
+        }
+    */
+
     // Para tipar o que vai ser recebido do arquivo para usar , cria uma variavel e coloca o req.files usa um as e passa um objeto dizendo que vai receber um nome que vai ser uma string e que o tipo dele é um arquivo do multer
-    const files = req.files as { [fieldname: string]: Express.Multer.File[]}
+    // const files = req.files as { [fieldname: string]: Express.Multer.File[]} // Type geral onde vai receber qualquer tipo de nome que for enviado pois pode receber um fieldname que é uma string
+    // const files = req.files as UploadFiles // Cria um type fora e usa ele aqui dentro dizendo que esse req.files é um UploadFiles.
+    const files = req.files as {  // Ou voce ja pode usar o type diretamente na variavel, sem precisar usar um type para ela
+        avatar: Express.Multer.File[]
+        galeria: Express.Multer.File[]
+    }
 
     // console.log('Arquivo', req.file ) // req.file para 1 arquivo só
     console.log('Arquivos', files.avatar ) // req.file para mais de 1 arquivo arquivo
