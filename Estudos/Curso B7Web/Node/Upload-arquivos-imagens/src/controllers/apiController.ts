@@ -88,14 +88,14 @@ export const uploadFile =async (req:Request, res: Response) => {
     // Para tipar o que vai ser recebido do arquivo para usar , cria uma variavel e coloca o req.files usa um as e passa um objeto dizendo que vai receber um nome que vai ser uma string e que o tipo dele é um arquivo do multer
     // const files = req.files as { [fieldname: string]: Express.Multer.File[]} // Type geral onde vai receber qualquer tipo de nome que for enviado pois pode receber um fieldname que é uma string
     // const files = req.files as UploadFiles // Cria um type fora e usa ele aqui dentro dizendo que esse req.files é um UploadFiles.
-    const files = req.files as {  // Ou voce ja pode usar o type diretamente na variavel, sem precisar usar um type para ela
-        avatar: Express.Multer.File[]
-        galeria: Express.Multer.File[]
-    }
+    // const files = req.files as {  // Ou voce ja pode usar o type diretamente na variavel, sem precisar usar um type para ela
+    //     avatar: Express.Multer.File[]
+    //     galeria: Express.Multer.File[]
+    // }
 
     // console.log('Arquivo', req.file ) // req.file para 1 arquivo só
-    console.log('Arquivos', files.avatar ) // req.file para mais de 1 arquivo arquivo
-    console.log('Galeria', files.galeria ) // req.file para mais de 1 arquivo arquivo 
+    console.log('FILE', req.file); // req.file para mais de 1 arquivo arquivo
+    console.log('FILES', req.files); // req.file para mais de 1 arquivo arquivo 
 
     res.json({})
 }
