@@ -77,7 +77,13 @@ export const randomPhrase =async (req:Request, res:Response) => {
 // Função criada para quando o usuario mandar o arquivo via post para a url.
 export const uploadFile =async (req:Request, res: Response) => {
     // Agora para manipular os arquvios no controller bom voce ver as informações com um console.log para ves as informações do arquivo voce usa o req.file . Que ele usa o type do multer. ele vai passar todas as informações sobre o arquivo enviado , e ai sim voce faz a manipulação pelos dados que estão aparecendo ali no console.
-    console.log( req.file )
+
+    // Para tipar o que vai ser recebido do arquivo para usar , cria uma variavel e coloca o req.files usa um as e passa um objeto dizendo que vai receber um nome que vai ser uma string e que o tipo dele é um arquivo do multer
+    const files = req.files as { [fieldname: string]: Express.Multer.File[]}
+
+    // console.log('Arquivo', req.file ) // req.file para 1 arquivo só
+    console.log('Arquivos', files.avatar ) // req.file para mais de 1 arquivo arquivo
+    console.log('Galeria', files.galeria ) // req.file para mais de 1 arquivo arquivo 
 
     res.json({})
 }
