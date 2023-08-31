@@ -28,8 +28,15 @@ const memoryStorage = multer.memoryStorage()
 const upload  = multer({
     // dest é pra onde ele vai enviar o arquivo , ele vai criar uma pasta se caso não tiver, ele ira criar uma pasta na raiz do servidor onde ta o server.ts , não onde e a pasta de routes. usando o ./ . Voce pode mandar para esta pasta temporaria digamos assim para manipular o arquivo. Ou envia para a pasta public , ja para disponibilizar para o publico depois de processado na pasta temporaria, voce envia e deixa publico bonitinha para o publico.
     // Para enviar o arquivo tem que criar uma rota via post . Voce cria la em baixo . Que ao enviar no body , ele enviara para a pasta que voce coloco aqui no dest , seja ela temporaria ou não. Voce tem que criar uma função para ser enviada na requisição la no controller. Uma função que retorna um res.json . 
-    //dest: './temporario' 
-    storage: memoryStorage
+    dest: './temporario',
+    storage: storageConfig,
+
+    // Filtrando arquivos pelo tipo deles
+    fileFilter: ( req, file, cb) => {
+        const permitidos: string[] = ['image/jpg', 'image/jpeg', 'image/png']; // Cria um array colocando os tipos de arquivos que voce quer permitir mandar.
+        cb(null, permitidos.includes( file.mimetype )); //Cria a função callback , que ela so vai aceitar se o mimetype do arquivo(ou seja o tipo do arquivo) tiver dentro do array. Ou seja vai verificar se tiver um igual o do array e ele vai retornar true ou false. que voce permitiu ai sim ele aceita o arquivo
+    },
+    limits: { fieldSize: 20000000} // Limits vai poder limitar por algumas coisas, uma  delas e por tamanho do arquivo que seria o fieldSize, assim passando o valor em bytes. para não ser enviado arquivos muito grande.
 })
 
 const router = Router()
