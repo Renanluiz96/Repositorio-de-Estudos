@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { Sequelize } from "sequelize";
 import { Phrase } from "../models/Phrases";
 import sharp from "sharp"; // Biblioteca par manipulação de imagens npm install sharp . Tem types
+import { unlink } from "fs/promises"; // Função do node para gerenciamento de arquivos, função unlink para deletar arquivos temporarios
 
 export const ping = (req: Request, res: Response) => {
     res.json({pong: true})
@@ -99,15 +100,19 @@ export const uploadFile =async (req:Request, res: Response) => {
 
    if(req.file) { // Para fazer a manipulação do arquivo e salvando na pasta public usando a lib sharp . Ao receber o arquivo ai faz a manipulação dentro do if
 
+        const filename = req.file.filename // Salva o nome do arquivo com aqueles monte de numero gerado aleatoriamente salvo em uma variavel para uso.
+
         await sharp(req.file.path) // Para pegar o caminho onde se encontra a imagem usando o path que ja vai ter o caminho das pastas.
-            .resize(100, 100, {
+            .resize(100, 100, {  // Para manipular ela pode passar 3 parametros : largura, altura e outras configs
                 fit: sharp.fit.cover,
                 position: 'center'
-            }) // Para manipular ela pode passar 3 parametros : largura, altura e outras configs
+            }) 
             .toFormat('jpeg') // Mudar o formato do arquivo para o formato que queira.
-            .toFile(`./public/media/${req.file.filename}.jpg`); // Para salvar o arquivo manipulado em uma pasta , normalmente salvo na pasta public . passa o caminho completo , e salvando a imagem com o mesmo nome que foi feito no arquivo temporario.
+            .toFile(`./public/media/${req.file.filename}`); // Para salvar o arquivo manipulado em uma pasta , normalmente salvo na pasta public . passa o caminho completo , e salvando a imagem com o mesmo nome que foi feito no arquivo temporario.
 
-        res.json({ image: `${req.file.filename}.jpg` })
+            await unlink(req.file.path) // Depois de ter gerado o arquivo temporario , feito a manipulação nele , voce usa o unlink para deletar ele. passando parametro o caminho ate o arquivo temporario que seria o req.file.path.
+
+        res.json({ image: req.file.filename })
 
    } else {
     res.status(400);
