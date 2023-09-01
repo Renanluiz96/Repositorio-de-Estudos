@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Sequelize } from "sequelize";
 import { Phrase } from "../models/Phrases";
+import sharp from "sharp"; // Biblioteca par manipulação de imagens npm install sharp . Tem types
 
 export const ping = (req: Request, res: Response) => {
     res.json({pong: true})
@@ -93,9 +94,23 @@ export const uploadFile =async (req:Request, res: Response) => {
     //     galeria: Express.Multer.File[]
     // }
 
-    // console.log('Arquivo', req.file ) // req.file para 1 arquivo só
-    console.log('FILE', req.file); // req.file para mais de 1 arquivo arquivo
-    console.log('FILES', req.files); // req.file para mais de 1 arquivo arquivo 
+    // console.log('FILE', req.file); // req.file para mais de 1 arquivo arquivo
+    // console.log('FILES', req.files); // req.file para mais de 1 arquivo arquivo 
 
-    res.json({})
+   if(req.file) { // Para fazer a manipulação do arquivo e salvando na pasta public usando a lib sharp . Ao receber o arquivo ai faz a manipulação dentro do if
+
+        await sharp(req.file.path) // Para pegar o caminho onde se encontra a imagem usando o path que ja vai ter o caminho das pastas.
+            .resize(100, 100, {
+                fit: sharp.fit.cover,
+                position: 'center'
+            }) // Para manipular ela pode passar 3 parametros : largura, altura e outras configs
+            .toFormat('jpeg') // Mudar o formato do arquivo para o formato que queira.
+            .toFile(`./public/media/${req.file.filename}.jpg`); // Para salvar o arquivo manipulado em uma pasta , normalmente salvo na pasta public . passa o caminho completo , e salvando a imagem com o mesmo nome que foi feito no arquivo temporario.
+
+        res.json({ image: `${req.file.filename}.jpg` })
+
+   } else {
+    res.status(400);
+    res.json({ error: 'Arquivo Invalido' })
+   }
 }
