@@ -1,0 +1,24 @@
+Autenticação VS Autorização
+
+Autenticação = Autenticação é o  ato de SABER QUEM É que esta tentando acessar o sistema.
+
+    TIPOS DE AUTENTICAÇÃO = 
+        - Single-factor Authentication = Autenticação em 1 fator . Onde voce acessar algum lugar usando apenas 1 fator para acesso normalmente usado (email e senha) ou (usuario e senha) voce ja tem acesso.
+
+        - Two-factor Autentication (2FA) = Autenticação em 2 fatores. Onde voce ja tem 2 fatores de acesso exemplo alem do login (email e senha) ele vai pedir outro fator de autenticação diferente do primeiro fator ou seja vai pedir para voce comprovar que é voce de outra maneira diferente da primeira, normalmente o segundo fator é aqueles codigos enviados para email, ou um sms no celar.
+
+        - Multi-Factor Autentication (MFA) = Autenticação em multiplos fatores. É quando voce tem 3 ou mais fatores de autenticação , ou seja voce vai ter varias formas para comprovar que voce é voce mesmo , normalmente usado em algo muito complexo , algo muito importante que realmente tem que ter certeza que é voce mesmo.
+
+        - Single Sign-On (SSO) = Autenticação unica "Universal" . É basicamente uma autenticação onde voce acessa em algum lugar ou aplicativo e quando voce vai acessar outro (normalmente da mesma empresa) ele ja esta logado no outro lugar com o login que voce ja logou em outro lugar antes, Exemplo o gmail ao logar no youtube ele ja esta logado por causa do login do google.
+
+    - Basic Auth = BASE64. Onde voce acessar o login e ele manda na requisição toda  vez ao inves de ele manda o que voce digito ele vai mandar um codigo que ele criptografa gerando um codigo , e esse codigo e reversivel, e no sistema ele pega esse codigo e discriptografa ele para ver quem esta acessando. Tem essa proteção somente para não ficar aparecendo os dados do login no cabeçalho e ficar visualmente mostrando na tela.
+
+    - OAuth (1 e 2)=
+    -- OAuth1 = Usar um terceiro para gerar um token = Onde ele gera um token por um aplicativo de terceiro , exemplo o gmail, facebook, instagram ... onde ao acessar ele vai gerar um token(codigo) e esse aplicativo de terceiro vai pegar esse codigo e vai retornar para nos dizendo quem é que esta acessando. Normalmente um token que dura pouco tempo e depois não consegue usar ele , temporario digamos assim voce acessa e ele gera esse token por 5 minutos voce tem para usar ele, depois ele some.
+
+    -- OAuth2 = OAuth1 + RefreshToken = Seria a mesma coisa com que o OAuth1 mais quando tiver perto de expirar o tempo do token ele mesmo pede um novo token e fica atualizando de tempo em tempo , mudando o token.
+
+    - JWT (Json Web Token) = (Token criado internamente e vinculado ao primeiro acesso do usuario) Seria um token que é criado ao voce logar no sistema, ele vai criar um token unico seu criptografado , que diferente do BasicAuth ele não é reversivel, e voce fica com esse token guardado no seu sistema vinculado ao seu login. Ai toda vez que voce acessar o seu sistema ou navegar por ele , ele não vai ficar mandando na requisição os dados do login, ele vai mandar esse token que foi criado ao acessar a conta e esta vinculado. E com isso o sistema sabe quem esta tentando acessar as diferente parte do sistema  e com isso ele sabe ou não o nivel de acesso que esse usuairo vai ter. Exemplo um medico em um sistema de hospital , ele acesso o sistema , ira ser criado um token , e a qualquer lugar que ele tenta acessar , ira ser enviado esse token que o sistema vai saber que é o medico que esta acessando essa parte do sistema, e la ele verifica se o medico vai ter acesso ou não a parte do sistema, somente pelo token dele.
+
+
+Autorização = Autorização é basicamente o  ato de verificar se o OBJETO  ou requisitor (PODE) acessar aquela area especifica . Tambem definir niveis de autorização para cada usuario . seja autorização mais simples com poucas coisas do sistema, e autorização com mais recursos para outras pessoas e até autorização total para outras.
