@@ -50,9 +50,7 @@ export const login = async (req: Request, res: Response) => {
                 { id: user.id, email: user.email}, // Salvando o id e o email do usuarios apenas em um objeto
                 process.env.JWT_SECRET_KEY as string, // Chave privada que esta salva la na variavel de ambiente , tem que colocar as string para dizer que é uma string se não da erro no typescript.
                 { expiresIn: '2h' }
-
             )
-
             // E quando tiver usando o JWT , no final tem que retornar tambem o token.
             res.json({ status: true, token });
             return;
