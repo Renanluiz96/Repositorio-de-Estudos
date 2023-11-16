@@ -6,3 +6,4 @@ Repositorio de estudos onde estou focando no front-end
 - JAVASCRIPT
 - TYPESCRIPT
 - REACT
+- NODE
