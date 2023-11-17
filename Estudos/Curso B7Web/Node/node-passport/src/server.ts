@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import apiRoutes from './routes/api';
 
+import passport from 'passport'; // Importa o passport no seu arquivo de servidor
+
 dotenv.config();
 
 const server = express();
@@ -12,6 +14,9 @@ server.use(cors());
 
 server.use(express.static(path.join(__dirname, '../public')));
 server.use(express.urlencoded({ extended: true }));
+
+// Antes de definir as rotas voce inicializa o passport, para ficar integrado com o servidor.
+server.use(passport.initialize());
 
 server.get('/ping', (req: Request, res: Response) => res.json({ pong: true }));
 
