@@ -59,14 +59,8 @@ export const Auth = {
 
                     sucess = true; //No final altera para true , para poder passar no proximo if e liberar o acesso
                 } catch (error){}
-                
-
-                
             }
-
         }
-
-
         // Faz um if de verificação se a variavel tiver true ele da roda a função next e é liberada para o usuario seguir na rota.
         if (sucess) {
             next()
