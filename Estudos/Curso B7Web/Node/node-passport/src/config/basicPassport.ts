@@ -41,4 +41,4 @@ export const privateRoute = (req: Request, res: Response, next: NextFunction) =>
     authFunction(req,res, next); // Depois de criada , agora voce a usa enviando o req, res e next.
 }
 
-export default passport;
+// export default passport;
