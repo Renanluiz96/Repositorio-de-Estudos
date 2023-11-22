@@ -1,0 +1,11 @@
+Testes são pedaços de codigo que voce cria para ter certeza que uma parte do sistema continua funcionando.
+
+- TDD (Test-Driven Development) Desenvolvimento Orientado a Testes = Conceito onde voce cria "primeiro" todo os testes , imaginando todo o seu sistema  e depois de criado os testes , voce vai criando o sistema conforme os testes.
+
+- Tipos de Testes: 
+
+-- Testes unitarios (uni test) = Testes cada unidade ou partes isoladas do codigos como funções  classes especificas , libs .
+
+-- Testes de integração (integration test) = Testes para mais de uma unidade , ou testar 2 unidades que juntas fazem algo , voce testa os 2 juntos. Ex = Cadastro e login de usuarios. Voce faz um teste de integração onde vai testar as 2 funcionalidades juntas.
+
+-- Testes end-to-end (e2e test) = Teste end to end são testes mais focado no que o usuario esta vendo ou seja mais na parte visual do usuario , por exemplo abre a tela de um site ou sistema , aperta um botão pra ver se ta se comportando normal , se o resultado for o que se espera visualmente , se não abrir ou fazer outra coisa ai ja não passo no teste. Resumindo mais na parte da experiencia do usuario.
