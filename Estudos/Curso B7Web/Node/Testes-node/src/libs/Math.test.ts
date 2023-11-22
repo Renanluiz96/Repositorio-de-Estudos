@@ -32,3 +32,61 @@ describe('Testing Math Library', () => {
     });
 
 });
+
+describe.only('Others tests', () => { // Usando o only , ele ira isolar outros testes e ira fazer somente os que tiverem only. Pode ser usado no it tambem , para fazer apenas no teste. Muito usado para isolar um teste que ta com erro e ira testar somente esse . voce coloca o only no teste falho , para que ele não teste os outros testes que deu certo novamente toda vez.
+
+    //Alguns outros tipos de matches(testes)
+    it('contar quantos caracteres tem na string', () => {
+        const response = 'DENIED';
+
+        expect(response).toHaveLength(6); // To Have Length - ira ver a quantidade de caractere tem a string
+    });
+
+    it('se possui a propriedade EMAIL', () => {
+        const response = {
+            name: 'umnome',
+            email: 'umemail.email.com'
+        }
+
+        expect(response).toHaveProperty('email') // Verifica se tem alguma propriedade dentro do objeto que tem o nome passado.
+    });
+
+    
+    it('se possui false ou true', () => {
+        const response = false
+        const response2 = true
+
+
+        expect(response).toBeFalsy() // Verifica se o resultado é falso
+        expect(response2).toBeTruthy() // Verifica se o resultado é verdadeiro
+    });
+
+    it('se tiver undefined ou não ', () => {
+        const response = undefined
+        const response2 = '1'
+
+        expect(response).toBeUndefined()
+        expect(response2).not.toBeUndefined() // Usando o .not antes voce nega toda a ação a seguir, aqui no caso  to dizendo que o teste não vai ter resultado undefined
+    });
+
+    it('se possuir um numero maior ou igual , ou menor ou igual', () => {
+        const response = 20;
+
+        expect(response).toEqual(20); // Se é igual a 20
+        expect(response).toBeGreaterThan(15); // Se é maior que 15
+        expect(response).toBeGreaterThanOrEqual(20); //Se é maior ou igual a 20
+        expect(response).toBeLessThan(50); //Se é menor que 50
+    });
+
+    // it('se Tiver uma expressão regular (Regex)', () => {
+    //     const response = 'email@gmail.com.br'
+       
+    //     //expect(response).toMatch(Coloca a expressão regular); // Se tiver alguma expressão regular
+    // });
+
+    // it('deveria retornar este Error', ()=> {
+    //     const response = Math.div(5,0);
+
+    //     expect(response).toThrow(new Error('não divide por 0')) // se ele retornar exatamente esse erro ele passa no teste, se for algum outro erro com outra mensagem ira falhar
+    // })
+})
