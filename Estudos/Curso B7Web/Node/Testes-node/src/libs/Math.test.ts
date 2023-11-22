@@ -35,6 +35,31 @@ describe('Testing Math Library', () => {
 
 describe.only('Others tests', () => { // Usando o only , ele ira isolar outros testes e ira fazer somente os que tiverem only. Pode ser usado no it tambem , para fazer apenas no teste. Muito usado para isolar um teste que ta com erro e ira testar somente esse . voce coloca o only no teste falho , para que ele não teste os outros testes que deu certo novamente toda vez.
 
+
+    /*Lyfe Cycle de testes 
+    //Executa algo que voce colocar aqui "ANTES" de cada teste , ou seja ele executa , depois o teste, executa e depois o teste
+    beforeEach(() =>{
+
+    });
+
+    //Executa "DEPOIS" de cada teste.
+    afterAll(() => {
+
+    });
+
+    // Executa Antes do primeiro teste apenas isso , não antes de cada 1
+    beforeAll(()=> {
+
+    });
+
+    // Executa depois do ultimo teste ou seja o final . BeforeAll e AfterAll é usado por exemplo abre um banco de dados para teste , ai ele abre o banco de dados no beforeall , executa todos os testes  e no afterall ele fecha o banco de dados
+    afterAll(() => {
+
+    })
+    */
+
+
+
     //Alguns outros tipos de matches(testes)
     it('contar quantos caracteres tem na string', () => {
         const response = 'DENIED';
@@ -89,4 +114,4 @@ describe.only('Others tests', () => { // Usando o only , ele ira isolar outros t
 
     //     expect(response).toThrow(new Error('não divide por 0')) // se ele retornar exatamente esse erro ele passa no teste, se for algum outro erro com outra mensagem ira falhar
     // })
-})
+});
