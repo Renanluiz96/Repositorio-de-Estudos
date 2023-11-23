@@ -16,14 +16,17 @@ export const register = async (req: Request, res: Response) => {
         //Como ao criar um usuario ele ira retornar ou o usuari ou um erro . Voce verifica se ele retorno um erro , voce envia o proprio erro no json , caso o contrario que deu certo voce envia o status 201 e o id do usuario.
         if(newUser instanceof Error) { 
             res.json({ error: newUser.message })
+            return 
         }else {
             res.status(201);
             res.json({ id: newUser.id })
+            return 
         }
 
-    } else{
-        res.json({ error: 'E-mail e/ou senha não enviados.' });
     }
+    res.json({ error: 'E-mail e/ou senha não enviados.' });
+
+
 
 }
 
