@@ -2,7 +2,7 @@ import { User, UserInstance } from "../models/User";
 import * as UserService from './UserService';
 
 // Fazendo os testes das funções do UserService.
-describe.only('Testing user service', () => {
+describe('Testing user service', () => {
     // Salvando as variaveis para uso nos testes
     let email = 'test@jest.com';
     let password = '1234';
